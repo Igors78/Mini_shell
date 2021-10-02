@@ -6,7 +6,7 @@
 #    By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 18:24:26 by ioleinik          #+#    #+#              #
-#    Updated: 2021/10/02 12:15:56 by ioleinik         ###   ########.fr        #
+#    Updated: 2021/10/02 15:54:44 by ioleinik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ SRC			= main.c
 OBJ			= ${SRC:.c=.o}
 
 LINKS		= -I$(INCL_PATH) \
-			-L $(LIB_PATH) -lft
+			-L$(LIB_PATH) -lft \
+			-lreadline
 
 all:		$(LIBRARY) $(NAME)
 
