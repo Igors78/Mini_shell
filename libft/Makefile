@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+         #
+#    By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/14 18:13:08 by ioleinik          #+#    #+#              #
-#    Updated: 2021/07/27 10:04:04 by ioleinik         ###   ########.fr        #
+#    Updated: 2021/10/03 13:53:41 by mbarut           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,13 +28,10 @@ SRC		= ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 			ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 			ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_putchar.c \
-			ft_putstr.c ft_printf.c dispatch.c handle_d.c ft_putnbr_base.c handle_c.c \
-			handle_s.c handle_p.c handle_u.c handle_x.c handle_bigx.c \
-			handle_perc.c init_table.c reset_table.c parse.c read_flags.c \
-			handle_spec.c handle_spec_u.c handle_spec_x.c handle_spec_bigx.c \
-			handle_spec_c.c handle_spec_p.c handle_precis.c ft_memdel.c ft_strnew.c \
-			get_next_line.c ft_striteri.c ft_wordcount.c ft_terror.c ft_straddchar.c \
-			ft_atoi_base.c
+			ft_putstr.c ft_memdel.c ft_strnew.c \
+			ft_striteri.c ft_wordcount.c ft_terror.c ft_straddchar.c \
+			ft_atoi_base.c \
+			ft_split_free.c
 
 OBJ		= ${SRC:.c=.o}
 
