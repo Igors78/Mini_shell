@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/02 17:04:53 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/03 21:57:15 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 	static char	command[10000] = "/bin/";
 
 	i = 0;
-	line = readline(">$ ");
+	line = readline(CYELLOW ">$ " RESET);
 	nargv = ft_split(line, ' ');
 	ft_strlcat(command, nargv[0], 10000);
 	pid = fork();
