@@ -1,8 +1,0 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory '/home/igor/42Cursus/Mini_shell'
-make -C ./libft
-make[1]: Entering directory '/home/igor/42Cursus/Mini_shell/libft'
-make[1]: Nothing to be done for 'all'.
-make[1]: Leaving directory '/home/igor/42Cursus/Mini_shell/libft'
-make: Leaving directory '/home/igor/42Cursus/Mini_shell'
- 
