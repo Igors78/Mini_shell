@@ -50,3 +50,20 @@ int	execute(char **args)
 	else
 		return (ft_interpret(args));
 }
+
+int	ft_cd(char **args)
+{
+	if (NULL == args[1])
+		printf("Argument needed for \"cd\"\n");
+	else
+	{
+		if (chdir(args[1]) != 0)
+			printf("Unknown path for \"cd\"\n");
+	}
+	return (1);
+}
+
+int	ft_exit(char **args)
+{
+	return (0);
+}
