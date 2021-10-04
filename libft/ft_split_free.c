@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_table.c                                       :+:      :+:    :+:   */
+/*   ft_split_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 22:24:20 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/06/16 08:10:14 by ioleinik         ###   ########.fr       */
+/*   Created: 2021/08/04 12:17:24 by mbarut            #+#    #+#             */
+/*   Updated: 2021/10/03 13:09:01 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_data	init_table(t_data table)
+int	ft_split_free(char **split)
 {
-	table->dash = 0;
-	table->zero = 0;
-	table->period = 0;
-	table->asterisk = 0;
-	table->width = 0;
-	table->i = 0;
-	table->count = 0;
-	table->output = 0;
-	table->precision = 0;
-	return (table);
+	int	i;
+
+	i = 0;
+	while (split[i])
+		free(split[i++]);
+	free(split);
+	return (0);
 }

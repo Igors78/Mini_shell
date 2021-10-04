@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:53:13 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/07/27 10:15:23 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/03 13:44:30 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdarg.h>
-# include <fcntl.h>
 
 /*
 ** MANDATORY PART
@@ -50,6 +48,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
+int		ft_split_free(char **split);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_putchar_fd(char c, int fd);
@@ -85,63 +84,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
-/*
-** PRINTF
-*/
-
-# define HEXLOW "0123456789abcdef"
-# define HEXUPP "0123456789ABCDEF"
-# define OCT "01234567"
-# define DEC "0123456789"
-# define BIN "01"
-# define FLAGS "0-.*"
-# define NUMS "0123456789"
-
-typedef struct s_data
-{
-	va_list	ap;
-	int		dash;
-	int		zero;
-	int		period;
-	int		asterisk;
-	int		width;
-	int		precision;
-	int		i;
-	char	c;
-	char	cha;
-	int		output;
-	size_t	count;
-}			*t_data;
-int		ft_printf(const char *format, ...);
-void	dispatch(char *format, t_data table);
-void	read_flags(char *format, t_data table);
-void	handle_d(t_data table);
-void	ft_putnbr_base(long int nbr, char *base, t_data table);
-void	handle_c(t_data table);
-void	handle_s(t_data table);
-void	handle_p(t_data table);
-void	handle_u(t_data table);
-void	handle_x(t_data table);
-void	handle_bigx(t_data table);
-void	handle_perc(char *format, t_data table);
-void	handle_spec(long num, t_data table);
-void	handle_spec_u(unsigned int num, t_data table);
-void	handle_spec_x(unsigned int num, t_data table);
-void	handle_spec_bigx(unsigned int num, t_data table);
-void	handle_spec_p(unsigned long num, t_data table);
-void	handle_spec_c(t_data table);
-void	handle_precis(long num, t_data table);
-void	parse(char *format, t_data table);
-t_data	init_table(t_data table);
-t_data	reset_table(t_data table);
-
-/*
-** GET NEXT LINE
-*/
-
-# define BUFFER_SIZE 42
-
-int		get_next_line(int fd, char **line);
 
 #endif
