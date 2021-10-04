@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/03 16:16:24 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/04 13:27:49 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	main(void)
 	while (1)
 	{
 		line = readline(">$ ");
-		if (!line)
-			break;
+		if (!line || !line[0])
+			break ;
 		add_history(line);
 		waitpid(cmd_exec(line, 1, environ), NULL, 0);
 		free(line);
