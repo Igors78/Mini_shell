@@ -6,56 +6,85 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/04 13:27:49 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/04 21:01:16 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-pid_t	cmd_exec(char *line, size_t	n_cmd, char **environ)
+static void	sig_handl(int signum, siginfo_t *info, void *unused)
 {
-	char		***cmd;
-	char		*tmp;
-	pid_t		pid;
-	int			ret;
-
-	cmd = ft_calloc(n_cmd, sizeof(char **));
-	cmd[0] = ft_split(line, ' ');
-	tmp = cmd[0][0];
-	cmd[0][0] = ft_strjoin("/bin/", cmd[0][0]);
-	pid = fork();
-	if (pid == -1)
-		perror("fork() failed");
-	if (pid == 0)
+	(void)unused;
+	(void)info;
+	if (signum == SIGINT)
 	{
-		ret = execve(cmd[0][0], cmd[0], environ);
-		if (ret == -1)
+		printf("\b\b  \n");
+		printf(GR ">$ " CL);
+	}
+	else if (signum == SIGQUIT)
+	{
+		printf("\b\b  \b\b");
+	}
+}
+
+static void	cmd_exec(t_data	*d)
+{
+	d->cmd = ft_split(d->line, ' ');
+	if (!d->cmd || !d->cmd[0])
+		perror("No command passed");
+	d->path = ft_strjoin("/bin/", d->cmd[0]);
+	d->pid = fork();
+	if (d->pid == -1)
+		perror("fork() failed");
+	if (d->pid == 0)
+	{
+		execute(d);
+		if (d->status == -1)
 		{
-			ft_split_free(cmd[0]);
-			free(tmp);
-			perror("execve() failed");
-			exit(EXIT_FAILURE);
+			ft_split_free(d->cmd);
+			free(d->path);
 		}
 	}
-	return (pid);
+}
+
+static void	init_data(t_data *d)
+{
+	extern char	**environ;
+
+	d->sa_sig.sa_flags = SA_SIGINFO;
+	d->sa_sig.sa_sigaction = sig_handl;
+	if (sigaction(SIGINT, &d->sa_sig, NULL) == -1)
+		perror("SIGACTION ERROR\n");
+	if (sigaction(SIGQUIT, &d->sa_sig, NULL) == -1)
+		perror("SIGACTION ERROR\n");
+	d->status = 0;
+	d->envv = environ;
+	d->line = NULL;
 }
 
 int	main(void)
 {
-	extern char	**environ;
-	char		*line;
+	t_data	d;
 
-	while (1)
+	d.status = 0;
+	while (!d.status)
 	{
-		line = readline(">$ ");
-		if (!line || !line[0])
+		init_data(&d);
+		d.line = readline(GR ">$ " CL);
+		if (!d.line)
 			break ;
-		add_history(line);
-		waitpid(cmd_exec(line, 1, environ), NULL, 0);
-		free(line);
+		else if (!d.line[0])
+			continue ;
+		else
+		{
+			add_history(d.line);
+			cmd_exec(&d);
+			waitpid(d.pid, NULL, 0);
+			free(d.line);
+		}
 	}
 	rl_clear_history();
-	rl_redisplay();		// I dunno what this is
-	rl_on_new_line();	// I dunno what this is
+	rl_redisplay();
+	rl_on_new_line();
 	return (0);
 }

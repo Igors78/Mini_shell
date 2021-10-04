@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/03 15:10:40 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/04 19:54:37 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,23 @@
 # include <termios.h>
 # include <curses.h>
 # include <term.h>
+
+# define RD	"\x1b[31m"
+# define GR	"\x1b[32m"
+# define CL	"\x1b[0m"
+
+typedef struct s_data
+{
+	char				**envv;
+	char				*line;
+	struct sigaction	sa_sig;
+	char				**cmd;
+	char				*path;
+	pid_t				pid;
+	int					status;
+}				t_data;
+
+void	execute(t_data *d);
+void	ft_interpret(t_data *d);
 
 #endif
