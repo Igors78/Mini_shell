@@ -13,6 +13,9 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
+# define CYELLOW "\001\e[0;31m\002"
+# define RESET   "\001\e[0m\002"
+
 # include "libft/libft.h"
 
 # include <stdio.h>
