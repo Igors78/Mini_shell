@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:15:40 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/05 12:36:54 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/05 13:01:24 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,15 @@ void	ft_cd(t_data *d)
 	}
 }
 
+void	ft_env(t_data *d)
+{
+	int	i;
+
+	i = 0;
+	while (d->envv[i])
+		printf("%s\n", d->envv[i++]);
+}
+
 void	execute(t_data *d)
 {
 	if (NULL == d->cmd[0])
@@ -42,8 +51,6 @@ void	execute(t_data *d)
 	// else if (ft_strncmp(d->cmd[0], "unset", 6) == 0
 	// 	&& ft_strlen(d->cmd[0]) == 5)
 	// 	ft_unset(d);
-	// else if (ft_strncmp(d->cmd[0], "env", 4) == 0 && ft_strlen(d->cmd[0]) == 3)
-	// 	ft_env(d);
 	else
 		ft_interpret(d);
 }

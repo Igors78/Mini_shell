@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/05 12:35:21 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/05 13:02:06 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static void	cmd_exec(t_data	*d)
 		ft_exit(d);
 		return ;
 	}
+	if (ft_strncmp(d->cmd[0], "env", 4) == 0 && ft_strlen(d->cmd[0]) == 3)
+		ft_env(d);
 	d->path = ft_strjoin("/bin/", d->cmd[0]);
 	d->pid = fork();
 	if (d->pid == -1)
@@ -44,7 +46,7 @@ static void	cmd_exec(t_data	*d)
 	if (d->pid == 0)
 	{
 		execute(d);
-		if (d->status == -1)
+		if (d->status)
 		{
 			ft_split_free(d->cmd);
 			free(d->path);
