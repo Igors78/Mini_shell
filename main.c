@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/04 21:01:16 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/05 12:35:21 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ static void	cmd_exec(t_data	*d)
 	d->cmd = ft_split(d->line, ' ');
 	if (!d->cmd || !d->cmd[0])
 		perror("No command passed");
+	if (ft_strncmp(d->cmd[0], "exit", 5) == 0 && ft_strlen(d->cmd[0]) == 4)
+	{
+		ft_exit(d);
+		return ;
+	}
 	d->path = ft_strjoin("/bin/", d->cmd[0]);
 	d->pid = fork();
 	if (d->pid == -1)

@@ -6,11 +6,18 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:15:40 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/04 20:22:19 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/05 12:36:54 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	ft_exit(t_data *d)
+{
+	ft_split_free(d->cmd);
+	d->status = 1;
+	return ;
+}
 
 void	ft_cd(t_data *d)
 {
@@ -37,11 +44,6 @@ void	execute(t_data *d)
 	// 	ft_unset(d);
 	// else if (ft_strncmp(d->cmd[0], "env", 4) == 0 && ft_strlen(d->cmd[0]) == 3)
 	// 	ft_env(d);
-	else if (ft_strncmp(d->cmd[0], "exit", 5) == 0 && ft_strlen(d->cmd[0]) == 4)
-	{
-		printf ("exit");
-		d->status = -1;
-	}
 	else
 		ft_interpret(d);
 }

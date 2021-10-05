@@ -6,18 +6,14 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/04 19:54:37 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/05 12:31:18 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-# define CYELLOW "\001\e[0;31m\002"
-# define RESET   "\001\e[0m\002"
-
 # include "libft/libft.h"
-
 # include <stdio.h>
 # include <readline/readline.h>
 # include <readline/history.h>
@@ -52,5 +48,6 @@ typedef struct s_data
 
 void	execute(t_data *d);
 void	ft_interpret(t_data *d);
+void	ft_exit(t_data *d);
 
 #endif
