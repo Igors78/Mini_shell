@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 19:28:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/08 16:22:49 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/08 19:55:03 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,14 @@ void	expand_env(t_data *d)
 	{
 		if (d->cmd[i][0] == '$')
 		{
-			tmp = getenv(&d->cmd[i][1]);
+			if (d->cmd[i][1] == '{'
+				&& d->cmd[i][ft_strlen(d->cmd[i]) - 1] == '}')
+			{
+				d->cmd[i][ft_strlen(d->cmd[i]) - 1] = '\0';
+				tmp = getenv(&d->cmd[i][2]);
+			}
+			else
+				tmp = getenv(&d->cmd[i][1]);
 			if (!tmp)
 				return ;
 			free(d->cmd[i]);
