@@ -6,16 +6,8 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 13:50:25 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/08 15:02:47 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/08 16:21:46 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-void	ft_substitute(char *s1, char *s2)
-{
-	if (!s2)
-		return ;
-	free(s1);
-	s1 = ft_strdup(s2);
-}

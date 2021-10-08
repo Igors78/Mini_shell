@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 19:28:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/08 14:40:54 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/08 16:22:49 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,20 @@
 
 void	expand_env(t_data *d)
 {
-	int	i;
+	int		i;
+	char	*tmp;
 
 	i = 0;
 	while (d->cmd[i])
 	{
 		if (d->cmd[i][0] == '$')
-			ft_substitute(d->cmd[i], getenv(&d->cmd[i][1]));
+		{
+			tmp = getenv(&d->cmd[i][1]);
+			if (!tmp)
+				return ;
+			free(d->cmd[i]);
+			d->cmd[i] = ft_strdup(tmp);
+		}
 		i++;
 	}
 }
