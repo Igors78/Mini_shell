@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 19:28:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/08 10:57:55 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/08 11:30:54 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,9 @@ static void	check_path(t_data *d)
 
 	i = 0;
 	split_path = ft_split(getenv("PATH"), ':');
-	if (!split_path)
-	{
-		perror("Memory allocation failed");
-		return ;
-	}
 	while (split_path[i])
 	{
-		addslash = ft_strjoin(split_path[i], "/");
+		addslash = ft_strjoin(split_path[i++], "/");
 		check = ft_strjoin(addslash, d->cmd[0]);
 		free(addslash);
 		if (!stat(check, &st))
@@ -39,10 +34,7 @@ static void	check_path(t_data *d)
 			return ;
 		}
 		else
-		{
-			i++;
 			free(check);
-		}
 	}
 	printf("%s: command not found\n", d->cmd[0]);
 	ft_split_free(split_path);
