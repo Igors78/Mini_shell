@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/05 13:02:06 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/08 10:01:28 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,11 @@ static void	cmd_exec(t_data	*d)
 		ft_exit(d);
 		return ;
 	}
-	if (ft_strncmp(d->cmd[0], "env", 4) == 0 && ft_strlen(d->cmd[0]) == 3)
-		ft_env(d);
-	d->path = ft_strjoin("/bin/", d->cmd[0]);
-	d->pid = fork();
-	if (d->pid == -1)
-		perror("fork() failed");
-	if (d->pid == 0)
-	{
-		execute(d);
-		if (d->status)
-		{
-			ft_split_free(d->cmd);
-			free(d->path);
-		}
-	}
+	execute(d);
 }
 
 static void	init_data(t_data *d)
 {
-	extern char	**environ;
-
 	d->sa_sig.sa_flags = SA_SIGINFO;
 	d->sa_sig.sa_sigaction = sig_handl;
 	if (sigaction(SIGINT, &d->sa_sig, NULL) == -1)
@@ -65,15 +49,18 @@ static void	init_data(t_data *d)
 	if (sigaction(SIGQUIT, &d->sa_sig, NULL) == -1)
 		perror("SIGACTION ERROR\n");
 	d->status = 0;
-	d->envv = environ;
 	d->line = NULL;
+	d->path = NULL;
 }
 
-int	main(void)
+int	main(int argc, char **argv, char **environ)
 {
 	t_data	d;
 
+	(void)argc;
+	(void)argv;
 	d.status = 0;
+	d.envv = environ;
 	while (!d.status)
 	{
 		init_data(&d);

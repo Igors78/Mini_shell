@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/05 13:03:41 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/08 10:08:50 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 # include <stdio.h>
 # include <readline/readline.h>
 # include <readline/history.h>
-# include <unistd.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <sys/wait.h>
+# include <sys/stat.h>
 # include <signal.h>
 # include <dirent.h>
 # include <sys/ioctl.h>
