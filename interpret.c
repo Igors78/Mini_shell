@@ -6,11 +6,24 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 19:28:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/08 11:30:54 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/08 14:40:54 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	expand_env(t_data *d)
+{
+	int	i;
+
+	i = 0;
+	while (d->cmd[i])
+	{
+		if (d->cmd[i][0] == '$')
+			ft_substitute(d->cmd[i], getenv(&d->cmd[i][1]));
+		i++;
+	}
+}
 
 static void	check_path(t_data *d)
 {

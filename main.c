@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/08 10:01:28 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/08 11:37:36 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static void	cmd_exec(t_data	*d)
 		ft_exit(d);
 		return ;
 	}
+	expand_env(d);
 	execute(d);
 }
 
@@ -77,8 +78,5 @@ int	main(int argc, char **argv, char **environ)
 			free(d.line);
 		}
 	}
-	rl_clear_history();
-	rl_redisplay();
-	rl_on_new_line();
 	return (0);
 }

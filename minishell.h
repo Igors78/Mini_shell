@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/08 10:08:50 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/08 13:52:33 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ void	execute(t_data *d);
 void	ft_interpret(t_data *d);
 void	ft_exit(t_data *d);
 void	ft_env(t_data *d);
+void	expand_env(t_data *d);
+void	ft_substitute(char *s1, char *s2);
 
 #endif
