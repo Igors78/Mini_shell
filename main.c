@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/09 10:50:22 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/09 18:55:40 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@ static void	sig_handl(int signum, siginfo_t *info, void *unused)
 	}
 }
 
-static void	cmd_exec(t_data	*d)
+static void	dispatch(t_data	*d)
 {
-	d->cmd = ft_split(d->line, ' ');
-	if (!d->cmd || !d->cmd[0])
-		perror("No command passed");
-	if (ft_strncmp(d->cmd[0], "exit", 5) == 0 && ft_strlen(d->cmd[0]) == 4)
+	add_history(d->line);
+	if (!ft_strchr(d->line, '|') && !ft_strchr(d->line, '<')
+		&& !ft_strchr(d->line, '>'))
 	{
-		ft_exit(d);
-		return ;
+		d->cmd = ft_split(d->line, ' ');
+		if (!d->cmd || !d->cmd[0])
+			perror("No command passed");
+		expand_env(d);
+		execute(d);
 	}
-	expand_env(d);
-	execute(d);
 }
 
 static void	init_data(t_data *d)
@@ -51,6 +51,7 @@ static void	init_data(t_data *d)
 		perror("SIGACTION ERROR\n");
 	d->path = NULL;
 	d->line = NULL;
+	d->pid = -42;
 }
 
 static void	ctrl_d(t_data *d)
@@ -69,8 +70,6 @@ int	main(int argc, char **argv, char **environ)
 	d.envv = environ;
 	while (1)
 	{
-		if (!d.line)
-			ctrl_d(&d);
 		init_data(&d);
 		d.line = readline(GR "shell:>$ " CL);
 		if (!d.line)
@@ -79,11 +78,13 @@ int	main(int argc, char **argv, char **environ)
 			continue ;
 		else
 		{
-			add_history(d.line);
-			cmd_exec(&d);
-			waitpid(d.pid, NULL, 0);
+			dispatch(&d);
+			if (d.pid >= 0)
+				waitpid(d.pid, NULL, 0);
 			free(d.line);
 		}
+		if (!d.line)
+			ctrl_d(&d);
 	}
 	return (0);
 }

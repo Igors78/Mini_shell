@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:10:01 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/09 13:32:35 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/09 19:25:23 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,26 @@ static void	sort_strarr(char **arr, int size)
 	}
 }
 
+static void	add_quotes(char **arr)
+{
+	char	*add1;
+	char	*add2;
+	int		i;
+
+	i = 0;
+	while (arr[i])
+	{
+		*(ft_strchr(arr[i], '=')) = '\0';
+		add1 = ft_strjoin(arr[i], "=\"");
+		add2 = ft_strjoin(add1, &arr[i][ft_strlen(arr[i]) + 1]);
+		free(arr[i]);
+		arr[i] = ft_strjoin(add2, "\"");
+		free(add1);
+		free(add2);
+		i++;
+	}
+}
+
 static void	sort_print(t_data *d)
 {
 	char	**copy_env;
@@ -49,13 +69,29 @@ static void	sort_print(t_data *d)
 	i = 0;
 	copy_env = ft_strarrdup(d->envv);
 	sort_strarr(copy_env, ft_strarrlen(copy_env));
+	add_quotes(copy_env);
 	while (copy_env[i])
 		printf("declare -x %s\n", copy_env[i++]);
 	ft_split_free(copy_env);
+}
+
+static int	check_exportarg(char *s)
+{
+	if (ft_isdigit(s[0]) || s[0] == '=' || s[0] == '?')
+	{
+		printf("bash: export: `%s': not a valid identifier\n", s);
+		return (-1);
+	}
+	return (0);
 }
 
 void	ft_export(t_data *d)
 {
 	if (d->cmd[1] == NULL)
 		sort_print(d);
+	else
+	{
+		if (check_exportarg(d->cmd[1]))
+			return ;
+	}
 }
