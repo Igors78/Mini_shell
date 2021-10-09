@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:15:40 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/08 16:25:11 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/09 12:14:36 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void	execute(t_data *d)
 		d->status = -1;
 	else if (ft_strncmp(d->cmd[0], "cd", 3) == 0 && ft_strlen(d->cmd[0]) == 2)
 		ft_cd(d);
-	// else if (ft_strncmp(d->cmd[0], "export", 7) == 0
-	// 	&& ft_strlen(d->cmd[0]) == 6)
-	// 	ft_export(d);
+	else if (ft_strncmp(d->cmd[0], "export", 6) == 0
+		&& ft_strlen(d->cmd[0]) == 6)
+		ft_export(d);
 	// else if (ft_strncmp(d->cmd[0], "unset", 6) == 0
 	// 	&& ft_strlen(d->cmd[0]) == 5)
 	// 	ft_unset(d);
