@@ -1,16 +1,25 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make -C ./libft
  
+# make[1]: Entering directory '/home/igor/42Cursus/Mini_shell/libft'
+ 
+make[1]: *** No rule to make target 'ft_atoi.o', needed by 'libft.a'.  Stop.
+ 
 # GNU Make 4.2.1
  
 # Built for x86_64-pc-linux-gnu
+ 
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
+ 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+ 
 # This is free software: you are free to change and redistribute it.
+ 
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Sat Oct  9 09:08:13 2021
+ 
+# Make data base, printed on Sat Oct  9 10:09:37 2021
 
 # Variables
 
@@ -96,7 +105,6 @@ XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session0
 GSETTINGS_SCHEMA_DIR = /snap/code/76/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
- 
 # environment
 PATH = /home/igor/.local/bin:/home/igor/.rbenv/shims:/home/igor/.rbenv/bin:/home/igor/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
@@ -111,7 +119,6 @@ GDK_PIXBUF_MODULE_FILE = /home/igor/snap/code/common/.cache/gdk-pixbuf-loaders.c
 LC_ALL = C
 # environment
 SNAP = /snap/code/76
- 
 # environment
 SNAP_VERSION = ee8c7def
 # makefile (from 'Makefile', line 16)
@@ -209,7 +216,6 @@ SNAP_REVISION = 76
 # environment
 LC_MONETARY = lv_LV.UTF-8
 # makefile
- 
 .DEFAULT_GOAL := all
 # environment
 XDG_CURRENT_DESKTOP = XFCE
@@ -221,7 +227,6 @@ NAME = libft.a
 LC_TELEPHONE = lv_LV.UTF-8
 # default
 MAKE_COMMAND := make
- 
 # makefile (from 'Makefile', line 20)
 INCL = libft.h
 # default
@@ -291,7 +296,9 @@ LC_ADDRESS = lv_LV.UTF-8
 # environment
 LANG = C
 # environment
+ 
 VSCODE_PID = 4788
+ 
 # variable set hash-table stats:
 # Load=137/1024=13%, Rehash=0, Collisions=22/168=13%
 
@@ -301,11 +308,10 @@ VSCODE_PID = 4788
 
 # Directories
 
-# . (device 2050, inode 15476071): 111 files, no impossibilities.
+# . (device 2050, inode 15476071): 57 files, no impossibilities.
 
-# 111 files, no impossibilities in 1 directories.
+# 57 files, no impossibilities in 1 directories.
 
- 
 # Implicit Rules
 
 # No implicit rules.
@@ -314,191 +320,161 @@ VSCODE_PID = 4788
 
 # Not a target:
 ft_strmapi.o:
-#  Implicit rule search has been done.
- 
-#  Last modified 2021-10-08 22:44:20.805910273
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_lstiter.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.053925736
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_memcpy.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.437887323
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_itoa.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.781908777
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_memcmp.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.421886325
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_strlen.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.549894309
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_isdigit.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.349881834
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 all: libft.a
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
-#  File has been updated.
-#  Successfully updated.
+#  File has not been updated.
 
 # Not a target:
 ft_lstlast.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.969920501
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_memchr.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.401885079
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_memset.o:
-#  Implicit rule search has been done.
- 
-#  Last modified 2021-10-08 22:44:20.469889319
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_tolower.o:
-#  Implicit rule search has been done.
- 
-#  Last modified 2021-10-08 22:44:20.613898298
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_strrchr.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.601897551
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_strjoin.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.713904536
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_split.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.761907528
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_lstclear.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.029924241
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_strlcat.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.509891814
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_split_free.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.285940184
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_putstr.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.113929472
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
 #  Last modified 2021-10-07 13:52:26.689864784
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 ft_isprint.o:
-#  Implicit rule search has been done.
- 
-#  Last modified 2021-10-08 22:44:20.365882832
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 libft.a: ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_strchr.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_tolower.o ft_toupper.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o ft_putchar.o ft_putstr.o ft_memdel.o ft_strnew.o ft_striteri.o ft_wordcount.o ft_terror.o ft_straddchar.o ft_atoi_base.o ft_split_free.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-10-08 22:44:21.293940682
-#  File has been updated.
-#  Successfully updated.
+#  File does not exist.
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 41):
 			$(AR) $(NAME) $(OBJ)
 
 # Not a target:
 ft_striteri.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.177933458
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_putchar.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.093928227
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_bzero.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.285877842
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_lstnew.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.905916509
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 .PHONY: all clean fclean re bonus
 #  Implicit rule search has not been done.
@@ -513,10 +489,9 @@ bonus:
 
 # Not a target:
 ft_putnbr_fd.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.885915261
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -528,32 +503,27 @@ fclean: clean
 
 # Not a target:
 ft_calloc.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.649900545
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
- 
 # Not a target:
 ft_substr.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.693903288
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_isalpha.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.317879838
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_lstsize.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.949919252
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -563,24 +533,21 @@ ft_lstsize.o:
 
 # Not a target:
 ft_strlcpy.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.52989306
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_lstmap.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.073926981
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_strncmp.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.565895306
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 re: fclean all
 #  Phony target (prerequisite of .PHONY).
@@ -598,158 +565,138 @@ clean:
 
 # Not a target:
 ft_isalnum.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.30187884
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_lstadd_front.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.929918006
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
+ 
 ft_isascii.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.333880836
-#  File has been updated.
-#  Successfully updated.
+ 
+#  Implicit rule search has not been done.
+ 
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_strdup.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.673902041
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_lstdelone.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.009922994
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_memmove.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.453888321
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_strchr.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.489890565
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_strnew.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.153931963
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_wordcount.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.197934703
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_toupper.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.629899296
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_terror.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.217935949
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_strnstr.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.581896302
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_putstr_fd.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.845912768
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_atoi_base.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.265938938
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_memccpy.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.38188383
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_putchar_fd.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.82591152
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_atoi.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.261876348
-#  File has been updated.
-#  Successfully updated.
+#  File does not exist.
+#  File has not been updated.
 
 # Not a target:
 ft_strtrim.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.737906031
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_memdel.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.133930716
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_straddchar.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.237937194
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_lstadd_back.o:
-#  Implicit rule search has been done.
- 
-#  Last modified 2021-10-08 22:44:20.989921747
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ft_putendl_fd.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:20.865914014
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
 # Load=63/1024=6%, Rehash=0, Collisions=10/137=7%
@@ -762,11 +709,15 @@ ft_putendl_fd.o:
 # strcache buffers: 1 (0) / strings = 122 / storage = 1514 B / avg = 12 B
 # current buf: size = 8162 B / used = 1514 B / count = 122 / avg = 12 B
 
-# strcache performance: lookups = 193 / hit rate = 36%
+# strcache performance: lookups = 139 / hit rate = 12%
 # hash-table stats:
-# Load=122/8192=1%, Rehash=0, Collisions=10/193=5%
-# Finished Make data base on Sat Oct  9 09:08:13 2021
+# Load=122/8192=1%, Rehash=0, Collisions=7/139=5%
+# Finished Make data base on Sat Oct  9 10:09:37 2021
 
+# make[1]: Leaving directory '/home/igor/42Cursus/Mini_shell/libft'
+ 
+make: *** [Makefile:39: libft.a] Error 2
+ 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -774,7 +725,7 @@ ft_putendl_fd.o:
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Oct  9 09:08:13 2021
+# Make data base, printed on Sat Oct  9 10:09:37 2021
 
 # Variables
 
@@ -791,7 +742,7 @@ OBJ = ${SRC:.c=.o}
 # environment
 XDG_SESSION_CLASS = user
 # makefile (from 'Makefile', line 26)
-SRC = main.c execute.c interpret.c util.c
+SRC = main.c execute.c interpret.c
 # environment
 SNAP_COMMON = /var/snap/code/common
 # environment
@@ -1019,7 +970,6 @@ LC_PAPER = lv_LV.UTF-8
 # environment
 QT_ACCESSIBILITY = 1
 # environment
- 
 DEFAULTS_PATH = /usr/share/gconf/xubuntu.default.path
 # default
 MAKEFILES := 
@@ -1045,6 +995,7 @@ SUFFIXES :=
 SNAP_REEXEC = 
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
+ 
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
@@ -1066,9 +1017,9 @@ VSCODE_PID = 4788
 
 # Directories
 
-# . (device 2050, inode 11803638): 27 files, no impossibilities.
+# . (device 2050, inode 11803638): 21 files, no impossibilities.
 
-# 27 files, no impossibilities in 1 directories.
+# 21 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -1081,8 +1032,7 @@ all: libft.a minishell
 #  Command line target.
 #  Implicit rule search has not been done.
 #  File does not exist.
-#  File has been updated.
-#  Successfully updated.
+#  File has not been updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
@@ -1100,16 +1050,16 @@ all: libft.a minishell
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-10-08 13:51:07.563295879
+#  Last modified 2021-10-09 10:08:36.403384133
 #  File has been updated.
 #  Successfully updated.
 
 libft.a:
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
-#  File does not exist.
+#  Modification time never checked.
 #  File has been updated.
-#  Successfully updated.
+#  Failed to be updated.
 # automatic
 # @ := libft.a
 # automatic
@@ -1131,20 +1081,18 @@ libft.a:
 #  recipe to execute (from 'Makefile', line 39):
 			$(MAKE) -C $(LIB_PATH)
 
-minishell: main.o execute.o interpret.o util.o
+minishell: main.o execute.o interpret.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-10-08 22:44:21.465951394
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 42):
 			$(CC) -o $(NAME) $(CFLAGS) $(OBJ) $(LINKS) 
 
 # Not a target:
 execute.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.373945664
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -1157,10 +1105,9 @@ fclean: clean
 
 # Not a target:
 interpret.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.413948155
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 norm:
 #  Phony target (prerequisite of .PHONY).
@@ -1193,32 +1140,24 @@ clean:
 
 # Not a target:
 main.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.333943173
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-util.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-08 22:44:21.445950147
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
-# Load=15/1024=1%, Rehash=0, Collisions=0/43=0%
+# Load=14/1024=1%, Rehash=0, Collisions=0/42=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 38 / storage = 346 B / avg = 9 B
-# current buf: size = 8162 B / used = 346 B / count = 38 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 36 / storage = 332 B / avg = 9 B
+# current buf: size = 8162 B / used = 332 B / count = 36 / avg = 9 B
 
-# strcache performance: lookups = 67 / hit rate = 43%
+# strcache performance: lookups = 60 / hit rate = 40%
 # hash-table stats:
-# Load=38/8192=0%, Rehash=0, Collisions=1/67=1%
-# Finished Make data base on Sat Oct  9 09:08:13 2021
+# Load=36/8192=0%, Rehash=0, Collisions=1/60=2%
+# Finished Make data base on Sat Oct  9 10:09:37 2021
 
  

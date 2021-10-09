@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/09 10:07:21 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/09 10:50:22 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,8 @@ static void	init_data(t_data *d)
 		perror("SIGACTION ERROR\n");
 	if (sigaction(SIGQUIT, &d->sa_sig, NULL) == -1)
 		perror("SIGACTION ERROR\n");
-	d->status = 0;
-	d->line = NULL;
 	d->path = NULL;
+	d->line = NULL;
 }
 
 static void	ctrl_d(t_data *d)
@@ -67,14 +66,15 @@ int	main(int argc, char **argv, char **environ)
 
 	(void)argc;
 	(void)argv;
-	init_data(&d);
 	d.envv = environ;
-	d.line = readline(GR "shell:>$ " CL);
-	if (!d.line)
-		ctrl_d(&d);
-	while (d.line != NULL)
+	while (1)
 	{
+		if (!d.line)
+			ctrl_d(&d);
 		init_data(&d);
+		d.line = readline(GR "shell:>$ " CL);
+		if (!d.line)
+			ctrl_d(&d);
 		if (!d.line[0])
 			continue ;
 		else
@@ -83,9 +83,6 @@ int	main(int argc, char **argv, char **environ)
 			cmd_exec(&d);
 			waitpid(d.pid, NULL, 0);
 			free(d.line);
-			d.line = readline(GR "shell:>$ " CL);
-			if (!d.line)
-				ctrl_d(&d);
 		}
 	}
 	return (0);
