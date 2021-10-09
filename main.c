@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/08 11:37:36 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/09 10:07:21 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	sig_handl(int signum, siginfo_t *info, void *unused)
 	if (signum == SIGINT)
 	{
 		printf("\b\b  \n");
-		printf(GR ">$ " CL);
+		printf(GR "shell:>$ " CL);
 	}
 	else if (signum == SIGQUIT)
 	{
@@ -54,21 +54,28 @@ static void	init_data(t_data *d)
 	d->path = NULL;
 }
 
+static void	ctrl_d(t_data *d)
+{
+	free(d->line);
+	rl_clear_history();
+	exit (0);
+}
+
 int	main(int argc, char **argv, char **environ)
 {
 	t_data	d;
 
 	(void)argc;
 	(void)argv;
-	d.status = 0;
+	init_data(&d);
 	d.envv = environ;
-	while (!d.status)
+	d.line = readline(GR "shell:>$ " CL);
+	if (!d.line)
+		ctrl_d(&d);
+	while (d.line != NULL)
 	{
 		init_data(&d);
-		d.line = readline(GR ">$ " CL);
-		if (!d.line)
-			break ;
-		else if (!d.line[0])
+		if (!d.line[0])
 			continue ;
 		else
 		{
@@ -76,6 +83,9 @@ int	main(int argc, char **argv, char **environ)
 			cmd_exec(&d);
 			waitpid(d.pid, NULL, 0);
 			free(d.line);
+			d.line = readline(GR "shell:>$ " CL);
+			if (!d.line)
+				ctrl_d(&d);
 		}
 	}
 	return (0);
