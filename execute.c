@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:15:40 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/09 16:11:02 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/10 07:28:34 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void	ft_env(t_data *d)
 
 void	execute(t_data *d)
 {
-	if (ft_strncmp(d->cmd[0], "exit", 5) == 0 && ft_strlen(d->cmd[0]) == 4)
+	if (ft_strcmp(d->cmd[0], "exit") == 0 && ft_strlen(d->cmd[0]) == 4)
 		ft_exit(d);
-	else if (ft_strncmp(d->cmd[0], "cd", 3) == 0 && ft_strlen(d->cmd[0]) == 2)
+	else if (ft_strcmp(d->cmd[0], "cd") == 0 && ft_strlen(d->cmd[0]) == 2)
 		ft_cd(d);
-	else if (ft_strncmp(d->cmd[0], "export", 6) == 0
+	else if (ft_strcmp(d->cmd[0], "export") == 0
 		&& ft_strlen(d->cmd[0]) == 6)
 		ft_export(d);
-	// else if (ft_strncmp(d->cmd[0], "unset", 6) == 0
+	// else if (ft_strcmp(d->cmd[0], "unset") == 0
 	// 	&& ft_strlen(d->cmd[0]) == 5)
 	// 	ft_unset(d);
 	else

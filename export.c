@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:10:01 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/09 19:25:23 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/10 06:44:39 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ void	ft_export(t_data *d)
 	{
 		if (check_exportarg(d->cmd[1]))
 			return ;
+		ft_exportarg(d);
 	}
 }

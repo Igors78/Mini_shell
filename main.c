@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/09 18:55:40 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/10 09:16:37 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	sig_handl(int signum, siginfo_t *info, void *unused)
 	if (signum == SIGINT)
 	{
 		printf("\b\b  \n");
+		rl_replace_line("", 0);
+		rl_redisplay();
 		printf(GR "shell:>$ " CL);
 	}
 	else if (signum == SIGQUIT)
@@ -43,22 +45,21 @@ static void	dispatch(t_data	*d)
 
 static void	init_data(t_data *d)
 {
-	d->sa_sig.sa_flags = SA_SIGINFO;
-	d->sa_sig.sa_sigaction = sig_handl;
-	if (sigaction(SIGINT, &d->sa_sig, NULL) == -1)
-		perror("SIGACTION ERROR\n");
-	if (sigaction(SIGQUIT, &d->sa_sig, NULL) == -1)
-		perror("SIGACTION ERROR\n");
 	d->path = NULL;
-	d->line = NULL;
 	d->pid = -42;
 }
 
-static void	ctrl_d(t_data *d)
+static void	init_sig(void)
 {
-	free(d->line);
-	rl_clear_history();
-	exit (0);
+	struct sigaction	sa_sig;
+
+	sa_sig.sa_flags = SA_SIGINFO;
+	sa_sig.sa_sigaction = sig_handl;
+	sigemptyset(&sa_sig.sa_mask);
+	if (sigaction(SIGINT, &sa_sig, NULL) == -1)
+		perror("SIGACTION ERROR\n");
+	if (sigaction(SIGQUIT, &sa_sig, NULL) == -1)
+		perror("SIGACTION ERROR\n");
 }
 
 int	main(int argc, char **argv, char **environ)
@@ -68,12 +69,14 @@ int	main(int argc, char **argv, char **environ)
 	(void)argc;
 	(void)argv;
 	d.envv = environ;
+	d.line = NULL;
+	init_sig();
 	while (1)
 	{
 		init_data(&d);
 		d.line = readline(GR "shell:>$ " CL);
 		if (!d.line)
-			ctrl_d(&d);
+			ft_exit(&d);
 		if (!d.line[0])
 			continue ;
 		else
@@ -83,8 +86,6 @@ int	main(int argc, char **argv, char **environ)
 				waitpid(d.pid, NULL, 0);
 			free(d.line);
 		}
-		if (!d.line)
-			ctrl_d(&d);
 	}
 	return (0);
 }

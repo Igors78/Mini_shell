@@ -6,7 +6,7 @@
 #    By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 18:24:26 by ioleinik          #+#    #+#              #
-#    Updated: 2021/10/09 12:50:44 by ioleinik         ###   ########.fr        #
+#    Updated: 2021/10/10 07:26:29 by ioleinik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ LIBRARY		= libft.a
 
 MAKE		= make
 
-SRC			= main.c execute.c interpret.c export.c util.c
+SRC			= main.c execute.c interpret.c export.c util.c exp_arg.c
 
 OBJ			= ${SRC:.c=.o}
 

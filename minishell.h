@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/09 13:21:21 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/10 08:31:09 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct s_data
 {
 	char				**envv;
 	char				*line;
-	struct sigaction	sa_sig;
 	char				**cmd;
 	char				*path;
 	pid_t				pid;
@@ -55,5 +54,6 @@ void	ft_export(t_data *d);
 char	**ft_strarrdup(char **src);
 int		ft_strarrlen(char **src);
 int		ft_strcmp(const char *s1, const char *s2);
+void	ft_exportarg(t_data *d);
 
 #endif
