@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/10 08:31:09 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/10 18:20:02 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef struct s_data
 	char				**cmd;
 	char				*path;
 	pid_t				pid;
-	int					status;
 }				t_data;
 
 void	execute(t_data *d);
@@ -55,5 +54,6 @@ char	**ft_strarrdup(char **src);
 int		ft_strarrlen(char **src);
 int		ft_strcmp(const char *s1, const char *s2);
 void	ft_exportarg(t_data *d);
+void	free_memory(t_data *d);
 
 #endif

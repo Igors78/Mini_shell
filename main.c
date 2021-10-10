@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/10 15:24:55 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/10 18:31:30 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static void	init_data(t_data *d)
 {
 	d->path = NULL;
 	d->pid = -42;
+	d->cmd = NULL;
 }
 
 static void	init_sig(void)
@@ -87,5 +88,6 @@ int	main(int argc, char **argv, char **environ)
 			free(d.line);
 		}
 	}
+	free_memory(&d);
 	return (0);
 }
