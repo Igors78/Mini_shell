@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:53:13 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/10 06:53:57 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/10 10:55:42 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int		ft_atoi_base(char *str, char *base);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strarrlen(char **src);
 char	**ft_strarrdup(char **src);
+char	**ft_addstrstrarr(char **arr, char *str);
 
 /*
 ** BONUS PART

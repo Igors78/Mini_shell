@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strarrdup.c                                     :+:      :+:    :+:   */
+/*   ft_addstrstrarr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/10 06:52:38 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/10 10:16:59 by ioleinik         ###   ########.fr       */
+/*   Created: 2021/10/10 09:27:16 by ioleinik          #+#    #+#             */
+/*   Updated: 2021/10/10 10:58:29 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_strarrdup(char **src)
+char	**ft_addstrstrarr(char **arr, char *str)
 {
-	char	**dup;
+	char	**new;
 	int		i;
 
 	i = 0;
-	dup = (char **)malloc(sizeof(char *) * (ft_strarrlen(src) + 1));
-	while (src[i])
+	new = (char **)malloc(sizeof(char *) * (ft_strarrlen(arr) + 2));
+	while (arr[i])
 	{
-		dup[i] = ft_strdup(src[i]);
+		new[i] = ft_strdup(arr[i]);
 		i++;
 	}
-	dup[i] = NULL;
-	return (dup);
+	new[i] = ft_strdup(str);
+	i++;
+	new[i] = NULL;
+	return (new);
 }

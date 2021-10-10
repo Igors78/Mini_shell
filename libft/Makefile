@@ -6,7 +6,7 @@
 #    By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/14 18:13:08 by ioleinik          #+#    #+#              #
-#    Updated: 2021/10/10 06:54:25 by ioleinik         ###   ########.fr        #
+#    Updated: 2021/10/10 09:28:05 by ioleinik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRC		= ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 			ft_putstr.c ft_memdel.c ft_strnew.c \
 			ft_striteri.c ft_wordcount.c ft_terror.c ft_straddchar.c \
 			ft_atoi_base.c \
-			ft_split_free.c ft_strcmp.c ft_strarrlen.c ft_strarrdup.c
+			ft_split_free.c ft_strcmp.c ft_strarrlen.c ft_strarrdup.c \
+			ft_addstrstrarr.c
 
 OBJ		= ${SRC:.c=.o}
 

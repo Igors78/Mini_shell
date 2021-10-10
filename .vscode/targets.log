@@ -9,7 +9,7 @@ make -C ./libft
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Oct 10 07:26:35 2021
+# Make data base, printed on Sun Oct 10 09:28:06 2021
 
 # Variables
 
@@ -21,12 +21,12 @@ make -C ./libft
 DESKTOP_SESSION = xubuntu
 # default
 .SHELLFLAGS := -c
-# makefile (from 'Makefile', line 36)
+# makefile (from 'Makefile', line 37)
 OBJ = ${SRC:.c=.o}
 # environment
 XDG_SESSION_CLASS = user
 # makefile (from 'Makefile', line 22)
-SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_putchar.c ft_putstr.c ft_memdel.c ft_strnew.c ft_striteri.c ft_wordcount.c ft_terror.c ft_straddchar.c ft_atoi_base.c ft_split_free.c ft_strcmp.c ft_strarrlen.c ft_strarrdup.c
+SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_putchar.c ft_putstr.c ft_memdel.c ft_strnew.c ft_striteri.c ft_wordcount.c ft_terror.c ft_straddchar.c ft_atoi_base.c ft_split_free.c ft_strcmp.c ft_strarrlen.c ft_strarrdup.c ft_addstrstrarr.c
 # environment
 SNAP_COMMON = /var/snap/code/common
 # environment
@@ -276,6 +276,9 @@ SNAP_REEXEC =
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # default
+ 
+make[1]: *** No rule to make target 'ft_atoi.o', needed by 'libft.a'.  Stop.
+ 
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
 LC_IDENTIFICATION = lv_LV.UTF-8
@@ -288,9 +291,6 @@ LANG = C
 # environment
 VSCODE_PID = 3920
 # variable set hash-table stats:
- 
-make[1]: *** No rule to make target 'ft_atoi.o', needed by 'libft.a'.  Stop.
- 
 # Load=137/1024=13%, Rehash=0, Collisions=22/168=13%
 
 # Pattern-specific Variable Values
@@ -299,9 +299,9 @@ make[1]: *** No rule to make target 'ft_atoi.o', needed by 'libft.a'.  Stop.
 
 # Directories
 
-# . (device 2050, inode 15476071): 60 files, no impossibilities.
+# . (device 2050, inode 15476071): 61 files, no impossibilities.
 
-# 60 files, no impossibilities in 1 directories.
+# 61 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -382,6 +382,12 @@ ft_tolower.o:
 #  File has not been updated.
 
 # Not a target:
+ft_addstrstrarr.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 ft_strrchr.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -426,7 +432,7 @@ ft_putstr.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-10-10 06:54:25.966344737
+#  Last modified 2021-10-10 09:28:05.806611825
 #  File has been updated.
 #  Successfully updated.
 
@@ -436,11 +442,11 @@ ft_isprint.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-libft.a: ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_strchr.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_tolower.o ft_toupper.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o ft_putchar.o ft_putstr.o ft_memdel.o ft_strnew.o ft_striteri.o ft_wordcount.o ft_terror.o ft_straddchar.o ft_atoi_base.o ft_split_free.o ft_strcmp.o ft_strarrlen.o ft_strarrdup.o
+libft.a: ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_strchr.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_tolower.o ft_toupper.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o ft_putchar.o ft_putstr.o ft_memdel.o ft_strnew.o ft_striteri.o ft_wordcount.o ft_terror.o ft_straddchar.o ft_atoi_base.o ft_split_free.o ft_strcmp.o ft_strarrlen.o ft_strarrdup.o ft_addstrstrarr.o
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
 			$(AR) $(NAME) $(OBJ)
 
 # Not a target:
@@ -495,7 +501,7 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 47):
+#  recipe to execute (from 'Makefile', line 48):
 			$(RM) $(NAME)
 
 # Not a target:
@@ -550,6 +556,7 @@ re: fclean all
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
+ 
 #  File has not been updated.
 
 clean:
@@ -557,7 +564,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 44):
+#  recipe to execute (from 'Makefile', line 45):
 			$(RM) $(OBJ)
 
 # Not a target:
@@ -568,7 +575,6 @@ ft_isalnum.o:
 
 # Not a target:
 ft_strcmp.o:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -706,22 +712,23 @@ ft_putendl_fd.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=66/1024=6%, Rehash=0, Collisions=12/143=8%
+# Load=67/1024=7%, Rehash=0, Collisions=13/145=9%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 128 / storage = 1598 B / avg = 12 B
-# current buf: size = 8162 B / used = 1598 B / count = 128 / avg = 12 B
+# strcache buffers: 1 (0) / strings = 130 / storage = 1634 B / avg = 12 B
+# current buf: size = 8162 B / used = 1634 B / count = 130 / avg = 12 B
 
-# strcache performance: lookups = 145 / hit rate = 11%
+# strcache performance: lookups = 147 / hit rate = 11%
 # hash-table stats:
-# Load=128/8192=2%, Rehash=0, Collisions=7/145=5%
-# Finished Make data base on Sun Oct 10 07:26:35 2021
+# Load=130/8192=2%, Rehash=0, Collisions=7/147=5%
+# Finished Make data base on Sun Oct 10 09:28:06 2021
 
 # make[1]: Leaving directory '/home/igor/42Cursus/Mini_shell/libft'
+ 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -729,7 +736,7 @@ ft_putendl_fd.o:
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Oct 10 07:26:35 2021
+# Make data base, printed on Sun Oct 10 09:28:06 2021
 
 # Variables
 
@@ -868,9 +875,6 @@ QT_QPA_PLATFORMTHEME = gtk2
 # environment
 XDG_SEAT = seat0
 # environment
- 
-make: *** [Makefile:39: libft.a] Error 2
- 
 SSH_AGENT_PID = 1531
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = XFCE
@@ -946,6 +950,9 @@ LINKS = -I$(LIB_PATH) -L$(LIB_PATH) -lft -lreadline
 MAKE_COMMAND := make
 # default
 .VARIABLES := 
+ 
+make: *** [Makefile:39: libft.a] Error 2
+ 
 # automatic
 *F = $(notdir $*)
 # environment
@@ -1033,7 +1040,6 @@ VSCODE_PID = 3920
 
 # Files
 
- 
 all: libft.a minishell
 #  Phony target (prerequisite of .PHONY).
 #  Command line target.
@@ -1109,7 +1115,6 @@ execute.o:
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
- 
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
@@ -1183,8 +1188,7 @@ util.o:
 
 # strcache performance: lookups = 66 / hit rate = 36%
 # hash-table stats:
- 
 # Load=42/8192=1%, Rehash=0, Collisions=1/66=2%
-# Finished Make data base on Sun Oct 10 07:26:35 2021
+# Finished Make data base on Sun Oct 10 09:28:06 2021
 
  
