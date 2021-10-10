@@ -1,16 +1,15 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make -C ./libft
  
-# make[1]: Entering directory '/home/igor/42Cursus/minishell/libft'
+# make[1]: Entering directory '/home/igor/42Cursus/Mini_shell/libft'
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Mon Oct  4 11:57:27 2021
+# Make data base, printed on Sun Oct 10 09:28:06 2021
 
 # Variables
 
@@ -22,12 +21,12 @@ make -C ./libft
 DESKTOP_SESSION = xubuntu
 # default
 .SHELLFLAGS := -c
-# makefile (from 'Makefile', line 39)
+# makefile (from 'Makefile', line 37)
 OBJ = ${SRC:.c=.o}
 # environment
 XDG_SESSION_CLASS = user
 # makefile (from 'Makefile', line 22)
-SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_putchar.c ft_putstr.c ft_printf.c dispatch.c handle_d.c ft_putnbr_base.c handle_c.c handle_s.c handle_p.c handle_u.c handle_x.c handle_bigx.c handle_perc.c init_table.c reset_table.c parse.c read_flags.c handle_spec.c handle_spec_u.c handle_spec_x.c handle_spec_bigx.c handle_spec_c.c handle_spec_p.c handle_precis.c ft_memdel.c ft_strnew.c get_next_line.c ft_striteri.c ft_wordcount.c ft_terror.c ft_straddchar.c ft_atoi_base.c
+SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_putchar.c ft_putstr.c ft_memdel.c ft_strnew.c ft_striteri.c ft_wordcount.c ft_terror.c ft_straddchar.c ft_atoi_base.c ft_split_free.c ft_strcmp.c ft_strarrlen.c ft_strarrdup.c ft_addstrstrarr.c
 # environment
 SNAP_COMMON = /var/snap/code/common
 # environment
@@ -45,19 +44,19 @@ GDMSESSION = xubuntu
 # default
 MAKE_VERSION := 4.2.1
 # makefile
-CURDIR := /home/igor/42Cursus/minishell/libft
+CURDIR := /home/igor/42Cursus/Mini_shell/libft
 # environment
 RBENV_SHELL = bash
 # makefile (from 'Makefile', line 17)
 RM = rm -f
 # environment
-SNAP_DATA = /var/snap/code/75
+SNAP_DATA = /var/snap/code/76
 # environment
 GDM_LANG = en_US
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-_ = /snap/code/75/usr/share/code/code
+_ = /snap/code/76/usr/share/code/code
 # makefile (from 'Makefile', line 14)
 CFLAGS = -Wall -Wextra -Werror -g
 # environment
@@ -93,7 +92,7 @@ VSCODE_CWD = /home/igor
 # environment
 XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session0
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/75/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/76/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -101,7 +100,7 @@ PATH = /home/igor/.local/bin:/home/igor/.rbenv/shims:/home/igor/.rbenv/bin:/home
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/Igo:@/tmp/.ICE-unix/1514,unix/Igo:/tmp/.ICE-unix/1514
+SESSION_MANAGER = local/Igo:@/tmp/.ICE-unix/1440,unix/Igo:/tmp/.ICE-unix/1440
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -109,9 +108,9 @@ GDK_PIXBUF_MODULE_FILE = /home/igor/snap/code/common/.cache/gdk-pixbuf-loaders.c
 # environment
 LC_ALL = C
 # environment
-SNAP = /snap/code/75
+SNAP = /snap/code/76
 # environment
-SNAP_VERSION = 7f6ab548
+SNAP_VERSION = ee8c7def
 # makefile (from 'Makefile', line 16)
 AR = ar rcs
 # environment
@@ -123,7 +122,7 @@ DISABLE_WAYLAND = 1
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=85515c04-1309-4250-bd25-93009377e128&iid=85515c04-1309-4250-bd25-93009377e128&sid=85515c04-1309-4250-bd25-93009377e128","uploadToServer":true}
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/75/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/76/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -133,9 +132,6 @@ LS_COLORS =
 # environment
 XDG_SESSION_DESKTOP = xubuntu
 # environment
- 
-make[1]: *** No rule to make target 'ft_atoi.o', needed by 'libft.a'.  Stop.
- 
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # automatic
 %F = $(notdir $%)
@@ -146,7 +142,7 @@ VSCODE_PIPE_LOGGING = true
 # environment
 SNAP_INSTANCE_KEY = 
 # environment
-PWD = /home/igor/42Cursus/minishell
+PWD = /home/igor/42Cursus/Mini_shell
 # environment
 QT_QPA_PLATFORMTHEME = gtk2
 # default
@@ -154,7 +150,7 @@ QT_QPA_PLATFORMTHEME = gtk2
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1715
+SSH_AGENT_PID = 1531
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = XFCE
 # environment
@@ -166,7 +162,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/igor/.config/Code/CachedData/7f6ab5485bbc008386c4386d08766667e155244e
+VSCODE_CODE_CACHE_PATH = /home/igor/.config/Code/CachedData/ee8c7def80afc00dd6e593ef12f37756d8f504ea
 # environment
 LOGNAME = igor
 # environment
@@ -194,19 +190,19 @@ SNAP_REAL_HOME = /home/igor
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-SNAP_USER_DATA = /home/igor/snap/code/75
+SNAP_USER_DATA = /home/igor/snap/code/76
 # environment
 SHLVL = 0
 # makefile (from 'Makefile', line 13)
 CC = gcc
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-df8a21d8-df00-4258-90f2-5832f1d3ce1e.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-be58a7ac-8c24-4d72-8ce2-f8ea21a20fbf.sock
 # environment
 XDG_SESSION_ID = c1
 # environment
 USER = igor
 # environment
-SNAP_REVISION = 75
+SNAP_REVISION = 76
 # environment
 LC_MONETARY = lv_LV.UTF-8
 # makefile
@@ -232,7 +228,7 @@ LANGUAGE = en_US
 # environment
 XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-3e6d57c9-1.60.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-3e6d57c9-1.61.0-main.sock
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
@@ -280,6 +276,9 @@ SNAP_REEXEC =
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # default
+ 
+make[1]: *** No rule to make target 'ft_atoi.o', needed by 'libft.a'.  Stop.
+ 
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
 LC_IDENTIFICATION = lv_LV.UTF-8
@@ -290,7 +289,7 @@ LC_ADDRESS = lv_LV.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 7107
+VSCODE_PID = 3920
 # variable set hash-table stats:
 # Load=137/1024=13%, Rehash=0, Collisions=22/168=13%
 
@@ -300,9 +299,9 @@ VSCODE_PID = 7107
 
 # Directories
 
-# . (device 2050, inode 18094857): 79 files, no impossibilities.
+# . (device 2050, inode 15476071): 61 files, no impossibilities.
 
-# 79 files, no impossibilities in 1 directories.
+# 61 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -352,12 +351,6 @@ ft_isdigit.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-reset_table.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 all: libft.a
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
@@ -383,37 +376,19 @@ ft_memset.o:
 #  File has not been updated.
 
 # Not a target:
-handle_spec_c.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-handle_c.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-handle_x.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 ft_tolower.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-ft_strrchr.o:
+ft_addstrstrarr.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-parse.o:
+ft_strrchr.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -437,25 +412,13 @@ ft_lstclear.o:
 #  File has not been updated.
 
 # Not a target:
-ft_printf.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-init_table.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-ft_terror.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 ft_strlcat.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+ft_split_free.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -469,16 +432,9 @@ ft_putstr.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
-#  Last modified 2021-10-04 11:57:00.233981985
+#  Last modified 2021-10-10 09:28:05.806611825
 #  File has been updated.
 #  Successfully updated.
-
-# Not a target:
-handle_perc.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 # Not a target:
 ft_isprint.o:
@@ -486,17 +442,11 @@ ft_isprint.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-handle_spec_x.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libft.a: ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_strchr.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_tolower.o ft_toupper.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o ft_putchar.o ft_putstr.o ft_printf.o dispatch.o handle_d.o ft_putnbr_base.o handle_c.o handle_s.o handle_p.o handle_u.o handle_x.o handle_bigx.o handle_perc.o init_table.o reset_table.o parse.o read_flags.o handle_spec.o handle_spec_u.o handle_spec_x.o handle_spec_bigx.o handle_spec_c.o handle_spec_p.o handle_precis.o ft_memdel.o ft_strnew.o get_next_line.o ft_striteri.o ft_wordcount.o ft_terror.o ft_straddchar.o ft_atoi_base.o
+libft.a: ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_strchr.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_tolower.o ft_toupper.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o ft_putchar.o ft_putstr.o ft_memdel.o ft_strnew.o ft_striteri.o ft_wordcount.o ft_terror.o ft_straddchar.o ft_atoi_base.o ft_split_free.o ft_strcmp.o ft_strarrlen.o ft_strarrdup.o ft_addstrstrarr.o
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 44):
+#  recipe to execute (from 'Makefile', line 42):
 			$(AR) $(NAME) $(OBJ)
 
 # Not a target:
@@ -507,12 +457,6 @@ ft_striteri.o:
 
 # Not a target:
 ft_putchar.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-handle_u.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -529,14 +473,13 @@ ft_lstnew.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-dispatch.o:
+.PHONY: all clean fclean re bonus
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-read_flags.o:
+ft_strarrlen.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -558,20 +501,8 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 50):
+#  recipe to execute (from 'Makefile', line 48):
 			$(RM) $(NAME)
-
-# Not a target:
-handle_s.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-handle_p.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 # Not a target:
 ft_calloc.o:
@@ -581,18 +512,6 @@ ft_calloc.o:
 
 # Not a target:
 ft_substr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-handle_spec_u.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-handle_spec.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -616,31 +535,13 @@ ft_lstsize.o:
 #  File has not been updated.
 
 # Not a target:
-handle_precis.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 ft_strlcpy.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-handle_spec_p.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 ft_lstmap.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-handle_bigx.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -655,6 +556,7 @@ re: fclean all
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
+ 
 #  File has not been updated.
 
 clean:
@@ -662,11 +564,17 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 47):
+#  recipe to execute (from 'Makefile', line 45):
 			$(RM) $(OBJ)
 
 # Not a target:
 ft_isalnum.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+ft_strcmp.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -691,11 +599,6 @@ ft_strdup.o:
 
 # Not a target:
 ft_lstdelone.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-.PHONY: all clean fclean re bonus
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -725,13 +628,19 @@ ft_wordcount.o:
 #  File has not been updated.
 
 # Not a target:
+ft_strarrdup.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 ft_toupper.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-handle_spec_bigx.o:
+ft_terror.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -740,7 +649,6 @@ handle_spec_bigx.o:
 ft_strnstr.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
@@ -762,18 +670,6 @@ ft_memccpy.o:
 #  File has not been updated.
 
 # Not a target:
-ft_putnbr_base.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-handle_d.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 ft_putchar_fd.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -783,12 +679,6 @@ ft_putchar_fd.o:
 ft_atoi.o:
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has not been updated.
-
-# Not a target:
-get_next_line.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
@@ -822,24 +712,22 @@ ft_putendl_fd.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=85/1024=8%, Rehash=0, Collisions=20/181=11%
+# Load=67/1024=7%, Rehash=0, Collisions=13/145=9%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 166 / storage = 2104 B / avg = 12 B
-# current buf: size = 8162 B / used = 2104 B / count = 166 / avg = 12 B
+# strcache buffers: 1 (0) / strings = 130 / storage = 1634 B / avg = 12 B
+# current buf: size = 8162 B / used = 1634 B / count = 130 / avg = 12 B
 
-# strcache performance: lookups = 183 / hit rate = 9%
+# strcache performance: lookups = 147 / hit rate = 11%
 # hash-table stats:
-# Load=166/8192=2%, Rehash=0, Collisions=9/183=5%
-# Finished Make data base on Mon Oct  4 11:57:27 2021
+# Load=130/8192=2%, Rehash=0, Collisions=7/147=5%
+# Finished Make data base on Sun Oct 10 09:28:06 2021
 
-# make[1]: Leaving directory '/home/igor/42Cursus/minishell/libft'
- 
-make: *** [Makefile:39: libft.a] Error 2
+# make[1]: Leaving directory '/home/igor/42Cursus/Mini_shell/libft'
  
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
@@ -848,7 +736,7 @@ make: *** [Makefile:39: libft.a] Error 2
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Oct  4 11:57:27 2021
+# Make data base, printed on Sun Oct 10 09:28:06 2021
 
 # Variables
 
@@ -860,19 +748,19 @@ make: *** [Makefile:39: libft.a] Error 2
 DESKTOP_SESSION = xubuntu
 # default
 .SHELLFLAGS := -c
-# makefile (from 'Makefile', line 29)
+# makefile (from 'Makefile', line 28)
 OBJ = ${SRC:.c=.o}
 # environment
 XDG_SESSION_CLASS = user
-# makefile (from 'Makefile', line 27)
-SRC = main.c
+# makefile (from 'Makefile', line 26)
+SRC = main.c execute.c interpret.c export.c util.c exp_arg.c
 # environment
 SNAP_COMMON = /var/snap/code/common
 # environment
 XDG_SESSION_TYPE = x11
 # environment
 VSCODE_LOG_NATIVE = false
-# makefile (from 'Makefile', line 23)
+# makefile (from 'Makefile', line 22)
 LIBRARY = libft.a
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
@@ -885,19 +773,19 @@ GDMSESSION = xubuntu
 # default
 MAKE_VERSION := 4.2.1
 # makefile
-CURDIR := /home/igor/42Cursus/minishell
+CURDIR := /home/igor/42Cursus/Mini_shell
 # environment
 RBENV_SHELL = bash
 # makefile (from 'Makefile', line 16)
 RM = rm -f
 # environment
-SNAP_DATA = /var/snap/code/75
+SNAP_DATA = /var/snap/code/76
 # environment
 GDM_LANG = en_US
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-_ = /snap/code/75/usr/share/code/code
+_ = /snap/code/76/usr/share/code/code
 # makefile (from 'Makefile', line 14)
 CFLAGS = -Wall -Wextra -Werror -g
 # environment
@@ -933,7 +821,7 @@ VSCODE_CWD = /home/igor
 # environment
 XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session0
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/75/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/76/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -941,15 +829,15 @@ PATH = /home/igor/.local/bin:/home/igor/.rbenv/shims:/home/igor/.rbenv/bin:/home
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/Igo:@/tmp/.ICE-unix/1514,unix/Igo:/tmp/.ICE-unix/1514
+SESSION_MANAGER = local/Igo:@/tmp/.ICE-unix/1440,unix/Igo:/tmp/.ICE-unix/1440
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/igor/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-SNAP = /snap/code/75
+SNAP = /snap/code/76
 # environment
-SNAP_VERSION = 7f6ab548
+SNAP_VERSION = ee8c7def
 # environment
 XDG_MENU_PREFIX = xfce-
 # environment
@@ -959,7 +847,7 @@ DISABLE_WAYLAND = 1
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=85515c04-1309-4250-bd25-93009377e128&iid=85515c04-1309-4250-bd25-93009377e128&sid=85515c04-1309-4250-bd25-93009377e128","uploadToServer":true}
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/75/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/76/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -979,7 +867,7 @@ VSCODE_PIPE_LOGGING = true
 # environment
 SNAP_INSTANCE_KEY = 
 # environment
-PWD = /home/igor/42Cursus/minishell
+PWD = /home/igor/42Cursus/Mini_shell
 # environment
 QT_QPA_PLATFORMTHEME = gtk2
 # default
@@ -987,7 +875,7 @@ QT_QPA_PLATFORMTHEME = gtk2
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1715
+SSH_AGENT_PID = 1531
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = XFCE
 # environment
@@ -999,7 +887,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/igor/.config/Code/CachedData/7f6ab5485bbc008386c4386d08766667e155244e
+VSCODE_CODE_CACHE_PATH = /home/igor/.config/Code/CachedData/ee8c7def80afc00dd6e593ef12f37756d8f504ea
 # environment
 LOGNAME = igor
 # environment
@@ -1026,24 +914,24 @@ CLUTTER_BACKEND = x11
 LC_TIME = lv_LV.UTF-8
 # environment
 SNAP_REAL_HOME = /home/igor
-# makefile (from 'Makefile', line 25)
+# makefile (from 'Makefile', line 24)
 MAKE = make
 # default
 MAKECMDGOALS := all
 # environment
-SNAP_USER_DATA = /home/igor/snap/code/75
+SNAP_USER_DATA = /home/igor/snap/code/76
 # environment
 SHLVL = 0
 # makefile (from 'Makefile', line 13)
 CC = gcc
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-df8a21d8-df00-4258-90f2-5832f1d3ce1e.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-be58a7ac-8c24-4d72-8ce2-f8ea21a20fbf.sock
 # environment
 XDG_SESSION_ID = c1
 # environment
 USER = igor
 # environment
-SNAP_REVISION = 75
+SNAP_REVISION = 76
 # environment
 LC_MONETARY = lv_LV.UTF-8
 # makefile
@@ -1056,12 +944,15 @@ NAME = minishell
 %D = $(patsubst %/,%,$(dir $%))
 # environment
 LC_TELEPHONE = lv_LV.UTF-8
-# makefile (from 'Makefile', line 31)
-LINKS = -I$(INCL_PATH) -L$(LIB_PATH) -lft -lreadline
+# makefile (from 'Makefile', line 30)
+LINKS = -I$(LIB_PATH) -L$(LIB_PATH) -lft -lreadline
 # default
 MAKE_COMMAND := make
 # default
 .VARIABLES := 
+ 
+make: *** [Makefile:39: libft.a] Error 2
+ 
 # automatic
 *F = $(notdir $*)
 # environment
@@ -1069,7 +960,7 @@ LANGUAGE = en_US
 # environment
 XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-3e6d57c9-1.60.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-3e6d57c9-1.61.0-main.sock
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
@@ -1124,16 +1015,14 @@ CHROME_DESKTOP = code-url-handler.desktop
 LC_IDENTIFICATION = lv_LV.UTF-8
 # default
 .RECIPEPREFIX := 
-# makefile (from 'Makefile', line 21)
-INCL_PATH = ./libft
 # environment
 LC_ADDRESS = lv_LV.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 7107
+VSCODE_PID = 3920
 # variable set hash-table stats:
-# Load=140/1024=14%, Rehash=0, Collisions=24/177=14%
+# Load=139/1024=14%, Rehash=0, Collisions=24/176=14%
 
 # Pattern-specific Variable Values
 
@@ -1141,9 +1030,9 @@ VSCODE_PID = 7107
 
 # Directories
 
-# . (device 2050, inode 11011709): 19 files, no impossibilities.
+# . (device 2050, inode 11803638): 24 files, no impossibilities.
 
-# 19 files, no impossibilities in 1 directories.
+# 24 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -1174,10 +1063,15 @@ all: libft.a minishell
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
-#  Last modified 2021-10-04 11:57:00.221982189
+#  Last modified 2021-10-10 07:26:29.659027054
 #  File has been updated.
 #  Successfully updated.
+
+# Not a target:
+exp_arg.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 libft.a:
 #  Implicit rule search has not been done.
@@ -1206,12 +1100,18 @@ libft.a:
 #  recipe to execute (from 'Makefile', line 39):
 			$(MAKE) -C $(LIB_PATH)
 
-minishell: main.o
+minishell: main.o execute.o interpret.o export.o util.o exp_arg.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 42):
 			$(CC) -o $(NAME) $(CFLAGS) $(OBJ) $(LINKS) 
+
+# Not a target:
+execute.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -1221,6 +1121,12 @@ fclean: clean
 #  recipe to execute (from 'Makefile', line 48):
 			$(RM) $(NAME)
 			$(MAKE) -C $(LIB_PATH) fclean
+
+# Not a target:
+interpret.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 norm:
 #  Phony target (prerequisite of .PHONY).
@@ -1252,25 +1158,37 @@ clean:
 			$(RM) $(OBJ)
 
 # Not a target:
+export.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 main.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+util.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=12/1024=1%, Rehash=0, Collisions=0/38=0%
+# Load=17/1024=2%, Rehash=0, Collisions=0/48=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 32 / storage = 289 B / avg = 9 B
-# current buf: size = 8162 B / used = 289 B / count = 32 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 42 / storage = 384 B / avg = 9 B
+# current buf: size = 8162 B / used = 384 B / count = 42 / avg = 9 B
 
-# strcache performance: lookups = 56 / hit rate = 42%
+# strcache performance: lookups = 66 / hit rate = 36%
 # hash-table stats:
-# Load=32/8192=0%, Rehash=0, Collisions=1/56=2%
-# Finished Make data base on Mon Oct  4 11:57:27 2021
+# Load=42/8192=1%, Rehash=0, Collisions=1/66=2%
+# Finished Make data base on Sun Oct 10 09:28:06 2021
 
  
