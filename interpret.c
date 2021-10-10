@@ -6,11 +6,32 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 19:28:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/08 19:55:03 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/10 15:53:47 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static char	*ft_getenv(t_data *d, char *str)
+{
+	int		i;
+	char	*env_tmp;
+
+	i = 0;
+	while (d->envv[i])
+	{
+		env_tmp = ft_strdup(d->envv[i]);
+		*(ft_strchr(env_tmp, '=')) = '\0';
+		if (ft_strcmp(env_tmp, str) == 0)
+		{
+			free(env_tmp);
+			return (ft_strchr(d->envv[i], '=') + 1);
+		}
+		free(env_tmp);
+		i++;
+	}
+	return (NULL);
+}
 
 void	expand_env(t_data *d)
 {
@@ -26,10 +47,10 @@ void	expand_env(t_data *d)
 				&& d->cmd[i][ft_strlen(d->cmd[i]) - 1] == '}')
 			{
 				d->cmd[i][ft_strlen(d->cmd[i]) - 1] = '\0';
-				tmp = getenv(&d->cmd[i][2]);
+				tmp = ft_getenv(d, &d->cmd[i][2]);
 			}
 			else
-				tmp = getenv(&d->cmd[i][1]);
+				tmp = ft_getenv(d, &d->cmd[i][1]);
 			if (!tmp)
 				return ;
 			free(d->cmd[i]);
@@ -48,7 +69,7 @@ static void	check_path(t_data *d)
 	char		*addslash;
 
 	i = 0;
-	split_path = ft_split(getenv("PATH"), ':');
+	split_path = ft_split(ft_getenv(d, "PATH"), ':');
 	while (split_path[i])
 	{
 		addslash = ft_strjoin(split_path[i++], "/");

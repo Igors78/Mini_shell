@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 09:27:16 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/10 10:58:29 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/10 15:26:52 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ char	**ft_addstrstrarr(char **arr, char *str)
 	new[i] = ft_strdup(str);
 	i++;
 	new[i] = NULL;
+	ft_split_free(arr);
 	return (new);
 }

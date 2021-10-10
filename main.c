@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/10 09:16:37 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/10 15:24:55 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	main(int argc, char **argv, char **environ)
 
 	(void)argc;
 	(void)argv;
-	d.envv = environ;
+	d.envv = ft_strarrdup(environ);
 	d.line = NULL;
 	init_sig();
 	while (1)
