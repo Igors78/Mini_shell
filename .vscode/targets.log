@@ -8,8 +8,11 @@ make -C ./libft
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
+make[1]: *** No rule to make target 'ft_atoi.o', needed by 'libft.a'.  Stop.
+ 
 
-# Make data base, printed on Sun Oct 10 09:28:06 2021
+# Make data base, printed on Sun Oct 10 18:41:44 2021
 
 # Variables
 
@@ -196,7 +199,7 @@ SHLVL = 0
 # makefile (from 'Makefile', line 13)
 CC = gcc
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-be58a7ac-8c24-4d72-8ce2-f8ea21a20fbf.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-441414cb-0aa8-4545-acff-a68b30ea4dc1.sock
 # environment
 XDG_SESSION_ID = c1
 # environment
@@ -276,9 +279,6 @@ SNAP_REEXEC =
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # default
- 
-make[1]: *** No rule to make target 'ft_atoi.o', needed by 'libft.a'.  Stop.
- 
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
 LC_IDENTIFICATION = lv_LV.UTF-8
@@ -286,6 +286,7 @@ LC_IDENTIFICATION = lv_LV.UTF-8
 .RECIPEPREFIX := 
 # environment
 LC_ADDRESS = lv_LV.UTF-8
+ 
 # environment
 LANG = C
 # environment
@@ -299,7 +300,7 @@ VSCODE_PID = 3920
 
 # Directories
 
-# . (device 2050, inode 15476071): 61 files, no impossibilities.
+# . (device 2050, inode 20206937): 61 files, no impossibilities.
 
 # 61 files, no impossibilities in 1 directories.
 
@@ -339,6 +340,7 @@ ft_memcmp.o:
 #  Modification time never checked.
 #  File has not been updated.
 
+ 
 # Not a target:
 ft_strlen.o:
 #  Implicit rule search has not been done.
@@ -348,6 +350,7 @@ ft_strlen.o:
 # Not a target:
 ft_isdigit.o:
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -432,7 +435,7 @@ ft_putstr.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-10-10 09:28:05.806611825
+#  Last modified 2021-10-10 18:41:14.180862514
 #  File has been updated.
 #  Successfully updated.
 
@@ -442,6 +445,7 @@ ft_isprint.o:
 #  Modification time never checked.
 #  File has not been updated.
 
+ 
 libft.a: ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_strchr.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_tolower.o ft_toupper.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o ft_putchar.o ft_putstr.o ft_memdel.o ft_strnew.o ft_striteri.o ft_wordcount.o ft_terror.o ft_straddchar.o ft_atoi_base.o ft_split_free.o ft_strcmp.o ft_strarrlen.o ft_strarrdup.o ft_addstrstrarr.o
 #  Implicit rule search has not been done.
 #  File does not exist.
@@ -514,6 +518,7 @@ ft_calloc.o:
 ft_substr.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 # Not a target:
@@ -556,7 +561,6 @@ re: fclean all
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
- 
 #  File has not been updated.
 
 clean:
@@ -641,6 +645,7 @@ ft_toupper.o:
 
 # Not a target:
 ft_terror.o:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -725,9 +730,11 @@ ft_putendl_fd.o:
 # strcache performance: lookups = 147 / hit rate = 11%
 # hash-table stats:
 # Load=130/8192=2%, Rehash=0, Collisions=7/147=5%
-# Finished Make data base on Sun Oct 10 09:28:06 2021
+# Finished Make data base on Sun Oct 10 18:41:44 2021
 
 # make[1]: Leaving directory '/home/igor/42Cursus/Mini_shell/libft'
+ 
+make: *** [Makefile:39: libft.a] Error 2
  
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
@@ -736,7 +743,7 @@ ft_putendl_fd.o:
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Oct 10 09:28:06 2021
+# Make data base, printed on Sun Oct 10 18:41:44 2021
 
 # Variables
 
@@ -925,7 +932,7 @@ SHLVL = 0
 # makefile (from 'Makefile', line 13)
 CC = gcc
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-be58a7ac-8c24-4d72-8ce2-f8ea21a20fbf.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-441414cb-0aa8-4545-acff-a68b30ea4dc1.sock
 # environment
 XDG_SESSION_ID = c1
 # environment
@@ -950,9 +957,6 @@ LINKS = -I$(LIB_PATH) -L$(LIB_PATH) -lft -lreadline
 MAKE_COMMAND := make
 # default
 .VARIABLES := 
- 
-make: *** [Makefile:39: libft.a] Error 2
- 
 # automatic
 *F = $(notdir $*)
 # environment
@@ -1009,6 +1013,7 @@ SUFFIXES :=
 SNAP_REEXEC = 
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
+ 
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
@@ -1030,9 +1035,9 @@ VSCODE_PID = 3920
 
 # Directories
 
-# . (device 2050, inode 11803638): 24 files, no impossibilities.
+# . (device 2050, inode 12587485): 23 files, no impossibilities.
 
-# 24 files, no impossibilities in 1 directories.
+# 23 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -1063,7 +1068,7 @@ all: libft.a minishell
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-10-10 07:26:29.659027054
+#  Last modified 2021-10-10 18:41:14.164861613
 #  File has been updated.
 #  Successfully updated.
 
@@ -1183,12 +1188,12 @@ util.o:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 42 / storage = 384 B / avg = 9 B
-# current buf: size = 8162 B / used = 384 B / count = 42 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 41 / storage = 373 B / avg = 9 B
+# current buf: size = 8162 B / used = 373 B / count = 41 / avg = 9 B
 
-# strcache performance: lookups = 66 / hit rate = 36%
+# strcache performance: lookups = 65 / hit rate = 36%
 # hash-table stats:
-# Load=42/8192=1%, Rehash=0, Collisions=1/66=2%
-# Finished Make data base on Sun Oct 10 09:28:06 2021
+# Load=41/8192=1%, Rehash=0, Collisions=1/65=2%
+# Finished Make data base on Sun Oct 10 18:41:44 2021
 
  
