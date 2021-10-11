@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.c                                             :+:      :+:    :+:   */
+/*   ft_getenv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/09 12:50:54 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/11 15:59:02 by mbarut           ###   ########.fr       */
+/*   Created: 2021/10/11 14:00:27 by mbarut            #+#    #+#             */
+/*   Updated: 2021/10/11 14:00:49 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	free_memory(t_data *d)
+char	*ft_getenv(t_data *d, char *str)
 {
-	if (d->envv)
-		ft_split_free(d->envv);
-	if (d->cmd)
-		ft_split_free(d->cmd);
-	if (d->line)
-		free(d->line);
-	if (d->path)
-		free(d->path);
+	int		i;
+	char	*env_tmp;
+
+	i = 0;
+	while (d->envv[i])
+	{
+		env_tmp = ft_strdup(d->envv[i]);
+		*(ft_strchr(env_tmp, '=')) = '\0';
+		if (ft_strcmp(env_tmp, str) == 0)
+		{
+			free(env_tmp);
+			return (ft_strchr(d->envv[i], '=') + 1);
+		}
+		free(env_tmp);
+		i++;
+	}
+	return (NULL);
 }

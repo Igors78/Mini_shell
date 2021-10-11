@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:53:13 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/10 10:55:42 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/10 20:54:09 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strarrlen(char **src);
 char	**ft_strarrdup(char **src);
 char	**ft_addstrstrarr(char **arr, char *str);
+int		get_next_line(int fd, char **line);
 
 /*
 ** BONUS PART

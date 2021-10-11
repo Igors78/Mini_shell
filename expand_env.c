@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.c                                             :+:      :+:    :+:   */
+/*   expand_env.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/09 12:50:54 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/11 15:59:02 by mbarut           ###   ########.fr       */
+/*   Created: 2021/10/11 14:04:02 by mbarut            #+#    #+#             */
+/*   Updated: 2021/10/11 14:04:17 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	free_memory(t_data *d)
+void	expand_env(t_data *d)
 {
-	if (d->envv)
-		ft_split_free(d->envv);
-	if (d->cmd)
-		ft_split_free(d->cmd);
-	if (d->line)
-		free(d->line);
-	if (d->path)
-		free(d->path);
+	int		i;
+	char	*tmp;
+
+	i = 0;
+	while (d->cmd[i])
+	{
+		if (d->cmd[i][0] == '$')
+		{
+			if (d->cmd[i][1] == '{'
+				&& d->cmd[i][ft_strlen(d->cmd[i]) - 1] == '}')
+			{
+				d->cmd[i][ft_strlen(d->cmd[i]) - 1] = '\0';
+				tmp = ft_getenv(d, &d->cmd[i][2]);
+			}
+			else
+				tmp = ft_getenv(d, &d->cmd[i][1]);
+			if (!tmp)
+				return ;
+			free(d->cmd[i]);
+			d->cmd[i] = ft_strdup(tmp);
+		}
+		i++;
+	}
 }

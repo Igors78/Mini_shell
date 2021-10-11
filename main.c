@@ -3,14 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/10 18:31:30 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/11 16:44:40 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/* Replace redirection signs and everything after '>' with ' ' */
+void	rm_redirection_sgn(char *line, char c)
+{
+	int	i;
+
+	if (!line)
+		return ;
+	i = 0;
+	while (line[i] != '\0')
+	{
+		if (line[i] == '<')
+			line[i] = (unsigned char)c;
+		if (line[i] == '>')
+		{
+			while (line[i])
+				line[i++] = (unsigned char)c;
+			break ;
+		}
+		i++;
+	}
+}
 
 static void	sig_handl(int signum, siginfo_t *info, void *unused)
 {
@@ -32,22 +54,18 @@ static void	sig_handl(int signum, siginfo_t *info, void *unused)
 static void	dispatch(t_data	*d)
 {
 	add_history(d->line);
-	if (!ft_strchr(d->line, '|') && !ft_strchr(d->line, '<')
-		&& !ft_strchr(d->line, '>'))
-	{
-		d->cmd = ft_split(d->line, ' ');
-		if (!d->cmd || !d->cmd[0])
-			perror("No command passed");
-		expand_env(d);
-		execute(d);
-	}
-}
-
-static void	init_data(t_data *d)
-{
-	d->path = NULL;
-	d->pid = -42;
-	d->cmd = NULL;
+	d->cmd = ft_split(d->line, ' ');
+	if (!d->cmd || !d->cmd[0])
+		perror("No command passed");
+	rm_redirection_sgn(d->line, ' ');
+	d->cmd_pipe = ft_split(d->line, '|');
+	expand_env(d);
+	check_line(d);
+	pipe_init(d);
+	execute(d);
+	if (d->fname_i2)
+		unlink(d->fname_i2);
+	ft_split_free(d->cmd);
 }
 
 static void	init_sig(void)
@@ -74,10 +92,10 @@ int	main(int argc, char **argv, char **environ)
 	init_sig();
 	while (1)
 	{
-		init_data(&d);
 		d.line = readline(GR "shell:>$ " CL);
 		if (!d.line)
 			ft_exit(&d);
+		init_data(&d);
 		if (!d.line[0])
 			continue ;
 		else

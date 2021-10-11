@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+         #
+#    By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 18:24:26 by ioleinik          #+#    #+#              #
-#    Updated: 2021/10/10 07:26:29 by ioleinik         ###   ########.fr        #
+#    Updated: 2021/10/11 16:45:36 by mbarut           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,11 @@ LIBRARY		= libft.a
 
 MAKE		= make
 
-SRC			= main.c execute.c interpret.c export.c util.c exp_arg.c
+SRC			= main.c execute.c export.c util.c exp_arg.c \
+			  check_io.c	check_redirection.c		check_x.c	check_line.c \
+			  ft_getenv.c	expand_env.c check_path.c \
+			  cmd_x.c		cmd_out.c \
+			  pipe.c		error.c		init.c
 
 OBJ			= ${SRC:.c=.o}
 

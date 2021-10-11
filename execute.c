@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:15:40 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/10 18:33:52 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/11 14:47:25 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,5 @@ void	execute(t_data *d)
 			return ;
 	}
 	else
-		ft_interpret(d);
+		cmd_x(d);
 }
