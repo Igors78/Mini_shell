@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/11 16:45:21 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/12 10:55:59 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	check_redirection(t_data *d);
 void	check_io(t_data *d);
 void	check_x(t_data *d);
 void	check_line(t_data *d);
+int		is_builtin(t_data *d);
 
 void	pipe_end(t_data *d);
 void	pipe_init(t_data *d);

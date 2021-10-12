@@ -6,7 +6,7 @@
 #    By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 18:24:26 by ioleinik          #+#    #+#              #
-#    Updated: 2021/10/11 16:45:36 by mbarut           ###   ########.fr        #
+#    Updated: 2021/10/12 10:56:27 by mbarut           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ MAKE		= make
 
 SRC			= main.c execute.c export.c util.c exp_arg.c \
 			  check_io.c	check_redirection.c		check_x.c	check_line.c \
-			  ft_getenv.c	expand_env.c check_path.c \
+			  ft_getenv.c	expand_env.c check_path.c is_builtin.c \
 			  cmd_x.c		cmd_out.c \
 			  pipe.c		error.c		init.c
 
