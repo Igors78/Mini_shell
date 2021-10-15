@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/12 10:55:59 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/15 08:46:53 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	free_memory(t_data *d);
 
 char	*ft_getenv(t_data *d, char *str);
 void	check_path(t_data *d, char *cmd);
+char	**ft_splitarg(char const *s, char c);
 
 /* Piping and redirection */
 
