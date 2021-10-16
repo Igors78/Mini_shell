@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/12 12:55:29 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/16 17:44:12 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ void	rm_redirection_sgn(char *line, char c)
 	i = 0;
 	while (line[i] != '\0')
 	{
+		if (line[i] == '\"' && ft_strchr(&line[i + 1], '\"'))
+		{
+			i++;
+			while (line[i] != '\"')
+				i++;
+		}
+		if (line[i] == '\'' && ft_strchr(&line[i + 1], '\''))
+		{
+			i++;
+			while (line[i] != '\'')
+				i++;
+		}
 		if (line[i] == '<')
 			line[i] = (unsigned char)c;
 		if (line[i] == '>')
@@ -53,19 +65,27 @@ static void	sig_handl(int signum, siginfo_t *info, void *unused)
 
 static void	dispatch(t_data	*d)
 {
+	int	i;
+
+	i = 0;
 	add_history(d->line);
-	d->cmd = ft_split(d->line, ' ');
-	if (!d->cmd || !d->cmd[0])
+	d->cmd_spl_pip = ft_splitarg(d->line, '|');
+	if (!d->cmd_spl_pip || !d->cmd_spl_pip[0])
 		perror("No command passed");
-	rm_redirection_sgn(d->line, ' ');
-	d->cmd_pipe = ft_split(d->line, '|');
-	expand_env(d);
-	check_line(d);
-	pipe_init(d);
-	execute(d);
-	if (d->fname_i2)
-		unlink(d->fname_i2);
-	ft_split_free(d->cmd);
+	while (d->cmd_spl_pip[i])
+	{
+		d->cmd = ft_splitarg(d->cmd_spl_pip[i], ' ');
+		rm_redirection_sgn(d->cmd_spl_pip[i], ' ');
+		//d->cmd_pipe = ft_split(d->line, '|');
+		expand_env(d);
+		check_line(d);
+		pipe_init(d);
+		execute(d);
+		if (d->fname_i2)
+			unlink(d->fname_i2);
+		ft_split_free(d->cmd);
+		i++;
+	}
 }
 
 static void	init_sig(void)

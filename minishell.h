@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/15 08:46:53 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/16 17:36:49 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_data
 	char				**envv;
 	char				*line;
 	char				**cmd;
+	char				**cmd_spl_pip;
 	char				**cmd_pipe;
 	char				*path;
 	pid_t				pid;
