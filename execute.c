@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:15:40 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/12 10:54:06 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/16 20:41:24 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	ft_exit(t_data *d)
 {
-	free_memory(d);
+	(void)d;
+	//free_memory(d); <- causes double free error with ctrl+d
 	exit (0);
 }
 

@@ -3,37 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/16 17:44:12 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/16 20:52:34 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/* Helper function to make rm_redirection_sgn() shorter */
+int ignore_quotes(char *line, int i, char c)
+{
+	while (line[i] != c)
+		i++;
+	return (i);
+}
 
 /* Replace redirection signs and everything after '>' with ' ' */
 void	rm_redirection_sgn(char *line, char c)
 {
 	int	i;
 
-	if (!line)
-		return ;
 	i = 0;
 	while (line[i] != '\0')
 	{
-		if (line[i] == '\"' && ft_strchr(&line[i + 1], '\"'))
-		{
-			i++;
-			while (line[i] != '\"')
-				i++;
-		}
-		if (line[i] == '\'' && ft_strchr(&line[i + 1], '\''))
-		{
-			i++;
-			while (line[i] != '\'')
-				i++;
-		}
+		if (line[i] == '\"' && ft_strchr(&line[i + 1], '\"') && i++)
+			i = ignore_quotes(line, i, '\"');
+		if (line[i] == '\'' && ft_strchr(&line[i + 1], '\'') && i++)
+			i = ignore_quotes(line, i, '\'');
 		if (line[i] == '<')
 			line[i] = (unsigned char)c;
 		if (line[i] == '>')
@@ -65,27 +63,19 @@ static void	sig_handl(int signum, siginfo_t *info, void *unused)
 
 static void	dispatch(t_data	*d)
 {
-	int	i;
-
-	i = 0;
 	add_history(d->line);
-	d->cmd_spl_pip = ft_splitarg(d->line, '|');
-	if (!d->cmd_spl_pip || !d->cmd_spl_pip[0])
+	d->cmd = ft_splitarg(d->line, ' ');
+	if (!d->cmd || !d->cmd[0])
 		perror("No command passed");
-	while (d->cmd_spl_pip[i])
-	{
-		d->cmd = ft_splitarg(d->cmd_spl_pip[i], ' ');
-		rm_redirection_sgn(d->cmd_spl_pip[i], ' ');
-		//d->cmd_pipe = ft_split(d->line, '|');
-		expand_env(d);
-		check_line(d);
-		pipe_init(d);
-		execute(d);
-		if (d->fname_i2)
-			unlink(d->fname_i2);
-		ft_split_free(d->cmd);
-		i++;
-	}
+	rm_redirection_sgn(d->line, ' ');
+	d->cmd_pipe = ft_splitarg(d->line, '|');
+	expand_env(d);
+	check_line(d);
+	pipe_init(d);
+	execute(d);
+	if (d->fname_i2)
+		unlink(d->fname_i2);
+	ft_split_free(d->cmd);
 }
 
 static void	init_sig(void)
