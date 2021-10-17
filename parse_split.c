@@ -3,16 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   parse_split.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 08:42:05 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/16 19:38:17 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/17 11:21:55 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-size_t	ft_argcount(char const *s, char c)
+static void	handle_quot_count(const char *s, size_t *i)
+{
+	if (s[*i] == '\"' && ft_strchr(&s[*i + 1], '\"'))
+	{
+		(*i)++;
+		while (s[*i] != '\"')
+			(*i)++;
+	}
+	if (s[*i] == '\'' && ft_strchr(&s[*i + 1], '\''))
+	{
+		(*i)++;
+		while (s[*i] != '\'')
+			(*i)++;
+	}
+}
+
+static void	handle_quot_siz(char **next_str, size_t *i, size_t *next_len)
+{
+	if ((*next_str)[*i] == '\"' && ft_strchr(&(*next_str)[*i + 1], '\"'))
+	{
+		(*next_len)++;
+		(*i)++;
+		while ((*next_str)[*i] != '\"')
+		{
+			(*i)++;
+			(*next_len)++;
+		}
+	}
+	if ((*next_str)[*i] == '\'' && ft_strchr(&(*next_str)[*i + 1], '\''))
+	{
+		(*next_len)++;
+		(*i)++;
+		while ((*next_str)[*i] != '\'')
+		{
+			(*i)++;
+			(*next_len)++;
+		}
+	}
+}
+
+static size_t	ft_argcount(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -25,18 +65,7 @@ size_t	ft_argcount(char const *s, char c)
 		i++;
 	while (s[i])
 	{
-		if (s[i] == '\"' && ft_strchr(&s[i + 1], '\"'))
-		{
-			i++;
-			while (s[i] != '\"')
-				i++;
-		}
-		if (s[i] == '\'' && ft_strchr(&s[i + 1], '\''))
-		{
-			i++;
-			while (s[i] != '\'')
-				i++;
-		}
+		handle_quot_count(s, &i);
 		if (s[i] == c)
 		{
 			count++;
@@ -62,26 +91,7 @@ static void	get_nextarg(char **next_str, size_t *next_len, char c)
 		(*next_str)++;
 	while ((*next_str)[i])
 	{
-		if ((*next_str)[i] == '\"' && ft_strchr(&(*next_str)[i + 1], '\"'))
-		{
-			(*next_len)++;
-			i++;
-			while ((*next_str)[i] != '\"')
-			{
-				i++;
-				(*next_len)++;
-			}
-		}
-		if ((*next_str)[i] == '\'' && ft_strchr(&(*next_str)[i + 1], '\''))
-		{
-			(*next_len)++;
-			i++;
-			while ((*next_str)[i] != '\'')
-			{
-				i++;
-				(*next_len)++;
-			}
-		}
+		handle_quot_siz(&(*next_str), &i, next_len);
 		if ((*next_str)[i] == c)
 			return ;
 		(*next_len)++;

@@ -6,7 +6,7 @@
 #    By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 18:24:26 by ioleinik          #+#    #+#              #
-#    Updated: 2021/10/15 09:49:49 by ioleinik         ###   ########.fr        #
+#    Updated: 2021/10/17 11:22:34 by ioleinik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ LIBRARY		= libft.a
 
 MAKE		= make
 
-SRC			= main.c execute.c export.c util.c exp_arg.c \
+SRC			= main.c		execute.c export.c util.c exp_arg.c \
 			  check_io.c	check_redirection.c		check_x.c	check_line.c \
 			  ft_getenv.c	expand_env.c check_path.c is_builtin.c \
 			  cmd_x.c		cmd_out.c \
