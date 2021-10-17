@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_line.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 16:32:55 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/16 20:28:57 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/17 16:07:42 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	pipe_count(char **cmd)
 {
 	int	i;
 	int	n;
-	
+
 	n = 0;
 	i = 0;
 	while (cmd[i])

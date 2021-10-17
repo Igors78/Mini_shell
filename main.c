@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/16 20:52:34 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/17 15:45:11 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 /* Helper function to make rm_redirection_sgn() shorter */
-int ignore_quotes(char *line, int i, char c)
+int	ignore_quotes(char *line, int i, char c)
 {
 	while (line[i] != c)
 		i++;
@@ -44,23 +44,6 @@ void	rm_redirection_sgn(char *line, char c)
 	}
 }
 
-static void	sig_handl(int signum, siginfo_t *info, void *unused)
-{
-	(void)unused;
-	(void)info;
-	if (signum == SIGINT)
-	{
-		printf("\b\b  \n");
-		rl_replace_line("", 0);
-		rl_redisplay();
-		printf(GR "shell:>$ " CL);
-	}
-	else if (signum == SIGQUIT)
-	{
-		printf("\b\b  \b\b");
-	}
-}
-
 static void	dispatch(t_data	*d)
 {
 	add_history(d->line);
@@ -76,19 +59,6 @@ static void	dispatch(t_data	*d)
 	if (d->fname_i2)
 		unlink(d->fname_i2);
 	ft_split_free(d->cmd);
-}
-
-static void	init_sig(void)
-{
-	struct sigaction	sa_sig;
-
-	sa_sig.sa_flags = SA_SIGINFO;
-	sa_sig.sa_sigaction = sig_handl;
-	sigemptyset(&sa_sig.sa_mask);
-	if (sigaction(SIGINT, &sa_sig, NULL) == -1)
-		perror("SIGACTION ERROR\n");
-	if (sigaction(SIGQUIT, &sa_sig, NULL) == -1)
-		perror("SIGACTION ERROR\n");
 }
 
 int	main(int argc, char **argv, char **environ)

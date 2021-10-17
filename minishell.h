@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/16 20:27:46 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/17 14:54:04 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,10 @@ void	free_memory(t_data *d);
 char	*ft_getenv(t_data *d, char *str);
 void	check_path(t_data *d, char *cmd);
 char	**ft_splitarg(char const *s, char c);
+void	sig_handl(int signum, siginfo_t *info, void *unused);
+void	init_sig(void);
+int		chk_sing_quo(t_data *d, char **spl, int *i, char *tmp);
+int		chk_curl_br(t_data *d, char **spl, int *i, char *tmp);
 
 /* Piping and redirection */
 
