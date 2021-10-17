@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   expand_env.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:04:02 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/17 16:07:54 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/17 17:18:56 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	stick_back(char **spl, char *s)
-{
-	int		i;
-	char	*tmp;
-
-	i = 0;
-	free (s);
-	s = ft_strnew(0);
-	while (spl[i])
-	{
-		tmp = s;
-		s = ft_strjoin(tmp, spl[i]);
-		free (tmp);
-		i++;
-	}
-}
+//static void	stick_back(char **spl, char *s)
+//{
+//	int		i;
+//	char	*tmp;
+//
+//	i = 0;
+//	free (s);
+//	s = ft_strnew(0);
+//	while (spl[i])
+//	{
+//		tmp = s;
+//		s = ft_strjoin(tmp, spl[i]);
+//		free (tmp);
+//		i++;
+//	}
+//}
 
 static void	expand_dbl_quot(t_data *d, char *s)
 {
@@ -46,44 +46,43 @@ static void	expand_dbl_quot(t_data *d, char *s)
 			continue ;
 		i++;
 	}
-	stick_back(spl, s);
+	//stick_back(spl, s); <- including this breaks elements inside quotes 
 }
 
-static void	condition_statement(t_data *d, int *i)
+static void	condition_statement(t_data *d, char **cmd, int *i)
 {
 	char	*tmp;
 
-	if (d->cmd[*i][0] == '\'' && d->cmd[*i][ft_strlen(d->cmd[*i]) - 1] == '\'')
+	if (cmd[*i][0] == '\'' && cmd[*i][ft_strlen(cmd[*i]) - 1] == '\'')
 		return ;
-	else if (d->cmd[*i][0] == '\"'
-		&& d->cmd[*i][ft_strlen(d->cmd[*i]) - 1] == '\"')
-		expand_dbl_quot(d, d->cmd[*i]);
-	else if (d->cmd[*i][0] == '$')
+	else if (cmd[*i][0] == '\"'
+		&& cmd[*i][ft_strlen(cmd[*i]) - 1] == '\"')
+			expand_dbl_quot(d, cmd[*i]);
+	else if (cmd[*i][0] == '$')
 	{
-		if (d->cmd[*i][1] == '{'
-				&& d->cmd[*i][ft_strlen(d->cmd[*i]) - 1] == '}')
+		if (cmd[*i][1] == '{'
+				&& cmd[*i][ft_strlen(cmd[*i]) - 1] == '}')
 		{
-			d->cmd[*i][ft_strlen(d->cmd[*i]) - 1] = '\0';
-			tmp = ft_getenv(d, &d->cmd[*i][2]);
+			cmd[*i][ft_strlen(cmd[*i]) - 1] = '\0';
+			tmp = ft_getenv(d, &cmd[*i][2]);
 		}
 		else
-			tmp = ft_getenv(d, &d->cmd[*i][1]);
+			tmp = ft_getenv(d, &cmd[*i][1]);
 		if (!tmp)
 			return ;
-		free(d->cmd[*i]);
-		d->cmd[*i] = ft_strdup(tmp);
+		free(cmd[*i]);
+		cmd[*i] = ft_strdup(tmp);
 	}
 }
 
-void	expand_env(t_data *d)
+void	expand_env(t_data *d, char **cmd)
 {
 	int		i;
 
 	i = 0;
-	while (d->cmd[i])
+	while (cmd[i])
 	{
-		condition_statement(d, &i);
-		printf("%s debug\n", d->cmd[i]);
+		condition_statement(d, cmd, &i);
 		i++;
 	}
 }

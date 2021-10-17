@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/17 15:45:11 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/17 16:29:20 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ static void	dispatch(t_data	*d)
 	if (!d->cmd || !d->cmd[0])
 		perror("No command passed");
 	rm_redirection_sgn(d->line, ' ');
+	//expand_env(d);
 	d->cmd_pipe = ft_splitarg(d->line, '|');
-	expand_env(d);
 	check_line(d);
 	pipe_init(d);
 	execute(d);

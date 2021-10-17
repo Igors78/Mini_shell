@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/17 14:54:04 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/17 16:28:37 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	init_data(t_data *d);
 void	execute(t_data *d);
 void	ft_exit(t_data *d);
 void	ft_env(t_data *d);
-void	expand_env(t_data *d);
+void	expand_env(t_data *d, char **cmd);
 void	ft_export(t_data *d);
 char	**ft_strarrdup(char **src);
 int		ft_strarrlen(char **src);
