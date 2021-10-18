@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 21:46:05 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/11 14:48:20 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/18 15:13:50 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	pipe_end(t_data *d)
 	int	i;
 
 	i = 0;
+	status = 0;
     while (i < 2 * d->n_pipe)
 	{
         close(d->fd_pipe[i]);
@@ -29,6 +30,7 @@ void	pipe_end(t_data *d)
 		wait(&status);
 		i++;
 	}
+	d->exit_status = WEXITSTATUS(status);
 	if (d->fd_io[1] != STDOUT_FILENO)
 		close(d->fd_io[1]);
 }

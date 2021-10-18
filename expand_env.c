@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:04:02 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/18 13:22:23 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/18 15:38:50 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ static void	condition_statement(t_data *d, char **cmd, int *i)
 			cmd[*i][ft_strlen(cmd[*i]) - 1] = '\0';
 			tmp = ft_getenv(d, &cmd[*i][2]);
 		}
+		else if (cmd[*i][1] == '?' && !cmd[*i][2])
+			tmp = ft_itoa(d->exit_status);
 		else
 			tmp = ft_getenv(d, &cmd[*i][1]);
 		if (!tmp)

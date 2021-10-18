@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/18 10:17:27 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/18 15:13:05 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_data
 	int					fd_io[2];	// file descriptors for input/output
 	int					*fd_pipe;	// file descriptors for pipes
 	int					*pos_pipe;	// array holding the positions of pipes
+	int					exit_status;
 }				t_data;
 
 void	init_data(t_data *d);

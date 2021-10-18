@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 16:44:51 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/11 16:45:10 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/18 18:04:41 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	init_data(t_data *d)
 	d->pos_x = 0;
 	d->isjoined_i = 0;
 	d->isjoined_o = 0;
+	d->exit_status = 0; // (!) assuming minishell does not inherit the exit code from the environment
 	d->fd_io[0] = STDIN_FILENO;
 	d->fd_io[1] = STDOUT_FILENO;
 }

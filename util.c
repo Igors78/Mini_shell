@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:50:54 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/18 10:25:47 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/18 15:59:17 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	chk_sing_quo(t_data *d, char **spl, int *i)
 			spl[*i][ft_strlen(spl[*i]) - 2] = '\0';
 			tmp = ft_getenv(d, &spl[*i][3]);
 		}
+		else if (spl[*i][2] == '?' && spl[*i][3] == '\'')
+			tmp = ft_itoa(d->exit_status);
 		else
 		{
 			spl[*i][ft_strlen(spl[*i]) - 1] = '\0';
@@ -49,6 +51,8 @@ void	chk_curl_br(t_data *d, char **spl, int *i)
 			spl[*i][ft_strlen(spl[*i]) - 1] = '\0';
 			tmp = ft_getenv(d, &spl[*i][2]);
 		}
+		else if (spl[*i][1] == '?')
+			tmp = ft_itoa(d->exit_status);
 		else
 			tmp = ft_getenv(d, &spl[*i][1]);
 		if (!tmp)
