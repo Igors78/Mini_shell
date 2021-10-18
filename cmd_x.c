@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_x.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:44:38 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/17 17:18:02 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/18 09:31:22 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	cmd_exec(t_data *d, int i)
 {
 	char	**cmd_split;
 
-	cmd_split = ft_split(d->cmd_pipe[i], ' ');
+	cmd_split = ft_splitarg(d->cmd_pipe[i], ' ');
 	if (i == 0)
 		cmd_move_x(cmd_split, d);
 	expand_env(d, cmd_split);
@@ -101,7 +101,7 @@ void	cmd_x(t_data *d)
 			cmd_out(d);
 			cmd_link_next(d, i, j);
 			cmd_exec(d, i);
-		} 
+		}
 		else if (d->pid < 0)
 			fork_failed(d);
 		i++;
