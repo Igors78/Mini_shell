@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   expand_env.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:04:02 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/18 10:57:51 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/18 13:22:23 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	stick_back(char **spl, char *s)
+static char	*stick_back(char **spl, char *s)
 {
 	int		i;
 	char	*tmp;
@@ -39,10 +39,11 @@ static void	stick_back(char **spl, char *s)
 	free (s);
 	s = ft_strdup(tmp);
 	free(tmp);
-	printf("%s\n", s);
+	//printf("[debug] CHECK: %s\n", s);
+	return (s);
 }
 
-static void	expand_dbl_quot(t_data *d, char *s)
+static char	*expand_dbl_quot(t_data *d, char *s)
 {
 	int		i;
 	char	**spl;
@@ -57,7 +58,8 @@ static void	expand_dbl_quot(t_data *d, char *s)
 		i++;
 	}
 	//put_strarr(spl);
-	stick_back(spl, s);
+	s = stick_back(spl, s);
+	return (s);
 }
 
 static void	condition_statement(t_data *d, char **cmd, int *i)
@@ -69,8 +71,9 @@ static void	condition_statement(t_data *d, char **cmd, int *i)
 	else if (cmd[*i][0] == '\"'
 		&& cmd[*i][ft_strlen(cmd[*i]) - 1] == '\"')
 	{
-		expand_dbl_quot(d, cmd[*i]);
-		printf("debug %s\n", cmd[*i]);
+		//printf("[debug] EXPANDING DOUBLE QUOTES FOR: %s\n", cmd[*i]);
+		cmd[*i] = expand_dbl_quot(d, cmd[*i]);
+		//printf("[debug] CHECK: %s\n", cmd[*i]);
 	}
 	else if (cmd[*i][0] == '$')
 	{

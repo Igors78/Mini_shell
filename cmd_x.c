@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_x.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:44:38 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/18 09:31:22 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/18 12:51:11 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ static void	cmd_exec(t_data *d, int i)
 		cmd_move_x(cmd_split, d);
 	expand_env(d, cmd_split);
 	/* debug */
-	int k = 0;
-	while (cmd_split[k])
-	{
-		printf("[debug] cmd_split[%d][%d]: %s\n", i, k, cmd_split[k]);
-		k++;
-	}
+	//int k = 0;
+	//while (cmd_split[k])
+	//{
+	//	printf("[debug] cmd_split[%d][%d]: %s\n", i, k, cmd_split[k]);
+	//	k++;
+	//}
 	/* /debug */
 	if (ft_strchr(cmd_split[0], '/'))
 	{
