@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 11:40:34 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/17 11:42:08 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/19 15:03:08 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	sig_handl(int signum, siginfo_t *info, void *unused)
 	{
 		printf("\b\b  \n");
 		rl_replace_line("", 0);
-		rl_redisplay();
 		printf(GR "shell:>$ " CL);
 	}
 	else if (signum == SIGQUIT)

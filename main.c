@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/17 16:29:20 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/19 13:45:35 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,12 @@ int	main(int argc, char **argv, char **environ)
 	(void)argv;
 	d.envv = ft_strarrdup(environ);
 	d.line = NULL;
-	init_sig();
 	while (1)
 	{
+		init_data(&d);
 		d.line = readline(GR "shell:>$ " CL);
 		if (!d.line)
 			ft_exit(&d);
-		init_data(&d);
 		if (!d.line[0])
 			continue ;
 		else

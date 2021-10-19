@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 16:44:51 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/18 18:04:41 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/19 09:09:24 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	init_data(t_data *d)
 {
+	init_sig();
 	d->path = NULL;
 	d->pid = -42;
 	d->cmd = NULL;
