@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+         #
+#    By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 18:24:26 by ioleinik          #+#    #+#              #
-#    Updated: 2021/10/17 15:38:15 by ioleinik         ###   ########.fr        #
+#    Updated: 2021/10/19 18:34:44 by mbarut           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRC			= 	main.c		execute.c				export.c		util.c \
 			check_io.c	check_redirection.c		check_x.c		check_line.c \
 			ft_getenv.c	expand_env.c 			check_path.c 	is_builtin.c \
 			cmd_x.c		cmd_out.c \
-			pipe.c		error.c							
+			pipe.c		error.c	\
+			check_env.c						
 
 OBJ			= ${SRC:.c=.o}
 

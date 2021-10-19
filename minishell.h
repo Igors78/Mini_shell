@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/18 15:13:05 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/19 19:31:43 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,7 @@ void	x_access_failed(t_data *d);
 
 void	cmd_x(t_data *d);
 void	cmd_out(t_data *d);
+
+char	*check_env(t_data *d, char *s);
 
 #endif

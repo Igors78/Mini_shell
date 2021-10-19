@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_x.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:44:38 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/19 13:31:19 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/19 18:23:17 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 /* Move the executable file to the first position in the string array if it is not in the first position */
-void	cmd_move_x(char **cmd, t_data *d)
+void	cmd_move_x(t_data *d, char **cmd)
 {
 	char	*tmp;
 
@@ -31,7 +31,7 @@ static void	cmd_exec(t_data *d, int i)
 
 	cmd_split = ft_splitarg(d->cmd_pipe[i], ' ');
 	if (i == 0)
-		cmd_move_x(cmd_split, d);
+		cmd_move_x(d, cmd_split);
 	expand_env(d, cmd_split);
 	/* debug */
 	//int k = 0;

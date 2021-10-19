@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:29:01 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/12 10:54:54 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/19 19:55:08 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,20 @@ void	get_pipe_pos(t_data *d)
 /* Check if the executable file is accessible */
 void	try_access_x(t_data *d)
 {
+	char	*x;
+
 	if (is_builtin(d))
 		return ;
-	if (ft_strchr(d->cmd[d->pos_x], '/'))
+	x = d->cmd[d->pos_x];
+	x = check_env(d, x);
+	if (ft_strchr(x, '/'))
 	{
-		if (access(d->cmd[d->pos_x], X_OK) != 0)
+		if (access(x, X_OK) != 0)
 			x_access_failed(d);
 	}
 	else
 	{
-		check_path(d, d->cmd[d->pos_x]);
+		check_path(d, x);
 		if (!d->path)
 			return ;
 		if (access(d->path, X_OK) != 0)

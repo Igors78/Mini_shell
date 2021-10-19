@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:15:40 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/16 20:41:24 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/19 19:33:43 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,15 +75,19 @@ static char	**ft_unset(char **arr, int index)
 
 void	execute(t_data *d)
 {
-	if (ft_strcmp(d->cmd[0], "exit") == 0 && ft_strlen(d->cmd[0]) == 4)
+	char	*x;
+
+	x = d->cmd[0];
+	x = check_env(d, x);
+	if (ft_strcmp(x, "exit") == 0 && ft_strlen(x) == 4)
 		ft_exit(d);
-	else if (ft_strcmp(d->cmd[0], "cd") == 0 && ft_strlen(d->cmd[0]) == 2)
+	else if (ft_strcmp(x, "cd") == 0 && ft_strlen(x) == 2)
 		ft_cd(d);
-	else if (ft_strcmp(d->cmd[0], "export") == 0
-		&& ft_strlen(d->cmd[0]) == 6)
+	else if (ft_strcmp(x, "export") == 0
+		&& ft_strlen(x) == 6)
 		ft_export(d);
-	else if (ft_strcmp(d->cmd[0], "unset") == 0
-		&& ft_strlen(d->cmd[0]) == 5)
+	else if (ft_strcmp(x, "unset") == 0
+		&& ft_strlen(x) == 5)
 	{
 		if (!d->cmd[1])
 			return ;
