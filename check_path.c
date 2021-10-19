@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_path.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 13:48:39 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/16 20:38:59 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/19 13:31:52 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	check_path(t_data *d, char *cmd)
 		else
 			free(check);
 	}
-	printf("%s: command not found\n", cmd);
+	if (d->pid == 0)
+		printf("%s: command not found\n", cmd);
 	ft_split_free(split_path);
 }
