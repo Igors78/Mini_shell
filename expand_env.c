@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_env.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:04:02 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/19 20:01:33 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/22 11:06:31 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	expand_env(t_data *d, char **cmd)
 	while (cmd[i])
 	{
 		cmd[i] = check_env(d, cmd[i]);
+		cmd[i] = trim_quot(cmd[i]);
 		i++;
 	}
 }

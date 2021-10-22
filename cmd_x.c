@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_x.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:44:38 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/19 18:23:17 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/22 10:54:59 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ static void	cmd_link_next(t_data *d, int i, int j)
 	{
 		if (dup2(d->fd_pipe[j - 2], 0) < 0)
 		{
-		    perror("dup2() failed");
-		    exit(EXIT_FAILURE);
+			perror("dup2() failed");
+			exit(EXIT_FAILURE);
 		}
 	}
 	i = 0;
