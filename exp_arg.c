@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 07:26:37 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/22 10:50:15 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/22 15:31:02 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,10 @@ void	ft_exportarg(t_data *d)
 	int		i;
 
 	i = 1;
-	while (d->cmd[i])
+	while (d->cmd[i] && ft_strcmp(d->cmd[i], "|") != 0)
 	{
 		d->cmd[i] = trim_exp_dbl_quot(d->cmd[i]);
-		//printf("%s\n", d->cmd[i]);
+		printf("%s\n", d->cmd[i]);
 		if (!ft_strchr(d->cmd[i], '='))
 			return ;
 		if (search_var(d, i) < 0)
