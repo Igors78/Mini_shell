@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 14:27:45 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/19 19:37:18 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/22 23:20:23 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,17 @@
 void	cmd_out_redirect(t_data *d)
 {
 	if (d->fd_io[1] == -1)
-		open_failed();
-	if ((d->file_o == 1 || d->file_o2 == 1) 
-		&& dup2(d->fd_io[1], STDOUT_FILENO) == -1)
+		open_failed(d);
+	if (d->file_o == 1 || d->file_o2 == 1)
 	{
-		perror("dup2() failed");
-		exit(EXIT_FAILURE);
+		if (!d->flag_builtin && dup2(d->fd_io[1], STDOUT_FILENO) == -1)
+			dup_failed(d);
+		else
+		{
+			d->saved_stdout = dup(STDOUT_FILENO);
+			if (d->saved_stdout < 0 || dup2(d->fd_io[1], STDOUT_FILENO) == -1)
+				dup_failed(d);
+		}
 	}
 }
 

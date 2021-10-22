@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:15:40 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/22 15:44:47 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/22 20:21:38 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ void	execute(t_data *d)
 		ft_exit(d);
 	else if (ft_strcmp(x, "cd") == 0 && ft_strlen(x) == 2)
 		ft_cd(d);
-	else if (ft_strcmp(x, "export") == 0
-		&& ft_strlen(x) == 6)
-		ft_export(d);
+//	else if (ft_strcmp(x, "export") == 0
+//		&& ft_strlen(x) == 6)
+//		ft_export(d);
 	else if (ft_strcmp(x, "unset") == 0
 		&& ft_strlen(x) == 5)
 	{

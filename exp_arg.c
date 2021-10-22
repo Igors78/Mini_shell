@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   exp_arg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 07:26:37 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/22 15:31:02 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/22 22:29:58 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static int	search_var(t_data *d, int k)
+static int	search_var(t_data *d, char **args, int k)
 {
 	int		i;
 	char	*arg_tmp;
 	char	*env_tmp;
 
-	arg_tmp = ft_strdup(d->cmd[k]);
+	arg_tmp = ft_strdup(args[k]);
 	*(ft_strchr(arg_tmp, '=')) = '\0';
 	i = 0;
 	while (d->envv[i])
@@ -89,21 +89,21 @@ static char	*trim_exp_dbl_quot(char *s)
 	return (s);
 }
 
-void	ft_exportarg(t_data *d)
+void	ft_exportarg(t_data *d, char **args)
 {
 	int		i;
 
 	i = 1;
-	while (d->cmd[i] && ft_strcmp(d->cmd[i], "|") != 0)
+	while (args[i])
 	{
-		d->cmd[i] = trim_exp_dbl_quot(d->cmd[i]);
-		printf("%s\n", d->cmd[i]);
-		if (!ft_strchr(d->cmd[i], '='))
+		args[i] = trim_exp_dbl_quot(args[i]);
+		// printf("%s\n", args[i]);
+		if (!ft_strchr(args[i], '='))
 			return ;
-		if (search_var(d, i) < 0)
-			d->envv = ft_addstrstrarr(d->envv, d->cmd[i]);
+		if (search_var(d, args, i) < 0)
+			d->envv = ft_addstrstrarr(d->envv, args[i]);
 		else
-			replace_str(d->envv, search_var(d, i), d->cmd[i]);
+			replace_str(d->envv, search_var(d, args, i), args[i]);
 		i++;
 	}
 }

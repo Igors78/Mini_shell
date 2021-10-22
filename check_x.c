@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:29:01 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/19 19:55:08 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/22 20:08:18 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void	try_access_x(t_data *d)
 {
 	char	*x;
 
-	if (is_builtin(d))
-		return ;
 	x = d->cmd[d->pos_x];
 	x = check_env(d, x);
+	if (is_builtin(x))
+		return ;
 	if (ft_strchr(x, '/'))
 	{
 		if (access(x, X_OK) != 0)

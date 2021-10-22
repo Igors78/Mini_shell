@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:10:01 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/22 15:40:59 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/22 21:58:49 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,20 +85,21 @@ static int	check_exportarg(char *s)
 	return (0);
 }
 
-void	ft_export(t_data *d)
+void	ft_export(t_data *d, char **args)
 {
-	if (d->cmd[1] == NULL)
+	if (args[1] == NULL)
 	{
 		sort_print(d);
 		d->exit_status = 0;
+		return ;
 	}
 	else
 	{
-		if (check_exportarg(d->cmd[1]))
+		if (check_exportarg(args[1]))
 		{
 			d->exit_status = 1;
 			return ;
 		}
-		ft_exportarg(d);
+		ft_exportarg(d, args);
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_x.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:44:38 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/22 10:54:59 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/22 22:30:58 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,35 +27,41 @@ void	cmd_move_x(t_data *d, char **cmd)
 
 static void	cmd_exec(t_data *d, int i)
 {
-	char	**cmd_split;
+	char	**args;
 
-	cmd_split = ft_splitarg(d->cmd_pipe[i], ' ');
+	args = ft_splitarg(d->cmd_pipe[i], ' ');
 	if (i == 0)
-		cmd_move_x(d, cmd_split);
-	expand_env(d, cmd_split);
+		cmd_move_x(d, args);
+	expand_env(d, args);
 	/* debug */
 	//int k = 0;
-	//while (cmd_split[k])
+	//while (args[k])
 	//{
-	//	printf("[debug] cmd_split[%d][%d]: %s\n", i, k, cmd_split[k]);
+	//	printf("[debug] args[%d][%d]: %s\n", i, k, args[k]);
 	//	k++;
 	//}
 	/* /debug */
-	if (ft_strchr(cmd_split[0], '/'))
+	if (ft_strchr(args[0], '/'))
 	{
-		if (execve(cmd_split[0], cmd_split, d->envv) == -1)
+		if (execve(args[0], args, d->envv) == -1)
 		{
-			perror(cmd_split[0]);
-			ft_split_free(cmd_split);
+			perror(args[0]);
+			ft_split_free(args);
 			exit(EXIT_FAILURE);
 		}
 	}
+	else if (is_builtin(args[0]))
+	{
+		if (ft_strcmp(args[0], "export") == 0
+			&& ft_strlen(args[0]) == 6)
+			ft_export(d, args);
+	}
 	else
 	{
-		check_path(d, cmd_split[0]);
+		check_path(d, args[0]);
 		if (!d->path)
 			return ;
-		if (execve(d->path, cmd_split, d->envv) == -1)
+		if (execve(d->path, args, d->envv) == -1)
 			perror("execve() failed");
 	}
 }
@@ -86,6 +92,21 @@ static void	cmd_link_next(t_data *d, int i, int j)
 	}
 }
 
+void	check_fork(t_data *d, int i)
+{
+	char	**args;
+
+	args = ft_splitarg(d->cmd_pipe[i], ' ');
+	if (i == 0)
+		cmd_move_x(d, args);
+	expand_env(d, args);
+	if (!is_builtin(args[0]))
+		d->pid = fork();
+	else
+		d->flag_builtin = 1;
+	free(args);
+}
+
 void	cmd_x(t_data *d)
 {
 	int		i;
@@ -95,8 +116,8 @@ void	cmd_x(t_data *d)
 	j = 0;
 	while (d->cmd_pipe[i] && d->fvalid && d->xvalid)
 	{
-		d->pid = fork();
-		if (d->pid == 0)
+		check_fork(d, i);
+		if (!d->pid || d->flag_builtin)
 		{
 			cmd_out(d);
 			cmd_link_next(d, i, j);
@@ -107,5 +128,4 @@ void	cmd_x(t_data *d)
 		i++;
 		j += 2;
 	}
-	pipe_end(d);
 }

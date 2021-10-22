@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 16:44:51 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/19 09:09:24 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/22 23:03:42 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,6 @@ void	init_data(t_data *d)
 	d->exit_status = 0; // (!) assuming minishell does not inherit the exit code from the environment
 	d->fd_io[0] = STDIN_FILENO;
 	d->fd_io[1] = STDOUT_FILENO;
+	d->flag_builtin = 0;
+	d->saved_stdout = 0;
 }
