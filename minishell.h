@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/19 19:31:43 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/22 09:42:06 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	init_sig(void);
 void	chk_sing_quo(t_data *d, char **spl, int *i);
 void	chk_curl_br(t_data *d, char **spl, int *i);
 void	put_strarr(char **arr);
+char	*trim_quot(char *s);
 
 /* Piping and redirection */
 

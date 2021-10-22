@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:50:54 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/18 15:59:17 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/22 10:30:46 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,29 @@ void	put_strarr(char **arr)
 		printf("%s\n", arr[i]);
 		i++;
 	}
+}
+
+char	*trim_quot(char *s)
+{
+	char	*tmp;
+
+	if (s[0] == '\'' && s[ft_strlen(s) - 1] == '\'')
+	{
+		s[ft_strlen(s) - 1] = '\0';
+		tmp = ft_strdup(&s[1]);
+		free(s);
+		s = tmp;
+		free(tmp);
+		return (s);
+	}
+	if (s[0] == '\"' && s[ft_strlen(s) - 1] == '\"')
+	{
+		s[ft_strlen(s) - 1] = '\0';
+		tmp = ft_strdup(&s[1]);
+		free(s);
+		s = tmp;
+		free(tmp);
+		return (s);
+	}
+	return (s);
 }
