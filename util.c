@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:50:54 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/22 10:30:46 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/22 11:05:46 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,18 +94,14 @@ char	*trim_quot(char *s)
 		s[ft_strlen(s) - 1] = '\0';
 		tmp = ft_strdup(&s[1]);
 		free(s);
-		s = tmp;
-		free(tmp);
-		return (s);
+		return (tmp);
 	}
-	if (s[0] == '\"' && s[ft_strlen(s) - 1] == '\"')
+	else if (s[0] == '\"' && s[ft_strlen(s) - 1] == '\"')
 	{
 		s[ft_strlen(s) - 1] = '\0';
 		tmp = ft_strdup(&s[1]);
 		free(s);
-		s = tmp;
-		free(tmp);
-		return (s);
+		return (tmp);
 	}
 	return (s);
 }
