@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/22 23:22:44 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/22 23:38:21 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ static void	dispatch(t_data	*d)
 	pipe_end(d);
 	if (d->fname_i2)
 		unlink(d->fname_i2);
+	ft_split_free(d->cmd);
 }
 
 int	main(int argc, char **argv, char **environ)
@@ -86,6 +87,7 @@ int	main(int argc, char **argv, char **environ)
 				dup2(d.saved_stdout, STDOUT_FILENO);
 				close(d.saved_stdout);
 			}
+			free(d.line);
 		}
 	}
 	free_memory(&d);
