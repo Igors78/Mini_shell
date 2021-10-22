@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:15:40 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/19 19:33:43 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/22 15:44:47 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,20 @@ void	execute(t_data *d)
 		&& ft_strlen(x) == 5)
 	{
 		if (!d->cmd[1])
+		{
+			d->exit_status = 1;
 			return ;
+		}
 		if (find_unset(d) > 0)
+		{
 			d->envv = ft_unset(d->envv, find_unset(d));
+			d->exit_status = 0;
+		}
 		else
+		{
+			d->exit_status = 1;
 			return ;
+		}
 	}
 	else
 		cmd_x(d);
