@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 10:47:11 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/23 11:19:41 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/23 17:23:17 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,9 @@ char	*parse_env(t_data *d, char *s)
 		return (tmp);
 	}
 	else
+	{
+		if (!(ft_strchr(s, '$')))
+			return (s);
 		return (expan_doll(d, s));
+	}
 }
