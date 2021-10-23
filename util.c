@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:50:54 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/23 17:17:01 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/23 18:21:02 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,28 @@ char	*chk_sing_quo(t_data *d, char *s)
 
 char	*chk_exp(t_data *d, char *s)
 {
-	(void)d;
-	(void)s;
-	return (NULL);
+	int		i;
+	char	**spl;
+	char	*tmp;
+
+	i = 0;
+	spl = ft_split(s, ' ');
+	while (spl[i])
+	{
+		if (spl[i][0] == '\'' && spl[i][ft_strlen(spl[i]) - 1] == '\'')
+		{
+			spl[i][ft_strlen(spl[i]) - 1] = '\0';
+			spl[i] = parse_env(d, &spl[i][1]);
+			tmp = ft_strjoin("\'", spl[i]);
+			spl[i] = ft_strjoin(tmp, "\'");
+			free(tmp);
+		}
+		else
+			spl[i] = parse_env(d, spl[i]);
+		i++;
+	}
+	s = glue_back(spl);
+	return (s);
 }
 
 void	free_memory(t_data *d)

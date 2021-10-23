@@ -6,11 +6,39 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:24:40 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/23 17:18:24 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/23 18:20:57 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+char	*glue_back(char **spl)
+{
+	int		i;
+	char	*tmp;
+	char	*s;
+
+	i = 0;
+	s = ft_strdup("\"");
+	while (spl[i])
+	{
+		tmp = ft_strjoin(s, spl[i]);
+		free (s);
+		s = ft_strdup(tmp);
+		free(tmp);
+		if (i != (ft_strarrlen(spl) - 1))
+		{
+			tmp = ft_strjoin(s, " ");
+			free (s);
+			s = ft_strdup(tmp);
+			free(tmp);
+		}
+		i++;
+	}
+	tmp = ft_strjoin(s, "\"");
+	free (s);
+	return (tmp);
+}
 
 char	*stick_back(char **spl)
 {

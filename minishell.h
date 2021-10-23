@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/23 16:56:44 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/23 18:11:48 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,6 @@ void	cmd_out(t_data *d);
 char	*check_env(t_data *d, char *s);
 char	*parse_env(t_data *d, char *s);
 char	*stick_back(char **spl);
+char	*glue_back(char **spl);
 
 #endif
