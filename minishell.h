@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/23 10:49:19 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/23 18:11:48 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ void	check_path(t_data *d, char *cmd);
 char	**ft_splitarg(char const *s, char c);
 void	sig_handl(int signum, siginfo_t *info, void *unused);
 void	init_sig(void);
-void	chk_sing_quo(t_data *d, char **spl, int *i);
-void	chk_curl_br(t_data *d, char **spl, int *i);
+char	*chk_sing_quo(t_data *d, char *s);
+char	*chk_exp(t_data *d, char *s);
 void	put_strarr(char **arr);
 char	*trim_quot(char *s);
 
@@ -116,5 +116,7 @@ void	cmd_out(t_data *d);
 
 char	*check_env(t_data *d, char *s);
 char	*parse_env(t_data *d, char *s);
+char	*stick_back(char **spl);
+char	*glue_back(char **spl);
 
 #endif
