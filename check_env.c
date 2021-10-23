@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_env.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:24:40 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/19 20:09:39 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/22 16:39:03 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ static char	*stick_back(char **spl, char *s)
 	}
 	tmp = ft_strjoin(s, "\"");
 	free (s);
-	s = ft_strdup(tmp);
-	free(tmp);
-	return (s);
+	return (tmp);
 }
 
 static char	*expand_dbl_quot(t_data *d, char *s)
