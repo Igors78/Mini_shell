@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:24:40 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/22 16:39:03 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/23 10:51:32 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,29 +61,13 @@ static char	*expand_dbl_quot(t_data *d, char *s)
 
 char	*check_env(t_data *d, char *s)
 {
-	char	*tmp;
-
 	if (!s)
 		return (NULL);
 	if (s[0] == '\'' && s[ft_strlen(s) - 1] == '\'')
 		return (s);
 	else if (s[0] == '\"' && s[ft_strlen(s) - 1] == '\"')
 		s = expand_dbl_quot(d, s);
-	else if (s[0] == '$')
-	{
-		if (s[1] == '{' && s[ft_strlen(s) - 1] == '}')
-		{
-			s[ft_strlen(s) - 1] = '\0';
-			tmp = ft_getenv(d, &s[2]);
-		}
-		else if (s[1] == '?' && !s[2])
-			tmp = ft_itoa(d->exit_status);
-		else
-			tmp = ft_getenv(d, &s[1]);
-		if (!tmp)
-			return (s);
-		free(s);
-		s = ft_strdup(tmp);
-	}
+	else if (ft_strchr(s, '$'))
+		s = parse_env(d, s);
 	return (s);
 }
