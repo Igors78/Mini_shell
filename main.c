@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/24 09:06:13 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/24 13:39:32 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,12 @@ static void	dispatch(t_data	*d)
 	ft_split_free(d->cmd);
 }
 
-int	main(int argc, char **argv, char **environ)
+int	main(void)
 {
-	t_data	d;
+	t_data		d;
+	extern char	**environ;
 
-	(void)argc;
-	(void)argv;
 	d.envv = ft_strarrdup(environ);
-	d.line = NULL;
 	while (1)
 	{
 		init_data(&d);
@@ -90,6 +88,5 @@ int	main(int argc, char **argv, char **environ)
 			free(d.line);
 		}
 	}
-	free_memory(&d);
 	return (0);
 }

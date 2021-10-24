@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:15:40 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/24 09:14:39 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/24 13:35:15 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_exit(t_data *d)
 	char	*tmp;
 	int		ret;
 
-	if (d->cmd[1])
+	if (d->cmd && d->cmd[1])
 	{
 		tmp = d->cmd[1];
 		ret = ft_atoi(tmp);
