@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:15:40 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/22 20:21:38 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/24 09:14:39 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,19 @@
 
 void	ft_exit(t_data *d)
 {
-	(void)d;
-	//free_memory(d); <- causes double free error with ctrl+d
-	exit (0);
+	char	*tmp;
+	int		ret;
+
+	if (d->cmd[1])
+	{
+		tmp = d->cmd[1];
+		ret = ft_atoi(tmp);
+		exit (ret);
+	}
+	else
+	{
+		exit (0);
+	}
 }
 
 static void	ft_cd(t_data *d)
