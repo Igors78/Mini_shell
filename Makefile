@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+         #
+#    By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 18:24:26 by ioleinik          #+#    #+#              #
-#    Updated: 2021/10/23 10:47:02 by ioleinik         ###   ########.fr        #
+#    Updated: 2021/10/24 13:10:56 by mbarut           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,11 @@ MAKE		= make
 
 SRC			= 	main.c		execute.c				export.c		util.c \
 				exp_arg.c	signal.c 				init.c			parse_split.c \
-			check_io.c	check_redirection.c		check_x.c		check_line.c \
-			ft_getenv.c	expand_env.c 			check_path.c 	is_builtin.c \
-			cmd_x.c		cmd_out.c \
-			pipe.c		error.c	\
-			check_env.c	parse_env.c					
+				handle_input.c	handle_output.c	handle_fork.c handle_exec.c handle_pipe.c handle_builtins.c \
+				ft_getenv.c	expand_env.c 			check_path.c 	is_builtin.c \
+				ft_split_utils.c \
+				pipe.c		error.c	\
+				check_env.c	parse_env.c					
 
 OBJ			= ${SRC:.c=.o}
 

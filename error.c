@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 15:28:46 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/22 23:21:18 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/24 13:22:03 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,35 @@ void	fork_failed(t_data *d)
 
 void	open_failed(t_data *d)
 {
-	perror("open() failed for output file");
+	perror("open() failed");
 	if (!d->flag_builtin)
 		exit(EXIT_FAILURE);
 	else
 		return ;
 }
 
-void	x_access_failed(t_data *d)
-{
-	d->xvalid = 0;
-	d->pos_x = -1;
-	perror("error finding the provided command");
-	return ;
-}
-
 void	dup_failed(t_data *d)
 {
 	perror("dup2() failed");
+	if (!d->flag_builtin)
+		exit(EXIT_FAILURE);
+	else
+		return ;
+}
+
+void	pipe_failed(t_data *d)
+{
+	perror("pipe() failed");
+	free(d->fd_pipe);
+	if (!d->flag_builtin)
+		exit(EXIT_FAILURE);
+	else
+		return ;
+}
+
+void	write_failed(t_data *d)
+{
+	perror("write() failed");
 	if (!d->flag_builtin)
 		exit(EXIT_FAILURE);
 	else

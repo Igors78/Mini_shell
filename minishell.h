@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/23 18:11:48 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/24 13:54:16 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,35 +43,22 @@ typedef struct s_data
 	char				**cmd_pipe;
 	char				*path;
 	pid_t				pid;
-	char				*tmp; 			// tmp file for the here document (<<)
-	int					n;				// number of substrings from split()
 	int					n_pipe;			// number of subtrings that are "|"
-	int 				pos_p1;			// position of the first "|" in string array
-	int					pos_p2;			// position of the last "|" in string array
-	int					pos_i;			// position of the input direction marker "<" or "<<" in string array
-	int					isjoined_i;		// >=1 if string array contains conjoined input redirection, e.g. <input or <<EOF
-	int					isjoined_o;		// >=1 if string array contains conjoined output redirection, e.g. >output or >>output
-	int					pos_o;			// position of the output direction marker ">" or ">>" in string array
-	int					pos_x;			// position of the executable command in string array. =-1 if the executable command is not accessible
 	int					file_i;			// >=1 if string array contains "<", =0 otherwise
 	int					file_o;			// >=1 if string array contains ">", =0 otherwise
 	int					file_i2;		// >=1 if string array contains "<<", =0 otherwise (see here documents)
-	char				*fname_i2;		// name of the temporary file for here documents
 	int					file_o2;		// >=1 if string array contains ">>", =0 otherwise
-	int					fvalid;			// =1 if the input/output files (if exist) are accessible =0 otherwise
-	int					xvalid;			// =1 if the executable commands (if exist) are accessible =0 otherwise
 	int					fd_io[2];		// file descriptors for input/output
 	int					*fd_pipe;		// file descriptors for pipes
 	int					*pos_pipe;		// array holding the positions of pipes
 	int					exit_status;
 	int					flag_builtin;	// if =1, spawning a new process is skipped
-	int					saved_stdout;	// it is necessary to dup() stdout to a variable when there is output redirection without fork()
+	int					saved_stdout;	// it is necessary to dup() stdout to a variable when there is output redirection without fork() (builtins)
 }				t_data;
 
 void	init_data(t_data *d);
 void	execute(t_data *d);
-void	ft_exit(t_data *d);
-void	ft_env(t_data *d);
+void	ft_exit(char **args);
 void	expand_env(t_data *d, char **cmd);
 void	ft_export(t_data *d, char **args);
 char	**ft_strarrdup(char **src);
@@ -90,29 +77,27 @@ char	*chk_exp(t_data *d, char *s);
 void	put_strarr(char **arr);
 char	*trim_quot(char *s);
 
-/* Piping and redirection */
+void	ft_split_delete_last(char **args);
+int		ft_split_move_to_back(char **args, int pos);
 
-enum	pos_pipe {
-	pipe_first,
-	pipe_last
-};
+void	handle_input(t_data *d, char **args);
+void	handle_output(t_data *d, char **args);
+void	handle_fork(t_data *d, int i);
+void	handle_exec(t_data *d, int i);
+void	handle_pipe(t_data *d, int i, int j);
+void	handle_builtins(t_data *d, char **args);
 
-void	check_redirection(t_data *d);
-void	check_io(t_data *d);
-void	check_x(t_data *d);
-void	check_line(t_data *d);
 int		is_builtin(char *cmd);
 
 void	pipe_end(t_data *d);
 void	pipe_init(t_data *d);
 
+/* error handlers */
 void	fork_failed(t_data *d);
 void	open_failed(t_data *d);
-void	x_access_failed(t_data *d);
 void	dup_failed(t_data *d);
-
-void	cmd_x(t_data *d);
-void	cmd_out(t_data *d);
+void	pipe_failed(t_data *d);
+void	write_failed(t_data *d);
 
 char	*check_env(t_data *d, char *s);
 char	*parse_env(t_data *d, char *s);

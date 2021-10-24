@@ -3,46 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/24 13:39:32 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/24 13:57:56 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-/* Helper function to make rm_redirection_sgn() shorter */
-int	ignore_quotes(char *line, int i, char c)
-{
-	while (line[i] != c)
-		i++;
-	return (i);
-}
-
-/* Replace redirection signs and everything after '>' with ' ' */
-void	rm_redirection_sgn(char *line, char c)
-{
-	int	i;
-
-	i = 0;
-	while (line[i] != '\0')
-	{
-		if (line[i] == '\"' && ft_strchr(&line[i + 1], '\"') && i++)
-			i = ignore_quotes(line, i, '\"');
-		if (line[i] == '\'' && ft_strchr(&line[i + 1], '\'') && i++)
-			i = ignore_quotes(line, i, '\'');
-		if (line[i] == '<')
-			line[i] = (unsigned char)c;
-		if (line[i] == '>')
-		{
-			while (line[i])
-				line[i++] = (unsigned char)c;
-			break ;
-		}
-		i++;
-	}
-}
 
 static void	dispatch(t_data	*d)
 {
@@ -50,14 +18,11 @@ static void	dispatch(t_data	*d)
 	d->cmd = ft_splitarg(d->line, ' ');
 	if (!d->cmd || !d->cmd[0])
 		perror("No command passed");
-	rm_redirection_sgn(d->line, ' ');
 	d->cmd_pipe = ft_splitarg(d->line, '|');
-	check_line(d);
 	pipe_init(d);
 	execute(d);
 	pipe_end(d);
-	if (d->fname_i2)
-		unlink(d->fname_i2);
+	unlink("_tmp");
 	ft_split_free(d->cmd);
 }
 
@@ -72,7 +37,7 @@ int	main(void)
 		init_data(&d);
 		d.line = readline(GR "shell:>$ " CL);
 		if (!d.line)
-			ft_exit(&d);
+			ft_exit(NULL);
 		if (!d.line[0])
 			continue ;
 		else

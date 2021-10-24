@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 21:46:05 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/18 15:13:50 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/24 13:52:09 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,28 @@ void	pipe_end(t_data *d)
 		close(d->fd_io[1]);
 }
 
+/* Count and return the number of pipes in d->cmd */
+static int	pipe_count(char **cmd)
+{
+	int	i;
+	int	n;
+
+	n = 0;
+	i = 0;
+	while (cmd[i])
+	{
+		if (ft_strncmp(cmd[i], "|", 2) == 0)
+			n++;
+		i++;
+	}
+	return (n);
+}
+
 void	pipe_init(t_data *d)
 {
 	int	i;
 
+	d->n_pipe = pipe_count(d->cmd);
 	i = 0;
 	if (d->n_pipe > 0)
 	{
@@ -46,11 +64,7 @@ void	pipe_init(t_data *d)
 		while(i < d->n_pipe)
 		{
 			if (pipe(d->fd_pipe + i * 2) < 0)
-			{
-				perror("pipe() failed");
-				free(d->fd_pipe);
-				exit(EXIT_FAILURE);
-			}
+				pipe_failed(d);
 			i++;
 		}
 	}
