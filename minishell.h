@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/24 13:54:16 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/24 21:28:54 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,7 @@ char	*check_env(t_data *d, char *s);
 char	*parse_env(t_data *d, char *s);
 char	*stick_back(char **spl);
 char	*glue_back(char **spl);
+void	ft_echo(t_data *d, char **args);
+void	ft_env(t_data *d, char **args);
 
 #endif
