@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_builtins.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 12:32:04 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/24 13:38:14 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/24 16:49:14 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,29 +100,29 @@ void	ft_unset(t_data *d, char **args)
 	}
 }
 
-void	ft_env(t_data *d, char **args)
-{
-	(void)d;
-	(void)args;
-	printf("warning: env is not yet implemented as a built-in\n");
-	return ;
-}
+// void	ft_env(t_data *d, char **args)
+// {
+// 	(void)d;
+// 	(void)args;
+// 	printf("warning: env is not yet implemented as a built-in\n");
+// 	return ;
+// }
 
-void	ft_pwd(t_data *d, char **args)
-{
-	(void)d;
-	(void)args;
-	printf("warning: pwd is not yet implemented as a built-in\n");
-	return ;
-}
+// void	ft_pwd(t_data *d, char **args)
+// {
+// 	(void)d;
+// 	(void)args;
+// 	printf("warning: pwd is not yet implemented as a built-in\n");
+// 	return ;
+// }
 
-void	ft_echo(t_data *d, char **args)
-{
-	(void)d;
-	(void)args;
-	printf("warning: echo is not yet implemented as a built-in\n");
-	return ;
-}
+// void	ft_echo(t_data *d, char **args)
+// {
+// 	(void)d;
+// 	(void)args;
+// 	printf("warning: echo is not yet implemented as a built-in\n");
+// 	return ;
+// }
 
 /* All built-ins go through here */
 void	handle_builtins(t_data *d, char **args)
@@ -131,18 +131,18 @@ void	handle_builtins(t_data *d, char **args)
 
 	x = args[0];
 	x = check_env(d, x);
-	if (ft_strcmp(x, "echo") == 0)
-		ft_echo(d, args);
-	else if (ft_strcmp(x, "cd") == 0)
+	// if (ft_strcmp(x, "echo") == 0)
+	// 	ft_echo(d, args);
+	if (ft_strcmp(x, "cd") == 0)
 		ft_cd(args);
-	else if (ft_strcmp(x, "pwd") == 0)
-		ft_pwd(d, args);
+	// else if (ft_strcmp(x, "pwd") == 0)
+	// 	ft_pwd(d, args);
 	else if (ft_strcmp(x, "export") == 0)
 		ft_export(d, args);
 	else if (ft_strcmp(x, "unset") == 0)
 		ft_unset(d, args);
-	else if (ft_strcmp(x, "env") == 0)
-		ft_env(d, args);
+	// else if (ft_strcmp(x, "env") == 0)
+	// 	ft_env(d, args);
 	else if (ft_strcmp(x, "exit") == 0)
 		ft_exit(args);
 }
