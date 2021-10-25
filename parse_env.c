@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 10:47:11 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/24 22:53:14 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/25 16:07:20 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*parse_env(t_data *d, char *s)
 		else
 			tmp = ft_getenv(d, &s[1]);
 		if (!tmp)
-			return (s = ft_strdup(""));
+			return (s);
 		return (tmp);
 	}
 	else

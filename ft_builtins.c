@@ -6,11 +6,32 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:24:10 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/25 15:24:45 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/25 16:28:47 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static int	check_n(char *s)
+{
+	int		i;
+	size_t	cnt;
+
+	i = 1;
+	cnt = 1;
+	if (s[0] == '-')
+	{
+		while (s[i])
+		{
+			if (s[i] == 'n')
+				cnt++;
+			i++;
+		}
+		if (cnt == ft_strlen(s))
+			return (1);
+	}
+	return (0);
+}
 
 void	ft_echo(t_data *d, char **args)
 {
@@ -21,7 +42,7 @@ void	ft_echo(t_data *d, char **args)
 	nl = 1;
 	while (args[i])
 	{
-		if (i == 1 && ft_strcmp(args[i], "-n") == 0 && ft_strlen(args[i]) == 2)
+		if (i == 1 && check_n(args[i]))
 		{
 			nl = 0;
 			if (args[i + 1])
