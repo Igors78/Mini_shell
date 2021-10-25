@@ -500,4 +500,4 @@
 [6]			echo hallo$'USER'
 [7]			cat working.txt | grep stuff | echo tim
 [8]			echo "$####jgklj"
-[8]			echo $####jgklj$USER
+[8]			echo $?###jgklj$USER
