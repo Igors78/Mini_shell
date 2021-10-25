@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exp_arg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 07:26:37 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/22 22:29:58 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/24 21:18:38 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ void	ft_exportarg(t_data *d, char **args)
 	while (args[i])
 	{
 		args[i] = trim_exp_dbl_quot(args[i]);
-		// printf("%s\n", args[i]);
 		if (!ft_strchr(args[i], '='))
 			return ;
 		if (search_var(d, args, i) < 0)

@@ -3,39 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   handle_builtins.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 12:32:04 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/24 13:38:14 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/25 09:57:15 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_exit(char **args)
+static void	ft_cd(t_data *d, char **args)
 {
-	char	*tmp;
-	int		ret;
-
-	if (args && args[1])
+	if (!args[1])
+		chdir(getenv("HOME"));
+	if (args[1] && chdir(args[1]) != 0)
 	{
-		tmp = args[1];
-		ret = ft_atoi(tmp);
-		exit(ret);
+		printf("Unknown path for \"cd\"\n");
+		d->exit_status = 1;
+		return ;
 	}
-	else
-		exit(EXIT_SUCCESS);
-}
-
-static void	ft_cd(char **args)
-{
-	if (NULL == args[1])
-		printf("Argument needed for \"cd\"\n");
-	else
-	{
-		if (chdir(args[1]) != 0)
-			printf("Unknown path for \"cd\"\n");
-	}
+	d->exit_status = 0;
 }
 
 static int	find_unset(t_data *d, char **args)
@@ -100,30 +87,6 @@ void	ft_unset(t_data *d, char **args)
 	}
 }
 
-void	ft_env(t_data *d, char **args)
-{
-	(void)d;
-	(void)args;
-	printf("warning: env is not yet implemented as a built-in\n");
-	return ;
-}
-
-void	ft_pwd(t_data *d, char **args)
-{
-	(void)d;
-	(void)args;
-	printf("warning: pwd is not yet implemented as a built-in\n");
-	return ;
-}
-
-void	ft_echo(t_data *d, char **args)
-{
-	(void)d;
-	(void)args;
-	printf("warning: echo is not yet implemented as a built-in\n");
-	return ;
-}
-
 /* All built-ins go through here */
 void	handle_builtins(t_data *d, char **args)
 {
@@ -133,8 +96,8 @@ void	handle_builtins(t_data *d, char **args)
 	x = check_env(d, x);
 	if (ft_strcmp(x, "echo") == 0)
 		ft_echo(d, args);
-	else if (ft_strcmp(x, "cd") == 0)
-		ft_cd(args);
+	if (ft_strcmp(x, "cd") == 0)
+		ft_cd(d, args);
 	else if (ft_strcmp(x, "pwd") == 0)
 		ft_pwd(d, args);
 	else if (ft_strcmp(x, "export") == 0)
