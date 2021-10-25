@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 12:32:04 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/25 09:57:15 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/25 15:27:29 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 static void	ft_cd(t_data *d, char **args)
 {
-	if (!args[1])
+	if (!args[1] || (args[1] && ft_strcmp(args[1], "~") == 0
+			&& ft_strlen(args[1]) == 1))
 		chdir(getenv("HOME"));
-	if (args[1] && chdir(args[1]) != 0)
+	else if (args[1] && chdir(args[1]) != 0)
 	{
-		printf("Unknown path for \"cd\"\n");
+		printf("bash: cd: %s: No such file or directory\n", args[1]);
 		d->exit_status = 1;
 		return ;
 	}
