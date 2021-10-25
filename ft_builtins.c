@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:24:10 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/25 09:51:12 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/25 15:24:45 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,6 @@ void	ft_pwd(t_data *d, char **args)
 
 	(void)args;
 	if (getcwd(cwd, sizeof(cwd)))
-	{
 		printf("%s\n", cwd);
-		d->exit_status = 0;
-	}
-	else
-		d->exit_status = 1;
+	d->exit_status = 0;
 }
