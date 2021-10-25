@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 21:46:05 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/24 13:52:09 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/25 12:39:11 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	pipe_end(t_data *d)
 		wait(&status);
 		i++;
 	}
-	d->exit_status = WEXITSTATUS(status);
+	if (!d->flag_builtin)
+		d->exit_status = WEXITSTATUS(status);
 	if (d->fd_io[1] != STDOUT_FILENO)
 		close(d->fd_io[1]);
 }
