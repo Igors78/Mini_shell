@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/24 21:28:54 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/25 09:46:13 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # include <termios.h>
 # include <curses.h>
 # include <term.h>
+# include <limits.h>
 
 # define RD	"\x1b[31m"
 # define GR	"\x1b[32m"
@@ -105,5 +106,6 @@ char	*stick_back(char **spl);
 char	*glue_back(char **spl);
 void	ft_echo(t_data *d, char **args);
 void	ft_env(t_data *d, char **args);
+void	ft_pwd(t_data *d, char **args);
 
 #endif
