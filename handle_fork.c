@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 12:50:40 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/24 12:53:03 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/26 16:04:28 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ void	handle_fork(t_data *d, int i)
 		d->pid = fork();
 	else
 		d->flag_builtin = 1;
-	free(args);
+	ft_split_free(args);
 }

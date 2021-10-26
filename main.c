@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/24 21:54:21 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/26 16:07:43 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	dispatch(t_data	*d)
 	execute(d);
 	pipe_end(d);
 	unlink("_tmp");
+	ft_split_free(d->cmd_pipe);
 	ft_split_free(d->cmd);
 }
 
