@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/25 09:46:13 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/26 19:36:53 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ typedef struct s_data
 	int					exit_status;
 	int					flag_builtin;	// if =1, spawning a new process is skipped
 	int					saved_stdout;	// it is necessary to dup() stdout to a variable when there is output redirection without fork() (builtins)
+	int					i;
+	int					q;
+	int					qq;
+	char				*buf;
 }				t_data;
 
 void	init_data(t_data *d);
