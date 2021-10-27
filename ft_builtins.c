@@ -6,7 +6,11 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:24:10 by ioleinik          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2021/10/27 17:58:00 by ioleinik         ###   ########.fr       */
+=======
+/*   Updated: 2021/10/27 16:52:37 by mbarut           ###   ########.fr       */
+>>>>>>> adc85e5fbbe0b999848a3f0daa9b1d130e1ff122
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +55,12 @@ void	ft_echo(t_data *d, char **args)
 				return ;
 		}
 		if (args[i + 1])
-			printf("%s ", args[i]);
+		{
+			ft_putstr_fd(args[i], d->fd_io[1]);
+			ft_putstr_fd(" ", d->fd_io[1]);
+		}
 		else
-			printf("%s", args[i]);
+			ft_putstr_fd(args[i], d->fd_io[1]);
 		i++;
 	}
 	if (nl == 1)
