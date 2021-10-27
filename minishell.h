@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/25 09:46:13 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/26 22:49:30 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct s_data
 	int					exit_status;
 	int					flag_builtin;	// if =1, spawning a new process is skipped
 	int					saved_stdout;	// it is necessary to dup() stdout to a variable when there is output redirection without fork() (builtins)
+	int					flag_sq;		// flag for single quotes when handling comments
+	int					flag_dq;		// flag for double quotes when handling comments
 }				t_data;
 
 void	init_data(t_data *d);
@@ -107,5 +109,7 @@ char	*glue_back(char **spl);
 void	ft_echo(t_data *d, char **args);
 void	ft_env(t_data *d, char **args);
 void	ft_pwd(t_data *d, char **args);
+
+void	handle_comments(t_data *d);
 
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+         #
+#    By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 18:24:26 by ioleinik          #+#    #+#              #
-#    Updated: 2021/10/24 21:27:22 by ioleinik         ###   ########.fr        #
+#    Updated: 2021/10/26 21:48:46 by mbarut           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ MAKE		= make
 
 SRC			= 	main.c		execute.c				export.c		util.c \
 				exp_arg.c	signal.c 				init.c			parse_split.c \
-				handle_input.c	handle_output.c	handle_fork.c handle_exec.c handle_pipe.c handle_builtins.c \
+				handle_input.c	handle_output.c	handle_fork.c handle_exec.c handle_pipe.c handle_builtins.c handle_comments.c \
 				ft_getenv.c	expand_env.c 			check_path.c 	is_builtin.c \
 				ft_split_utils.c \
 				pipe.c		error.c	\
