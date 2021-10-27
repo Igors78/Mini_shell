@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/26 19:36:53 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/27 12:44:12 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,6 @@ char	*glue_back(char **spl);
 void	ft_echo(t_data *d, char **args);
 void	ft_env(t_data *d, char **args);
 void	ft_pwd(t_data *d, char **args);
+void	handle_buck(t_data *d, char *s);
 
 #endif

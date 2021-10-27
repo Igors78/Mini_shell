@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 10:47:11 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/27 11:14:20 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/27 12:45:04 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ void	handle_q(t_data *d, char *s)
 			return ;
 		}
 		while (s[d->i] != '\'')
-		{
 			d->buf = ft_straddchar(d->buf, s[(d->i)++]);
-			printf("DEBUG %s\n", d->buf);
-		}
 		return ;
 	}
 	d->buf = ft_straddchar(d->buf, s[(d->i)++]);
@@ -63,16 +60,6 @@ void	handle_qq(t_data *d, char *s)
 	d->buf = ft_straddchar(d->buf, s[(d->i)++]);
 }
 
-void	handle_buck(t_data *d, char *s)
-{
-	if (s[d->i + 1] && s[d->i + 1] == '?')
-	{
-		d->i = d->i + 2;
-		d->buf = ft_strjoin(d->buf, ft_itoa(d->exit_status));
-		return ;
-	}
-}
-
 char	*parse_env(t_data *d, char *s)
 {
 	if (d->buf)
@@ -91,5 +78,6 @@ char	*parse_env(t_data *d, char *s)
 	}
 	d->i = 0;
 	d->q = 0;
+	d->qq = 0;
 	return (d->buf);
 }
