@@ -6,7 +6,7 @@
 #    By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 18:24:26 by ioleinik          #+#    #+#              #
-#    Updated: 2021/10/26 21:48:46 by mbarut           ###   ########.fr        #
+#    Updated: 2021/10/27 12:42:56 by ioleinik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRC			= 	main.c		execute.c				export.c		util.c \
 				ft_getenv.c	expand_env.c 			check_path.c 	is_builtin.c \
 				ft_split_utils.c \
 				pipe.c		error.c	\
-				check_env.c	parse_env.c	ft_builtins.c				
+				check_env.c	parse_env.c	ft_builtins.c handle_buck.c			
 
 OBJ			= ${SRC:.c=.o}
 

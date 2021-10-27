@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 16:44:51 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/26 23:04:43 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/26 19:37:13 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ void	init_data(t_data *d)
 	d->fd_io[1] = STDOUT_FILENO;
 	d->flag_builtin = 0;
 	d->saved_stdout = 0;
+	d->i = 0;
+	d->q = 0;
+	d->buf = NULL;
 	d->flag_sq = 0;
 	d->flag_dq = 0;
 }
