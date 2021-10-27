@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/24 21:54:21 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/26 22:47:09 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	dispatch(t_data	*d)
 	execute(d);
 	pipe_end(d);
 	unlink("_tmp");
+	ft_split_free(d->cmd_pipe);
 	ft_split_free(d->cmd);
 }
 
@@ -39,6 +40,7 @@ int	main(void)
 		d.line = readline(GR "shell:>$ " CL);
 		if (!d.line)
 			ft_exit(NULL);
+		handle_comments(&d);
 		if (!d.line[0])
 			continue ;
 		else

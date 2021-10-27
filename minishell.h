@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
 /*   Updated: 2021/10/27 12:44:12 by ioleinik         ###   ########.fr       */
@@ -59,6 +59,8 @@ typedef struct s_data
 	int					q;
 	int					qq;
 	char				*buf;
+	int					flag_sq;		// flag for single quotes when handling comments
+	int					flag_dq;		// flag for double quotes when handling comments
 }				t_data;
 
 void	init_data(t_data *d);
@@ -112,5 +114,7 @@ void	ft_echo(t_data *d, char **args);
 void	ft_env(t_data *d, char **args);
 void	ft_pwd(t_data *d, char **args);
 void	handle_buck(t_data *d, char *s);
+
+void	handle_comments(t_data *d);
 
 #endif

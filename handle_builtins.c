@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_builtins.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 12:32:04 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/25 15:27:29 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/26 16:15:41 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	handle_builtins(t_data *d, char **args)
 	x = check_env(d, x);
 	if (ft_strcmp(x, "echo") == 0)
 		ft_echo(d, args);
-	if (ft_strcmp(x, "cd") == 0)
+	else if (ft_strcmp(x, "cd") == 0)
 		ft_cd(d, args);
 	else if (ft_strcmp(x, "pwd") == 0)
 		ft_pwd(d, args);
@@ -109,4 +109,5 @@ void	handle_builtins(t_data *d, char **args)
 		ft_env(d, args);
 	else if (ft_strcmp(x, "exit") == 0)
 		ft_exit(args);
+	ft_split_free(args);
 }
