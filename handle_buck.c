@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 12:43:02 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/27 13:15:57 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/27 14:28:08 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	check_var_avail(t_data *d, char *s)
 
 	i = d->i + 1;
 	tmp = ft_strnew(0);
-	while (s[i] && ft_isalnum(s[i]))
+	while ((s[i] && ft_isalnum(s[i])) || (s[i] && s[i] == '_'))
 		tmp = ft_straddchar(tmp, s[i++]);
 	if (!ft_getenv(d, tmp))
 	{

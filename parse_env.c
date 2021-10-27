@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 10:47:11 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/27 12:45:04 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/27 14:02:27 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ void	handle_qq(t_data *d, char *s)
 
 char	*parse_env(t_data *d, char *s)
 {
-	if (d->buf)
-		free(d->buf);
+	// if (d->buf)
+	// 	free(d->buf);
 	d->buf = ft_strnew(0);
 	while (s[d->i])
 	{
