@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:24:10 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/27 18:03:40 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/27 19:23:15 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ void	ft_echo(t_data *d, char **args)
 	nl = 1;
 	while (args[i])
 	{
-		if (i == 1 && check_n(args[i++]))
+		if (i == 1 && check_n(args[i]))
 		{
 			nl = 0;
+			i++;
 			while (args[i] && check_n(args[i]))
 				i++;
 			if (!args[i])
