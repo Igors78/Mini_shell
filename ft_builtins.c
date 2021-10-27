@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_builtins.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:24:10 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/27 15:56:19 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/27 17:58:00 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ void	ft_echo(t_data *d, char **args)
 	nl = 1;
 	while (args[i])
 	{
-		if (i == 1 && check_n(args[i]))
+		if (i == 1 && check_n(args[i++]))
 		{
 			nl = 0;
-			if (args[i + 1])
+			while (args[i] && check_n(args[i]))
 				i++;
-			else
-				break ;
+			if (!args[i])
+				return ;
 		}
 		if (args[i + 1])
 			printf("%s ", args[i]);
