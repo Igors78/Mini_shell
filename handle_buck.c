@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 12:43:02 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/27 14:39:39 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/27 20:58:41 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int	check_single_par(t_data *d, char *s)
 		d->i = d->i + 2;
 		return (1);
 	}
-	if (!s[d->i + 1] || (s[d->i + 1] && ft_isspecsymbol(s[d->i + 1])) || d->qq)
+	if (!s[d->i + 1] || (s[d->i + 1] && ft_isspecsymbol(s[d->i + 1]))
+		|| ((s[d->i + 1] && !ft_isalnum(s[d->i + 1])) && d->qq))
 	{
 		d->buf = ft_straddchar(d->buf, s[(d->i)++]);
 		return (1);
