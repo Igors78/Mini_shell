@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:24:10 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/26 16:16:16 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/27 15:56:19 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,12 @@ void	ft_echo(t_data *d, char **args)
 			else
 				break ;
 		}
-		printf("%s ", args[i]);
+		if (args[i + 1])
+			printf("%s ", args[i]);
+		else
+			printf("%s", args[i]);
 		i++;
 	}
-	printf("\b");
 	if (nl == 1)
 		printf("\n");
 	d->exit_status = 0;
