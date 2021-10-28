@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/27 12:44:12 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/28 00:58:05 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,13 @@ int		ft_split_move_to_back(char **args, int pos);
 
 void	handle_input(t_data *d, char **args);
 void	handle_output(t_data *d, char **args);
-void	handle_fork(t_data *d, int i);
+int		handle_fork(t_data *d, int *i, int *j);
 void	handle_exec(t_data *d, int i);
 void	handle_pipe(t_data *d, int i, int j);
 void	handle_builtins(t_data *d, char **args);
 
 int		is_builtin(char *cmd);
+int		is_forkable(char **args, int pos_exe);
 
 void	pipe_end(t_data *d);
 void	pipe_init(t_data *d);

@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 12:32:04 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/26 16:15:41 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/28 00:12:25 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,25 @@
 
 static void	ft_cd(t_data *d, char **args)
 {
+	if (d->n_pipe > 0)
+		return ;
 	if (!args[1] || (args[1] && ft_strcmp(args[1], "~") == 0
 			&& ft_strlen(args[1]) == 1))
 		chdir(getenv("HOME"));
-	else if (args[1] && chdir(args[1]) != 0)
+	else if (args[1])
 	{
-		printf("bash: cd: %s: No such file or directory\n", args[1]);
-		d->exit_status = 1;
-		return ;
+		if (args[2])
+		{
+			printf("bash: cd: too many arguments\n");
+			d->exit_status = 1;
+			return ;
+		}
+		else if (chdir(args[1]) != 0)
+		{
+			printf("bash: cd: %s: No such file or directory\n", args[1]);
+			d->exit_status = 1;
+			return ;
+		}
 	}
 	d->exit_status = 0;
 }
@@ -71,7 +82,7 @@ static char	**ft_unset_helper(char **arr, int index)
 
 void	ft_unset(t_data *d, char **args)
 {
-	if (!args[1])
+	if (d->n_pipe > 0 || !args[1])
 	{
 		d->exit_status = 1;
 		return ;
@@ -95,19 +106,18 @@ void	handle_builtins(t_data *d, char **args)
 
 	x = args[0];
 	x = check_env(d, x);
-	if (ft_strcmp(x, "echo") == 0)
+	if (!ft_strcmp(x, "echo"))
 		ft_echo(d, args);
-	else if (ft_strcmp(x, "cd") == 0)
+	else if (!ft_strcmp(x, "cd"))
 		ft_cd(d, args);
-	else if (ft_strcmp(x, "pwd") == 0)
+	else if (!ft_strcmp(x, "pwd"))
 		ft_pwd(d, args);
-	else if (ft_strcmp(x, "export") == 0)
+	else if (!ft_strcmp(x, "export"))
 		ft_export(d, args);
-	else if (ft_strcmp(x, "unset") == 0)
+	else if (!ft_strcmp(x, "unset"))
 		ft_unset(d, args);
-	else if (ft_strcmp(x, "env") == 0)
+	else if (!ft_strcmp(x, "env"))
 		ft_env(d, args);
-	else if (ft_strcmp(x, "exit") == 0)
+	else if (!ft_strcmp(x, "exit"))
 		ft_exit(args);
-	ft_split_free(args);
 }

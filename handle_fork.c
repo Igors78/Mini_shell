@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 12:50:40 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/26 16:04:28 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/28 00:53:42 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,24 @@ static int	skip_to_executable(char **args)
 	return (i);
 }
 
-void	handle_fork(t_data *d, int i)
+int		handle_fork(t_data *d, int *i, int *j)
 {
 	char	**args;
 	int		pos_exe;
 
-	args = ft_splitarg(d->cmd_pipe[i], ' ');
+	args = ft_splitarg(d->cmd_pipe[*i], ' ');
 	expand_env(d, args);
 	pos_exe = skip_to_executable(args);
-	if (!is_builtin(args[pos_exe]))
+	if (is_forkable(args, pos_exe))
 		d->pid = fork();
 	else
-		d->flag_builtin = 1;
+	{
+		handle_builtins(d, args);
+		*i = *i + 1;
+		*j = *j + 2;
+		ft_split_free(args);
+		return (0);
+	}
 	ft_split_free(args);
+	return (1);
 }

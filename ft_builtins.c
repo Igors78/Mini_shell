@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_builtins.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:24:10 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/27 19:23:15 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/27 23:01:06 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_echo(t_data *d, char **args)
 			while (args[i] && check_n(args[i]))
 				i++;
 			if (!args[i])
-				return ;
+				exit(EXIT_SUCCESS);
 		}
 		if (args[i + 1])
 		{
@@ -61,8 +61,8 @@ void	ft_echo(t_data *d, char **args)
 		i++;
 	}
 	if (nl == 1)
-		printf("\n");
-	d->exit_status = 0;
+		ft_putstr_fd("\n", d->fd_io[1]);
+	exit(EXIT_SUCCESS);
 }
 
 void	ft_env(t_data *d, char **args)
@@ -73,7 +73,7 @@ void	ft_env(t_data *d, char **args)
 	if (args[1])
 	{
 		printf("env: `%s\': No such file or directory\n", args[1]);
-		d->exit_status = 127;
+		exit(127);
 	}
 	else
 	{
@@ -82,7 +82,7 @@ void	ft_env(t_data *d, char **args)
 			printf("%s\n", d->envv[i]);
 			i++;
 		}
-		d->exit_status = 0;
+		exit(EXIT_SUCCESS);
 	}
 }
 
@@ -106,7 +106,8 @@ void	ft_pwd(t_data *d, char **args)
 	char	cwd[10000];
 
 	(void)args;
+	(void)d;
 	if (getcwd(cwd, sizeof(cwd)))
 		printf("%s\n", cwd);
-	d->exit_status = 0;
+	exit(EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 #    By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 18:24:26 by ioleinik          #+#    #+#              #
-#    Updated: 2021/10/27 12:42:56 by ioleinik         ###   ########.fr        #
+#    Updated: 2021/10/27 23:01:38 by mbarut           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ MAKE		= make
 SRC			= 	main.c		execute.c				export.c		util.c \
 				exp_arg.c	signal.c 				init.c			parse_split.c \
 				handle_input.c	handle_output.c	handle_fork.c handle_exec.c handle_pipe.c handle_builtins.c handle_comments.c \
-				ft_getenv.c	expand_env.c 			check_path.c 	is_builtin.c \
+				ft_getenv.c	expand_env.c 			check_path.c 	is_builtin.c is_forkable.c \
 				ft_split_utils.c \
 				pipe.c		error.c	\
 				check_env.c	parse_env.c	ft_builtins.c handle_buck.c			
