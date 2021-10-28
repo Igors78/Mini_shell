@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:10:01 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/28 00:59:48 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/28 13:10:22 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,12 @@ static int	check_exportarg(char *s)
 
 void	ft_export(t_data *d, char **args)
 {
-	if (args[1] == NULL)
+	if (d->n_pipe == 0)
+	{
+		handle_input(d, args);
+		handle_output(d, args);
+	}
+	if (!args[1])
 	{
 		sort_print(d);
 		exit(EXIT_SUCCESS);

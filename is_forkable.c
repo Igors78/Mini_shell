@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 22:52:29 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/28 00:58:32 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/28 13:19:57 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	is_forkable(char **args, int pos_exe)
 		return (1);
 	else if (!ft_strcmp(cmd, "export") && ft_strlen(cmd) == 6)
 	{
-		if (args[pos_exe + 1])
+		if (args[pos_exe + 1] && args[pos_exe + 1][0] != '>')
 			return (0);
 		else
 			return (1);
