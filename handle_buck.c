@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_buck.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 12:43:02 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/29 15:18:25 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/29 19:30:49 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,27 @@ int	ft_isspecsymbol(int ch)
 
 int	check_single_par(t_data *d, char *s)
 {
+	char	*tmp2;
+	char	*tmp1;
+
 	if (s[d->i + 1] && (s[d->i + 1] == '?' || s[d->i + 1] == '#'))
 	{
 		d->i = d->i + 2;
-		d->buf = ft_strjoin(d->buf, ft_itoa(d->exit_status));
+		tmp1 = d->buf;
+		tmp2 = ft_itoa(d->exit_status);
+		d->buf = ft_strjoin(tmp1, tmp2);
+		free(tmp1);
+		free(tmp2);
 		return (1);
 	}
 	if (s[d->i + 1] && (s[d->i + 1] == '$'))
 	{
 		d->i = d->i + 2;
-		d->buf = ft_strjoin(d->buf, ft_itoa(8596));
+		tmp1 = d->buf;
+		tmp2 = ft_itoa(8596);
+		d->buf = ft_strjoin(tmp1, tmp2);
+		free(tmp1);
+		free(tmp2);
 		return (1);
 	}
 	if (s[d->i + 1] && ft_isdigit(s[d->i + 1]))
