@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:50:54 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/29 16:28:25 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/29 18:06:51 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*chk_exp(t_data *d, char *s)
 			spl[i] = parse_env(d, spl[i]);
 		i++;
 	}
-	free(s);
+	//free(s);
 	ret = glue_back(spl);
 	ft_split_free(spl);
 	return (ret);
