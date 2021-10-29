@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_env.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:24:40 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/29 16:35:17 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/29 18:03:20 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ char	*check_env(t_data *d, char *s)
 	else if (ft_strchr(s, '$'))
 	{
 		ret = parse_env(d, s);
-		free(s);
+		//free(s);
 	}
 	return (ret);
 }
