@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 23:54:31 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/23 23:56:58 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/29 20:38:50 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	ft_split_delete_last(char **args)
 		i++;
 	free(args[i]);
 	free(args[i - 1]);
-	args[i - 1] = ft_calloc(1, sizeof(char));
-	args[i - 1] = '\0';
+	args[i - 1] = ft_strnew(0);
+	//args[i - 1] = '\0';
 }
 
 /* Send pos'th arg to all the way back of the array.
