@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 21:46:05 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/25 12:39:11 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/29 19:59:13 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	pipe_end(t_data *d)
 		d->exit_status = WEXITSTATUS(status);
 	if (d->fd_io[1] != STDOUT_FILENO)
 		close(d->fd_io[1]);
+	if (d->n_pipe > 0)
+		free(d->fd_pipe);
 }
 
 /* Count and return the number of pipes in d->cmd */

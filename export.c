@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:10:01 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/28 13:10:22 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/29 20:56:51 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ static void	sort_print(t_data *d)
 
 static int	check_exportarg(char *s)
 {
+	if (!s)
+		return (-1);
 	if (ft_isdigit(s[0]) || s[0] == '=' || s[0] == '?')
 	{
 		printf("bash: export: `%s': not a valid identifier\n", s);
@@ -92,6 +94,16 @@ void	ft_export(t_data *d, char **args)
 		handle_input(d, args);
 		handle_output(d, args);
 	}
+	if (!check_exportarg(args[1]))
+		ft_split_delete_last(args);
+	/* debug */
+	// int k = 0;
+	// while (args[k])
+	// {
+	// 	printf("[debug] args[%d]: %s$\n", k, args[k]);
+	// 	k++;
+	// }
+	/* /debug */
 	if (!args[1])
 	{
 		sort_print(d);

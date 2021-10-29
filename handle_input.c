@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:09:42 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/24 00:04:39 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/29 21:10:15 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,14 @@ void	handle_i2_writer(char *eof, t_data *d)
 			write_failed(d);
 		if (write(d->fd_io[0], "\n", 1) == -1)
 			write_failed(d);
+		free(*line);
 		if (++i == 2048)
 		{
 			printf("the number of new lines reached 2048 limit, stopping\n");
 			return ;
-		}	
+		}
 	}
+	free(*line);
 }
 
 /* Handle multiple, position-independent here documents with joined markers. */
