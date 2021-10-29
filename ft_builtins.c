@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:24:10 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/27 23:01:06 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/29 14:58:48 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	ft_echo(t_data *d, char **args)
 	}
 	if (nl == 1)
 		ft_putstr_fd("\n", d->fd_io[1]);
+	ft_split_free(args);
 	exit(EXIT_SUCCESS);
 }
 

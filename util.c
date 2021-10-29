@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:50:54 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/23 18:21:02 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/29 16:28:25 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*chk_sing_quo(t_data *d, char *s)
 	free(s);
 	s = ft_strjoin(tmp, "\"");
 	free(tmp);
+	ft_split_free(spl);
 	return (s);
 }
 
@@ -38,6 +39,7 @@ char	*chk_exp(t_data *d, char *s)
 	int		i;
 	char	**spl;
 	char	*tmp;
+	char	*ret;
 
 	i = 0;
 	spl = ft_split(s, ' ');
@@ -55,8 +57,10 @@ char	*chk_exp(t_data *d, char *s)
 			spl[i] = parse_env(d, spl[i]);
 		i++;
 	}
-	s = glue_back(spl);
-	return (s);
+	free(s);
+	ret = glue_back(spl);
+	ft_split_free(spl);
+	return (ret);
 }
 
 void	free_memory(t_data *d)

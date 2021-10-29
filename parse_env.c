@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_env.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 10:47:11 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/27 14:02:27 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/29 16:28:09 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ void	handle_qq(t_data *d, char *s)
 
 char	*parse_env(t_data *d, char *s)
 {
-	// if (d->buf)
-	// 	free(d->buf);
+	//if (d->buf)
+	//	free(d->buf);
 	d->buf = ft_strnew(0);
 	while (s[d->i])
 	{
@@ -79,5 +79,6 @@ char	*parse_env(t_data *d, char *s)
 	d->i = 0;
 	d->q = 0;
 	d->qq = 0;
+	free(s);
 	return (d->buf);
 }

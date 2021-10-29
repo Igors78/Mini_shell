@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_split.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 08:42:05 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/17 11:21:55 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/29 15:49:07 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,19 +124,3 @@ char	**ft_splitarg(char const *s, char c)
 	str_arr[i] = NULL;
 	return (str_arr);
 }
-
-// int	main(void)
-// {
-// 	static char	s[1000] = "echo \"ls -al | wc -l > text.txt\" | wc -l | date | list \'arg | grep\' | date";
-// 	char		**check;
-// 	int			i;
-
-// 	i = 0;
-// 	printf("%s\n", s);
-// 	check = ft_splitarg(s, '|');
-// 	while (check[i])
-// 	{
-// 		printf("%s\n", check[i++]);
-// 	}
-// 	return (0);
-// }

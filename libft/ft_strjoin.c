@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 10:55:54 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/05/16 12:54:14 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/29 15:13:15 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

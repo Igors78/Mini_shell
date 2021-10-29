@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 12:49:14 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/27 23:56:23 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/29 15:52:08 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,5 @@ void	handle_exec(t_data *d, int i)
 		if (!d->path || execve(d->path, args, d->envv) == -1)
 			exit_gracefully(args);
 	}
+	ft_split_free(args);
 }

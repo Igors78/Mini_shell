@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_env.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:24:40 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/23 18:20:57 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/29 16:35:17 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,20 +70,22 @@ char	*stick_back(char **spl)
 
 static char	*expand_dbl_quot(t_data *d, char *s)
 {
+	char *ret;
+
 	if (s[0] == '\'' && s[ft_strlen(s) - 1] == '\'')
 	{
 		s[ft_strlen(s) - 1] = '\0';
-		s = chk_sing_quo(d, &s[1]);
+		ret = chk_sing_quo(d, &s[1]);
 	}
 	else
-	{
-		s = chk_exp(d, s);
-	}
-	return (s);
+		ret = chk_exp(d, s);
+	return (ret);
 }
 
 char	*check_env(t_data *d, char *s)
 {
+	char *ret;
+
 	if (!s)
 		return (NULL);
 	if (!(ft_strchr(s, '$')))
@@ -93,9 +95,13 @@ char	*check_env(t_data *d, char *s)
 	else if (s[0] == '\"' && s[ft_strlen(s) - 1] == '\"')
 	{
 		s[ft_strlen(s) - 1] = '\0';
-		s = expand_dbl_quot(d, &s[1]);
+		ret = expand_dbl_quot(d, &s[1]);
+		free(s);
 	}
 	else if (ft_strchr(s, '$'))
-		s = parse_env(d, s);
-	return (s);
+	{
+		ret = parse_env(d, s);
+		free(s);
+	}
+	return (ret);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_buck.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 12:43:02 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/27 20:58:41 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/29 15:18:25 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	check_single_par(t_data *d, char *s)
 int	check_var_avail(t_data *d, char *s)
 {
 	char	*tmp;
+	char	*tmp1;
 	int		i;
 
 	i = d->i + 1;
@@ -63,14 +64,19 @@ int	check_var_avail(t_data *d, char *s)
 	if (!ft_getenv(d, tmp))
 	{
 		d->i = i;
+		free(tmp);
 		return (1);
 	}
 	else
 	{
 		d->i = i;
-		d->buf = ft_strjoin(d->buf, ft_getenv(d, tmp));
+		tmp1 = d->buf;
+		d->buf = ft_strjoin(tmp1, ft_getenv(d, tmp));
+		free(tmp1);
+		free(tmp);
 		return (1);
 	}
+	free(tmp);
 	return (0);
 }
 
