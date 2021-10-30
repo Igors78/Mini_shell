@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:09:42 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/30 13:20:37 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 13:45:47 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	handle_i2_writer(char *eof, t_data *d)
 		&& ft_strncmp(*line, eof, ft_strlen(eof)) != 0)
 	{
 		if (write(d->fd_io[0], *line, ft_strlen(*line)) == -1)
-			return (write_failed(d));
+			return (write_failed(d, *line));
 		if (write(d->fd_io[0], "\n", 1) == -1)
-			return (write_failed(d));
+			return (write_failed(d, *line));
 		free(*line);
 		if (++i == 2048)
 		{

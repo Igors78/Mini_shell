@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 15:28:46 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/30 13:17:21 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 13:44:27 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,10 @@ void	pipe_failed(t_data *d)
 		return ;
 }
 
-void	write_failed(t_data *d)
+void	write_failed(t_data *d, char *line)
 {
+	if (line == NULL)
+		free(line);
 	perror("write() failed");
 	if (d->flag_forked)
 		exit(EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/30 13:15:27 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 13:45:04 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void	fork_failed(t_data *d);
 void	open_failed(t_data *d);
 void	dup_failed(t_data *d);
 void	pipe_failed(t_data *d);
-void	write_failed(t_data *d);
+void	write_failed(t_data *d, char *line);
 
 char	*check_env(t_data *d, char *s);
 char	*parse_env(t_data *d, char *s);
