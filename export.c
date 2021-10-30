@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:10:01 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/29 20:56:51 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 08:43:03 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	add_quotes(char **arr)
 	}
 }
 
-static void	sort_print(t_data *d)
+static int	sort_print(t_data *d)
 {
 	char	**copy_env;
 	int		i;
@@ -73,6 +73,7 @@ static void	sort_print(t_data *d)
 	while (copy_env[i])
 		printf("declare -x %s\n", copy_env[i++]);
 	ft_split_free(copy_env);
+	return (EXIT_SUCCESS);
 }
 
 static int	check_exportarg(char *s)
@@ -96,19 +97,8 @@ void	ft_export(t_data *d, char **args)
 	}
 	if (!check_exportarg(args[1]))
 		ft_split_delete_last(args);
-	/* debug */
-	// int k = 0;
-	// while (args[k])
-	// {
-	// 	printf("[debug] args[%d]: %s$\n", k, args[k]);
-	// 	k++;
-	// }
-	/* /debug */
 	if (!args[1])
-	{
-		sort_print(d);
-		exit(EXIT_SUCCESS);
-	}
+		exit(sort_print(d));
 	else
 	{
 		if (d->n_pipe > 0)

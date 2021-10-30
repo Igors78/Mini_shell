@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_fork.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 12:50:40 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/29 15:52:12 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 09:21:33 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	skip_to_executable(char **args)
 	return (i);
 }
 
-int		handle_fork(t_data *d, int *i, int *j)
+int	handle_fork(t_data *d, int *i, int *j)
 {
 	char	**args;
 	int		pos_exe;

@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:50:54 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/29 18:06:51 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/30 09:38:48 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ char	*chk_exp(t_data *d, char *s)
 			spl[i] = parse_env(d, spl[i]);
 		i++;
 	}
-	//free(s);
 	ret = glue_back(spl);
 	ft_split_free(spl);
 	return (ret);
@@ -73,17 +72,6 @@ void	free_memory(t_data *d)
 		free(d->line);
 	if (d->path)
 		free(d->path);
-}
-
-void	put_strarr(char **arr)
-{
-	int	i = 0;
-
-	while (arr[i])
-	{
-		printf("%s\n", arr[i]);
-		i++;
-	}
 }
 
 char	*trim_quot(char *s)

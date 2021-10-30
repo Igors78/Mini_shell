@@ -3,33 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   handle_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:09:42 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/29 21:10:15 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 09:27:34 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-/* Check if input file is accessible. */
-static void	check_access(t_data *d, char **args)
-{
-	int	i;
-
-	if (d->file_i > 0)
-	{
-		i = 0;
-
-		while (args[i])
-			i++;
-		if (access(args[i - 1], F_OK) != 0 || access(args[i - 1], R_OK) != 0)
-		{
-			ft_putstr_fd(args[i - 1], STDERR_FILENO);
-			perror(" cannot be accessed");
-		}
-	}
-}
 
 // Create a temporary file for handling here documents and write to it with gnl.
 void	handle_i2_writer(char *eof, t_data *d)
@@ -59,7 +40,7 @@ void	handle_i2_writer(char *eof, t_data *d)
 }
 
 /* Handle multiple, position-independent here documents with joined markers. */
-int		handle_joined_i2(t_data *d, char **args, int *i)
+int	handle_joined_i2(t_data *d, char **args, int *i)
 {
 	char	*tmp;
 	int		mov;
@@ -83,7 +64,7 @@ int		handle_joined_i2(t_data *d, char **args, int *i)
 }
 
 /* Handle multiple, position-independent here documents. */
-int		handle_i2(t_data *d, char **args, int *i)
+int	handle_i2(t_data *d, char **args, int *i)
 {
 	int		mov;
 
@@ -105,7 +86,7 @@ int		handle_i2(t_data *d, char **args, int *i)
 }
 
 /* Handle multiple, position-independent input redirection. */
-int		handle_i(t_data *d, char **args, int *i)
+int	handle_i(t_data *d, char **args, int *i)
 {
 	if (!ft_strcmp(args[*i], "<") && args[*i + 1])
 	{
@@ -114,27 +95,6 @@ int		handle_i(t_data *d, char **args, int *i)
 		ft_split_move_to_back(args, *i + 1);
 		ft_split_move_to_back(args, *i);
 		ft_split_delete_last(args);
-		d->file_i++;
-		*i = 0;
-		return (1);
-	}
-	return (0);
-}
-
-/* Handle multiple, position-independent input redirection with joined markers. */
-int		handle_joined_i(t_data *d, char **args, int *i)
-{
-	char	*tmp;
-	int		mov;
-
-	if (args[*i][0] == '<' && args[*i][1] != '<')
-	{
-		if (d->file_i > 0 && d->file_i--)
-			ft_split_delete_last(args);
-		mov = ft_split_move_to_back(args, *i);
-		tmp = ft_strdup(&args[*i + mov][1]);
-		free(args[*i + mov]);
-		args[*i + mov] = tmp;
 		d->file_i++;
 		*i = 0;
 		return (1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 21:46:05 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/29 19:59:13 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 09:37:36 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	pipe_end(t_data *d)
 
 	i = 0;
 	status = 0;
-    while (i < 2 * d->n_pipe)
+	while (i < 2 * d->n_pipe)
 	{
-        close(d->fd_pipe[i]);
+		close(d->fd_pipe[i]);
 		i++;
-    }
+	}
 	i = 0;
-    while (i < d->n_pipe + 1)
+	while (i < d->n_pipe + 1)
 	{
 		wait(&status);
 		i++;
@@ -64,7 +64,7 @@ void	pipe_init(t_data *d)
 	if (d->n_pipe > 0)
 	{
 		d->fd_pipe = ft_calloc(2 * d->n_pipe, sizeof(int));
-		while(i < d->n_pipe)
+		while (i < d->n_pipe)
 		{
 			if (pipe(d->fd_pipe + i * 2) < 0)
 				pipe_failed(d);

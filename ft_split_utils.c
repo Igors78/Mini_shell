@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 23:54:31 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/29 20:19:27 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 08:37:10 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_split_delete_last(char **args)
 
 /* Send pos'th arg to all the way back of the array.
  Return the total movement steps in the array. */
-int		ft_split_move_to_back(char **args, int pos)
+int	ft_split_move_to_back(char **args, int pos)
 {
 	char	*tmp;
 	int		pos_org;

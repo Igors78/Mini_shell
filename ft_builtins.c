@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_builtins.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:24:10 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/29 14:58:48 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 08:52:29 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,7 @@ void	ft_echo(t_data *d, char **args)
 			if (!args[i])
 				exit(EXIT_SUCCESS);
 		}
-		if (args[i + 1])
-		{
-			ft_putstr_fd(args[i], d->fd_io[1]);
-			ft_putstr_fd(" ", d->fd_io[1]);
-		}
-		else
-			ft_putstr_fd(args[i], d->fd_io[1]);
+		cond_ch_put(d, args, i);
 		i++;
 	}
 	if (nl == 1)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+         #
+#    By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 18:24:26 by ioleinik          #+#    #+#              #
-#    Updated: 2021/10/27 23:01:38 by mbarut           ###   ########.fr        #
+#    Updated: 2021/10/30 09:29:38 by ioleinik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ SRC			= 	main.c		execute.c				export.c		util.c \
 				ft_getenv.c	expand_env.c 			check_path.c 	is_builtin.c is_forkable.c \
 				ft_split_utils.c \
 				pipe.c		error.c	\
-				check_env.c	parse_env.c	ft_builtins.c handle_buck.c			
+				check_env.c	parse_env.c	ft_builtins.c handle_buck.c ft_builtin_util.c handle_input_util.c \
+				handle_output_util.c	
 
 OBJ			= ${SRC:.c=.o}
 

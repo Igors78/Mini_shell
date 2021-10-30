@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 12:43:02 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/29 19:30:49 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/30 09:18:08 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_isspecsymbol(int ch)
 	return (0);
 }
 
-int	check_single_par(t_data *d, char *s)
+static int	check_cond(t_data *d, char *s)
 {
 	char	*tmp2;
 	char	*tmp1;
@@ -48,6 +48,13 @@ int	check_single_par(t_data *d, char *s)
 		free(tmp2);
 		return (1);
 	}
+	return (0);
+}
+
+int	check_single_par(t_data *d, char *s)
+{
+	if (check_cond(d, s))
+		return (1);
 	if (s[d->i + 1] && ft_isdigit(s[d->i + 1]))
 	{
 		d->i = d->i + 2;

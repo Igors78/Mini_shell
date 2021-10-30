@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/28 00:58:05 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 09:31:00 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,20 @@
 # define GR	"\x1b[32m"
 # define CL	"\x1b[0m"
 
+// n_pipe;// number of subtrings that are "|"
+// file_i;// >=1 if string array contains "<", =0 otherwise
+// file_o;// >=1 if string array contains ">", =0 otherwise
+// file_i2;// >=1 if string array contains "<<", =0 otherwise (see here docs)
+// file_o2;// >=1 if string array contains ">>", =0 otherwise
+// fd_io[2];// file descriptors for input/output
+// *fd_pipe;// file descriptors for pipes
+// *pos_pipe;// array holding the positions of pipes
+// flag_builtin;// if =1, spawning a new process is skipped
+// saved_stdout;// it is necessary to dup() stdout to a variable
+//					when there is output redirection without fork() (builtins)
+// flag_sq;		// flag for single quotes when handling comments
+// flag_dq;		// flag for double quotes when handling comments
+
 typedef struct s_data
 {
 	char				**envv;
@@ -44,23 +58,23 @@ typedef struct s_data
 	char				**cmd_pipe;
 	char				*path;
 	pid_t				pid;
-	int					n_pipe;			// number of subtrings that are "|"
-	int					file_i;			// >=1 if string array contains "<", =0 otherwise
-	int					file_o;			// >=1 if string array contains ">", =0 otherwise
-	int					file_i2;		// >=1 if string array contains "<<", =0 otherwise (see here documents)
-	int					file_o2;		// >=1 if string array contains ">>", =0 otherwise
-	int					fd_io[2];		// file descriptors for input/output
-	int					*fd_pipe;		// file descriptors for pipes
-	int					*pos_pipe;		// array holding the positions of pipes
+	int					n_pipe;
+	int					file_i;
+	int					file_o;
+	int					file_i2;
+	int					file_o2;
+	int					fd_io[2];
+	int					*fd_pipe;
+	int					*pos_pipe;
 	int					exit_status;
-	int					flag_builtin;	// if =1, spawning a new process is skipped
-	int					saved_stdout;	// it is necessary to dup() stdout to a variable when there is output redirection without fork() (builtins)
+	int					flag_builtin;
+	int					saved_stdout;
 	int					i;
 	int					q;
 	int					qq;
 	char				*buf;
-	int					flag_sq;		// flag for single quotes when handling comments
-	int					flag_dq;		// flag for double quotes when handling comments
+	int					flag_sq;
+	int					flag_dq;
 }				t_data;
 
 void	init_data(t_data *d);
@@ -117,5 +131,9 @@ void	ft_pwd(t_data *d, char **args);
 void	handle_buck(t_data *d, char *s);
 
 void	handle_comments(t_data *d);
+void	cond_ch_put(t_data *d, char **args, int i);
+void	check_access(t_data *d, char **args);
+int		handle_joined_i(t_data *d, char **args, int *i);
+void	cmd_out_redirect(t_data *d);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_builtins.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 12:32:04 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/28 13:29:26 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 09:19:24 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_cd(t_data *d, char **args)
 	if (d->n_pipe > 0)
 		return ;
 	if (!args[1] || (args[1] && ft_strcmp(args[1], "~") == 0
-		&& ft_strlen(args[1]) == 1))
+			&& ft_strlen(args[1]) == 1))
 		chdir(getenv("HOME"));
 	else if (args[1])
 	{

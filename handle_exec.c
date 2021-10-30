@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_exec.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 12:49:14 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/29 15:52:08 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 09:21:04 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,6 @@ void	handle_exec(t_data *d, int i)
 	expand_env(d, args);
 	handle_input(d, args);
 	handle_output(d, args);
-	/* debug */
-	//int k = 0;
-	//while (args[k])
-	//{
-	//	printf("[debug] args[%d][%d]: %s$\n", i, k, args[k]);
-	//	k++;
-	//}
-	/* /debug */
 	if (ft_strchr(args[0], '/'))
 	{
 		if (execve(args[0], args, d->envv) == -1)

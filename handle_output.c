@@ -3,32 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   handle_output.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 14:27:45 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/24 12:58:56 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 09:32:55 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/* Create a link between opened output file and cmd's output. */
-void	cmd_out_redirect(t_data *d)
-{
-	if (d->fd_io[1] == -1)
-		open_failed(d);
-	if (!d->flag_builtin && dup2(d->fd_io[1], STDOUT_FILENO) == -1)
-		dup_failed(d);
-	else
-	{
-		d->saved_stdout = dup(STDOUT_FILENO);
-		if (d->saved_stdout < 0 || dup2(d->fd_io[1], STDOUT_FILENO) == -1)
-			dup_failed(d);
-	}
-}
-
-/* Handle multiple, position-independent, appending output redirection with joined markers. */
-int		handle_joined_o2(t_data *d, char **args, int *i)
+//Handle multiple, position-independ, appending out redir with joined markers.
+int	handle_joined_o2(t_data *d, char **args, int *i)
 {
 	char	*tmp;
 	int		mov;
@@ -51,7 +36,7 @@ int		handle_joined_o2(t_data *d, char **args, int *i)
 }
 
 /* Handle multiple, position-independent, appending output redirection. */
-int		handle_o2(t_data *d, char **args, int *i)
+int	handle_o2(t_data *d, char **args, int *i)
 {
 	int		mov;
 
@@ -72,7 +57,7 @@ int		handle_o2(t_data *d, char **args, int *i)
 }
 
 /* Handle multiple, position-independent, truncating output redirection. */
-int		handle_o(t_data *d, char **args, int *i)
+int	handle_o(t_data *d, char **args, int *i)
 {
 	int	mov;
 
@@ -92,8 +77,8 @@ int		handle_o(t_data *d, char **args, int *i)
 	return (0);
 }
 
-/* Handle multiple, position-independent, truncating output redirection with joined markers. */
-int		handle_joined_o(t_data *d, char **args, int *i)
+//Handle multiple, position-independ, trunc output redir with joined markers
+int	handle_joined_o(t_data *d, char **args, int *i)
 {
 	char	*tmp;
 	int		mov;

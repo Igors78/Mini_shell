@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_comments.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 21:05:39 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/26 23:04:30 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 09:20:36 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	is_dq(t_data *d, int *i)
 	return (0);
 }
 
-static int remove_comments(t_data *d, int *i)
+static int	remove_comments(t_data *d, int *i)
 {
 	char	*tmp;
 
@@ -67,7 +67,7 @@ static void	handle_comments_core(t_data *d)
 			if (d->line[i + 1])
 			{
 				if (d->line[i + 1] == '#' && d->flag_sq == 0
-					&& d->flag_dq == 0 && remove_comments(d, &i)) // comment condition fulfilled
+					&& d->flag_dq == 0 && remove_comments(d, &i))
 					return ;
 			}
 			else

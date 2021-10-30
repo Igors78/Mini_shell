@@ -6,7 +6,7 @@
 /*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:24:40 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/29 18:03:20 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/30 08:38:02 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	*stick_back(char **spl)
 
 static char	*expand_dbl_quot(t_data *d, char *s)
 {
-	char *ret;
+	char	*ret;
 
 	if (s[0] == '\'' && s[ft_strlen(s) - 1] == '\'')
 	{
@@ -84,7 +84,7 @@ static char	*expand_dbl_quot(t_data *d, char *s)
 
 char	*check_env(t_data *d, char *s)
 {
-	char *ret;
+	char	*ret;
 
 	if (!s)
 		return (NULL);
@@ -99,9 +99,6 @@ char	*check_env(t_data *d, char *s)
 		free(s);
 	}
 	else if (ft_strchr(s, '$'))
-	{
 		ret = parse_env(d, s);
-		//free(s);
-	}
 	return (ret);
 }

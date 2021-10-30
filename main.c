@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:30:33 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/27 22:06:58 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 10:05:37 by ioleinik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,44 @@ static void	dispatch(t_data	*d)
 	ft_split_free(d->cmd);
 }
 
+static void	dispatch_help(t_data *d)
+{
+	dispatch(d);
+	if (d->pid >= 0)
+		waitpid(d->pid, NULL, 0);
+	if (d->saved_stdout)
+	{
+		dup2(d->saved_stdout, STDOUT_FILENO);
+		close(d->saved_stdout);
+	}
+	free(d->line);
+}
+
+static int	check_space(char *s)
+{
+	int		i;
+	size_t	cnt;
+
+	i = 0;
+	cnt = 0;
+	while (s[i])
+	{
+		if (s[i] == ' ')
+			cnt++;
+		i++;
+	}
+	if (cnt == ft_strlen(s))
+		return (1);
+	return (0);
+}
+
 int	main(void)
 {
 	t_data		d;
 	extern char	**environ;
 
 	d.envv = ft_strarrdup(environ);
-	d.exit_status = 0; // (!) assuming minishell does not inherit the exit code from the environment
+	d.exit_status = 0;
 	while (1)
 	{
 		init_data(&d);
@@ -41,20 +72,10 @@ int	main(void)
 		if (!d.line)
 			ft_exit(NULL);
 		handle_comments(&d);
-		if (!d.line[0])
+		if (!d.line[0] || check_space(d.line))
 			continue ;
 		else
-		{
-			dispatch(&d);
-			if (d.pid >= 0)
-				waitpid(d.pid, NULL, 0);
-			if (d.saved_stdout)
-			{
-				dup2(d.saved_stdout, STDOUT_FILENO);
-				close(d.saved_stdout);
-			}
-			free(d.line);
-		}
+			dispatch_help(&d);
 	}
 	return (0);
 }
