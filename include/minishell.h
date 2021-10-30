@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/30 15:21:58 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 17:17:10 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef struct s_data
 	int					flag_sq;
 	int					flag_dq;
 	int					flag_forked;
+	int					flag_input;
 }				t_data;
 
 void	init_data(t_data *d);

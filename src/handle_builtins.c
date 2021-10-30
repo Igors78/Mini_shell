@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 12:32:04 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/30 15:23:07 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 17:19:03 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ static void	ft_cd(t_data *d, char **args)
 {
 	if (d->n_pipe > 0)
 		return ;
+	handle_input(d, args);
+	if (d->flag_input)
+		ft_split_delete_last(args);
+	handle_output(d, args);
 	if (!args[1] || (args[1] && ft_strcmp(args[1], "~") == 0
 			&& ft_strlen(args[1]) == 1))
 		chdir(getenv("HOME"));

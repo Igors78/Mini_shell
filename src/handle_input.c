@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:09:42 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/30 14:03:45 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/10/30 17:18:16 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,13 +110,13 @@ void	handle_input(t_data *d, char **args)
 	i = 0;
 	while (args[i])
 	{
-		if (handle_i(d, args, &i))
+		if (handle_i(d, args, &i) && ++d->flag_input)
 			continue ;
-		else if (handle_joined_i(d, args, &i))
+		else if (handle_joined_i(d, args, &i) && ++d->flag_input)
 			continue ;
-		else if (handle_i2(d, args, &i))
+		else if (handle_i2(d, args, &i) && ++d->flag_input)
 			continue ;
-		else if (handle_joined_i2(d, args, &i))
+		else if (handle_joined_i2(d, args, &i) && ++d->flag_input)
 			continue ;
 		i++;
 	}
