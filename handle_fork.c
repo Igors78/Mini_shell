@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_fork.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 12:50:40 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/30 09:21:33 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/30 13:15:43 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ int	handle_fork(t_data *d, int *i, int *j)
 	args = ft_splitarg(d->cmd_pipe[*i], ' ');
 	expand_env(d, args);
 	pos_exe = skip_to_executable(args);
-	if (is_forkable(args, pos_exe))
+	d->flag_forked = is_forkable(args, pos_exe);
+	if (d->flag_forked)
 		d->pid = fork();
 	else
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 16:44:51 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/30 09:33:54 by ioleinik         ###   ########.fr       */
+/*   Updated: 2021/10/30 13:16:33 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,5 @@ void	init_data(t_data *d)
 	d->buf = NULL;
 	d->flag_sq = 0;
 	d->flag_dq = 0;
+	d->flag_forked = 0;
 }
