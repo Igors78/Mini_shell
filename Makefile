@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ioleinik <ioleinik@student.42wolfsburg.de> +#+  +:+       +#+         #
+#    By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 18:24:26 by ioleinik          #+#    #+#              #
-#    Updated: 2021/10/30 09:29:38 by ioleinik         ###   ########.fr        #
+#    Updated: 2021/10/30 15:24:51 by mbarut           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,23 +19,29 @@ NAME		= minishell
 
 LIB_PATH	= ./libft
 
+SRC_PATH	= ./src
+
+INC_PATH	= ./include
+
 LIBRARY		= libft.a
 
 MAKE		= make
 
-SRC			= 	main.c		execute.c				export.c		util.c \
-				exp_arg.c	signal.c 				init.c			parse_split.c \
-				handle_input.c	handle_output.c	handle_fork.c handle_exec.c handle_pipe.c handle_builtins.c handle_comments.c \
-				ft_getenv.c	expand_env.c 			check_path.c 	is_builtin.c is_forkable.c \
-				ft_split_utils.c \
-				pipe.c		error.c	\
-				check_env.c	parse_env.c	ft_builtins.c handle_buck.c ft_builtin_util.c handle_input_util.c \
-				handle_output_util.c	
+SRC			= 	main.c			execute.c		export.c		util.c \
+				exp_arg.c		signal.c 		init.c			parse_split.c \
+				handle_input.c	handle_output.c	handle_fork.c	handle_pipe.c \
+				handle_exec.c	handle_builtins.c 				handle_comments.c \
+				check_path.c	is_builtin.c	is_forkable.c	ft_split_utils.c\
+				ft_getenv.c		expand_env.c	pipe.c			error.c	\
+				check_env.c		parse_env.c		ft_builtins.c \
+				handle_buck.c	ft_builtin_util.c				handle_input_util.c \
+				handle_output_util.c			skip_to_executable.c
 
-OBJ			= ${SRC:.c=.o}
+OBJ			= $(addprefix $(SRC_PATH)/, $(SRC:.c=.o))
 
 LINKS		= -I$(LIB_PATH) \
 			-L$(LIB_PATH) \
+			-I$(INC_PATH) \
 			-lft \
 			-lreadline
 
@@ -56,9 +62,5 @@ fclean:		clean
 			$(MAKE) -C $(LIB_PATH) fclean
 
 re:			fclean all
-#Command runs norminette only for my files
-norm:
-			norminette libft/
-			norminette $(SRC) || true
 
 .PHONY: all clean fclean re norm
