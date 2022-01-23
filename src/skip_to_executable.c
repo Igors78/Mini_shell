@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 15:23:52 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/30 15:24:14 by mbarut           ###   ########.fr       */
+/*   Updated: 2022/01/23 09:59:24 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	skip_to_executable(char **args)
 			i += 2;
 			continue ;
 		}
-		else if (args[i][0] == '<' && args[i][1] != '<' && i++)
+		else if (args[i][0] == '<' && args[i][1] != '<' && ++i)
 			continue ;
-		else if (args[i][0] == '<' && args[i][1] == '<' && args[i][2] && i++)
+		else if (args[i][0] == '<' && args[i][1] == '<' && args[i][2] && ++i)
 			continue ;
 		else
 			break ;

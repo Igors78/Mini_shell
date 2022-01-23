@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:16:46 by ioleinik          #+#    #+#             */
-/*   Updated: 2021/10/30 17:17:10 by mbarut           ###   ########.fr       */
+/*   Updated: 2022/01/23 10:26:54 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	handle_pipe(t_data *d, int i, int j);
 void	handle_builtins(t_data *d, char **args);
 
 int		is_builtin(char *cmd);
-int		is_forkable(char **args, int pos_exe);
+int		is_forkable(char *cmd, char *cmd_next);
 
 void	pipe_end(t_data *d);
 void	pipe_init(t_data *d);

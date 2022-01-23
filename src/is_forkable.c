@@ -6,17 +6,16 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 22:52:29 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/30 15:18:45 by mbarut           ###   ########.fr       */
+/*   Updated: 2022/01/23 10:29:25 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-int	is_forkable(char **args, int pos_exe)
+int	is_forkable(char *cmd, char *cmd_next)
 {
-	char	*cmd;
-
-	cmd = args[pos_exe];
+	if (!cmd)
+		return (1);
 	if (!ft_strcmp(cmd, "echo") && ft_strlen(cmd) == 4)
 		return (1);
 	else if (!ft_strcmp(cmd, "cd") && ft_strlen(cmd) == 2)
@@ -25,7 +24,7 @@ int	is_forkable(char **args, int pos_exe)
 		return (1);
 	else if (!ft_strcmp(cmd, "export") && ft_strlen(cmd) == 6)
 	{
-		if (args[pos_exe + 1] && args[pos_exe + 1][0] != '>')
+		if (cmd_next && cmd_next[0] != '>')
 			return (0);
 		else
 			return (1);

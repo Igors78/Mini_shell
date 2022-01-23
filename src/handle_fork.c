@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 12:50:40 by mbarut            #+#    #+#             */
-/*   Updated: 2021/10/30 15:24:19 by mbarut           ###   ########.fr       */
+/*   Updated: 2022/01/23 10:28:42 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	handle_fork(t_data *d, int *i, int *j)
 	args = ft_splitarg(d->cmd_pipe[*i], ' ');
 	expand_env(d, args);
 	pos_exe = skip_to_executable(args);
-	d->flag_forked = is_forkable(args, pos_exe);
+	d->flag_forked = is_forkable(args[pos_exe], args[pos_exe + 1]);
 	if (d->flag_forked)
 		d->pid = fork();
 	else
